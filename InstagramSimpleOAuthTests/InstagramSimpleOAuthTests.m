@@ -1,27 +1,42 @@
-#import <XCTest/XCTest.h>
+#import <Specta/Specta.h>
+#define EXP_SHORTHAND
+#import <Expecta/Expecta.h>
+#import "InstagramSimpleOAuthViewController.h"
 
+@interface InstagramSimpleOAuthViewController ()
 
-@interface InstagramSimpleOAuthTests : XCTestCase
-
-@end
-
-@implementation InstagramSimpleOAuthTests
-
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
+@property (strong, nonatomic, readwrite) NSString *clientID;
+@property (strong, nonatomic, readwrite) NSString *clientSecret;
+@property (strong, nonatomic, readwrite) NSURL *callbackURL;
 
 @end
+
+SpecBegin(InstagramSimpleOAuthViewControllerTests)
+
+describe(@"InstagramSimpleOAuthViewController", ^{
+    __block InstagramSimpleOAuthViewController *controller;
+    __block NSURL *callbackURL;
+    
+    beforeEach(^{
+        callbackURL = [NSURL URLWithString:@"http://swizzlean.com"];
+        controller = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"fancyID"
+                                                                     clientSecret:@"12345"
+                                                                      callbackURL:callbackURL
+                                                                       completion:^(NSString *authToken) {
+        }];
+    });
+    
+    it(@"has a clientID", ^{
+        expect(controller.clientID).to.equal(@"fancyID");
+    });
+    
+    it(@"has a clientSecet", ^{
+        expect(controller.clientSecret).to.equal(@"12345");
+    });
+    
+    it(@"has a callbackURL", ^{
+        expect(controller.callbackURL).to.equal([NSURL URLWithString:@"http://swizzlean.com"]);
+    });
+});
+
+SpecEnd
