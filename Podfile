@@ -1,6 +1,7 @@
 platform :ios, '7.0'
 
 target :InstagramSimpleOAuth do
+    pod 'Swizzlean', '0.2.0'
 end
 
 target :InstagramSimpleOAuthTests do

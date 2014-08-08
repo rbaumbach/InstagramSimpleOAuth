@@ -5,18 +5,21 @@ PODS:
     - OCHamcrest (~> 4.0)
     - TPWeakProxy (~> 1.0)
   - Specta (0.2.1)
+  - Swizzlean (0.2.0)
   - TPWeakProxy (1.0.0)
 
 DEPENDENCIES:
   - Expecta (~> 0.2.4)
   - OCMockito (~> 1.0)
   - Specta (~> 0.2.1)
+  - Swizzlean (= 0.2.0)
 
 SPEC CHECKSUMS:
   Expecta: 112bcafa2304ee0f3c5e586505f24555a47b25d5
   OCHamcrest: b464725bbb48d0f1cd9c6f4ec3cb35fe0c4f2b94
   OCMockito: eca2670b3ce4a457d316b046a36d6f2b980a4da7
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
+  Swizzlean: dc03ad1d847a3748f456982b7ede4e3bad4a9630
   TPWeakProxy: a23251ba7fbe268c93f809cc072ef834f5063798
 
 COCOAPODS: 0.33.1
