@@ -69,7 +69,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         expect(hasCompletionBlock).to.equal(YES);
     });
     
-    it(@"conforms to <UIWebView>", ^{
+    it(@"conforms to <UIWebViewDelegate>", ^{
         BOOL conformsToWebViewDelegateProtocol = [controller conformsToProtocol:@protocol(UIWebViewDelegate)];
         expect(conformsToWebViewDelegateProtocol).to.equal(YES);
     });
@@ -77,6 +77,14 @@ describe(@"InstagramSimpleOAuthViewController", ^{
     describe(@"#viewDidLoad", ^{
         beforeEach(^{
             [controller view];
+        });
+        
+        describe(@"view", ^{
+            // Note, the constraints for the view and instagram web view have been set on both xib files
+            // However, this test will need to be run on both iPad and iPhone devices to validate this
+            it(@"has at least 4 constraints", ^{
+                expect(controller.view.constraints.count).to.beGreaterThanOrEqualTo(4);
+            });
         });
     });
     

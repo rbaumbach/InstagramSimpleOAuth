@@ -31,7 +31,7 @@
                 <constraint firstAttribute="bottom" secondItem="lLQ-Of-2XJ" secondAttribute="bottom" id="h8o-U1-RKm"/>
                 <constraint firstItem="lLQ-Of-2XJ" firstAttribute="leading" secondItem="paa-W6-djn" secondAttribute="leading" id="waE-o9-yDa"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
 </document>
