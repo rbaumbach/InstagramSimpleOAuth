@@ -3,9 +3,13 @@
 
 @interface InstagramSimpleOAuthViewController ()
 
+@property (weak, nonatomic) IBOutlet UIWebView *instagramWebView;
+
 @property (strong, nonatomic, readwrite) NSString *clientID;
 @property (strong, nonatomic, readwrite) NSString *clientSecret;
 @property (strong, nonatomic, readwrite) NSURL *callbackURL;
+@property (copy, nonatomic) void (^completion)(NSString *authToken);
+
 
 @end
 
@@ -23,8 +27,16 @@
         self.clientID = clientID;
         self.clientSecret = clientSecret;
         self.callbackURL = callbackURL;
+        self.completion = completion;
     }
     return self;
+}
+
+- (instancetype)init
+{
+    @throw [NSException exceptionWithName:@"InstagramSimpleOAuth"
+                                   reason:@"Cannot use -init:, use :initWithClientID:clientSecret:callbackURL:completion: instead"
+                                 userInfo:nil];
 }
 
 #pragma mark - View Lifecycle

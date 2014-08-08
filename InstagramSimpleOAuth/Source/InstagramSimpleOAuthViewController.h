@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface InstagramSimpleOAuthViewController : UIViewController
+@interface InstagramSimpleOAuthViewController : UIViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic, readonly) NSString *clientID;
 @property (strong, nonatomic, readonly) NSString *clientSecret;
