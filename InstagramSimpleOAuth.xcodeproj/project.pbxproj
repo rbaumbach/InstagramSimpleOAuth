@@ -1,1259 +1,584 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>058250AA843642B1BEE37140</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2959CA7CCFD9407B921515F0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2959CA7CCFD9407B921515F0</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-InstagramSimpleOAuth.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>3CC8ACE4BF7D4C44B27FEF60</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-InstagramSimpleOAuthTests.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>55735EE8A5104E88B75D1C76</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>7A8022D2C7024107A7D37A40</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3CC8ACE4BF7D4C44B27FEF60</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9A2BB2D6F4ED43788D682E11</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-InstagramSimpleOAuthTests.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods-InstagramSimpleOAuthTests.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9AFAC9FF7A4549D5A6595EE4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-InstagramSimpleOAuth.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods-InstagramSimpleOAuth.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF0431CF19945F44000C7B6D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>name</key>
-			<string>InstagramSimpleOAuthViewController.xib</string>
-			<key>path</key>
-			<string>Source/InstagramSimpleOAuthViewController.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF0431D019945F44000C7B6D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF0431CF19945F44000C7B6D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF0431D119945F44000C7B6D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF0431CF19945F44000C7B6D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E2B1993BFA700F61872</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AF407E3D1993BFA700F61872</string>
-				<string>AF407E5F1993BFA700F61872</string>
-				<string>AF407E361993BFA700F61872</string>
-				<string>AF407E351993BFA700F61872</string>
-				<string>9A2BB2D6F4ED43788D682E11</string>
-				<string>9AFAC9FF7A4549D5A6595EE4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E2C1993BFA700F61872</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>RKB</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>AF407E571993BFA700F61872</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>AF407E331993BFA700F61872</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>AF407E2F1993BFA700F61872</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>AF407E2B1993BFA700F61872</string>
-			<key>productRefGroup</key>
-			<string>AF407E351993BFA700F61872</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>AF407E331993BFA700F61872</string>
-				<string>AF407E571993BFA700F61872</string>
-			</array>
-		</dict>
-		<key>AF407E2F1993BFA700F61872</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>AF407E671993BFA700F61872</string>
-				<string>AF407E681993BFA700F61872</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>AF407E301993BFA700F61872</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>AF407E481993BFA700F61872</string>
-				<string>AF407E441993BFA700F61872</string>
-				<string>AF753F571993C37F007C8B1B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AF407E311993BFA700F61872</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>AF407E3A1993BFA700F61872</string>
-				<string>AF407E3C1993BFA700F61872</string>
-				<string>AF407E381993BFA700F61872</string>
-				<string>058250AA843642B1BEE37140</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AF407E321993BFA700F61872</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>AF407E531993BFA700F61872</string>
-				<string>AF0431D019945F44000C7B6D</string>
-				<string>AF407E421993BFA700F61872</string>
-				<string>AFC2982C199493F300F13819</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AF407E331993BFA700F61872</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>AF407E691993BFA700F61872</string>
-			<key>buildPhases</key>
-			<array>
-				<string>55735EE8A5104E88B75D1C76</string>
-				<string>AF407E301993BFA700F61872</string>
-				<string>AF407E311993BFA700F61872</string>
-				<string>AF407E321993BFA700F61872</string>
-				<string>D8C6AD3E37624978BCB2F92E</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>InstagramSimpleOAuth</string>
-			<key>productName</key>
-			<string>InstagramSimpleOAuth</string>
-			<key>productReference</key>
-			<string>AF407E341993BFA700F61872</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>AF407E341993BFA700F61872</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>InstagramSimpleOAuth.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>AF407E351993BFA700F61872</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AF407E341993BFA700F61872</string>
-				<string>AF407E581993BFA700F61872</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E361993BFA700F61872</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AF407E371993BFA700F61872</string>
-				<string>AF407E391993BFA700F61872</string>
-				<string>AF407E3B1993BFA700F61872</string>
-				<string>AF407E591993BFA700F61872</string>
-				<string>3CC8ACE4BF7D4C44B27FEF60</string>
-				<string>2959CA7CCFD9407B921515F0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E371993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>AF407E381993BFA700F61872</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF407E371993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E391993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>AF407E3A1993BFA700F61872</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF407E391993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E3B1993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>AF407E3C1993BFA700F61872</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF407E3B1993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E3D1993BFA700F61872</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AF753F541993C34E007C8B1B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>InstagramSimpleOAuth</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E3E1993BFA700F61872</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AF407E3F1993BFA700F61872</string>
-				<string>AF407E401993BFA700F61872</string>
-				<string>AF407E431993BFA700F61872</string>
-				<string>AF407E451993BFA700F61872</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E3F1993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>InstagramSimpleOAuth-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E401993BFA700F61872</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AF407E411993BFA700F61872</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E411993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E421993BFA700F61872</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF407E401993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E431993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E441993BFA700F61872</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF407E431993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E451993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>InstagramSimpleOAuth-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E461993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>AppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E471993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>AppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E481993BFA700F61872</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF407E471993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E521993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E531993BFA700F61872</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF407E521993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E541993BFA700F61872</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>AF407E661993BFA700F61872</string>
-				<string>AF753F581993C37F007C8B1B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AF407E551993BFA700F61872</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>AF407E5A1993BFA700F61872</string>
-				<string>AF407E5C1993BFA700F61872</string>
-				<string>AF407E5B1993BFA700F61872</string>
-				<string>7A8022D2C7024107A7D37A40</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AF407E561993BFA700F61872</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>AF407E641993BFA700F61872</string>
-				<string>AFC2982D1994940100F13819</string>
-				<string>AF0431D119945F44000C7B6D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AF407E571993BFA700F61872</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>AF407E6C1993BFA700F61872</string>
-			<key>buildPhases</key>
-			<array>
-				<string>E6F9C05D51344B498C2214F9</string>
-				<string>AF407E541993BFA700F61872</string>
-				<string>AF407E551993BFA700F61872</string>
-				<string>AF407E561993BFA700F61872</string>
-				<string>D8F1909F5F824E5CBB951E32</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>AF407E5E1993BFA700F61872</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>InstagramSimpleOAuthTests</string>
-			<key>productName</key>
-			<string>InstagramSimpleOAuthTests</string>
-			<key>productReference</key>
-			<string>AF407E581993BFA700F61872</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>AF407E581993BFA700F61872</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>InstagramSimpleOAuthTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>AF407E591993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>AF407E5A1993BFA700F61872</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF407E591993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E5B1993BFA700F61872</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF407E371993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E5C1993BFA700F61872</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF407E3B1993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E5D1993BFA700F61872</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>AF407E2C1993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>AF407E331993BFA700F61872</string>
-			<key>remoteInfo</key>
-			<string>InstagramSimpleOAuth</string>
-		</dict>
-		<key>AF407E5E1993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>AF407E331993BFA700F61872</string>
-			<key>targetProxy</key>
-			<string>AF407E5D1993BFA700F61872</string>
-		</dict>
-		<key>AF407E5F1993BFA700F61872</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AF407E651993BFA700F61872</string>
-				<string>AF407E601993BFA700F61872</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>InstagramSimpleOAuthTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E601993BFA700F61872</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AF407E611993BFA700F61872</string>
-				<string>AF407E621993BFA700F61872</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E611993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>InstagramSimpleOAuthTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E621993BFA700F61872</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AF407E631993BFA700F61872</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E631993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E641993BFA700F61872</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF407E621993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E651993BFA700F61872</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>InstagramSimpleOAuthTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF407E661993BFA700F61872</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF407E651993BFA700F61872</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF407E671993BFA700F61872</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>AF407E681993BFA700F61872</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>AF407E691993BFA700F61872</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>AF407E6A1993BFA700F61872</string>
-				<string>AF407E6B1993BFA700F61872</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>AF407E6A1993BFA700F61872</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>9AFAC9FF7A4549D5A6595EE4</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>InstagramSimpleOAuth/InstagramSimpleOAuth-Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>AF407E6B1993BFA700F61872</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>9AFAC9FF7A4549D5A6595EE4</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>InstagramSimpleOAuth/InstagramSimpleOAuth-Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>AF407E6C1993BFA700F61872</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>AF407E6D1993BFA700F61872</string>
-				<string>AF407E6E1993BFA700F61872</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>AF407E6D1993BFA700F61872</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>9A2BB2D6F4ED43788D682E11</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/InstagramSimpleOAuth.app/InstagramSimpleOAuth</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>InstagramSimpleOAuthTests/InstagramSimpleOAuthTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>AF407E6E1993BFA700F61872</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>9A2BB2D6F4ED43788D682E11</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/InstagramSimpleOAuth.app/InstagramSimpleOAuth</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>InstagramSimpleOAuthTests/InstagramSimpleOAuthTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>AF753F531993C31A007C8B1B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AF407E461993BFA700F61872</string>
-				<string>AF407E471993BFA700F61872</string>
-				<string>AF407E521993BFA700F61872</string>
-				<string>AF407E3E1993BFA700F61872</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>AppCode</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF753F541993C34E007C8B1B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AF753F551993C37F007C8B1B</string>
-				<string>AF753F561993C37F007C8B1B</string>
-				<string>AF0431CF19945F44000C7B6D</string>
-				<string>AFC2982B199493F300F13819</string>
-				<string>AF753F531993C31A007C8B1B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>InstagramSimpleOAuth</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF753F551993C37F007C8B1B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>InstagramSimpleOAuthViewController.h</string>
-			<key>path</key>
-			<string>Source/InstagramSimpleOAuthViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF753F561993C37F007C8B1B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>InstagramSimpleOAuthViewController.m</string>
-			<key>path</key>
-			<string>Source/InstagramSimpleOAuthViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AF753F571993C37F007C8B1B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF753F561993C37F007C8B1B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AF753F581993C37F007C8B1B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF753F561993C37F007C8B1B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AFC2982B199493F300F13819</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>name</key>
-			<string>InstagramSimpleOAuthViewController~ipad.xib</string>
-			<key>path</key>
-			<string>Source/InstagramSimpleOAuthViewController~ipad.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AFC2982C199493F300F13819</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AFC2982B199493F300F13819</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AFC2982D1994940100F13819</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AFC2982B199493F300F13819</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D8C6AD3E37624978BCB2F92E</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-InstagramSimpleOAuth-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>D8F1909F5F824E5CBB951E32</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-InstagramSimpleOAuthTests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>E6F9C05D51344B498C2214F9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>AF407E2C1993BFA700F61872</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		058250AA843642B1BEE37140 /* libPods-InstagramSimpleOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2959CA7CCFD9407B921515F0 /* libPods-InstagramSimpleOAuth.a */; };
+		7A8022D2C7024107A7D37A40 /* libPods-InstagramSimpleOAuthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC8ACE4BF7D4C44B27FEF60 /* libPods-InstagramSimpleOAuthTests.a */; };
+		AF0431D019945F44000C7B6D /* InstagramSimpleOAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */; };
+		AF0431D119945F44000C7B6D /* InstagramSimpleOAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */; };
+		AF407E381993BFA700F61872 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF407E371993BFA700F61872 /* Foundation.framework */; };
+		AF407E3A1993BFA700F61872 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF407E391993BFA700F61872 /* CoreGraphics.framework */; };
+		AF407E3C1993BFA700F61872 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF407E3B1993BFA700F61872 /* UIKit.framework */; };
+		AF407E421993BFA700F61872 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF407E401993BFA700F61872 /* InfoPlist.strings */; };
+		AF407E441993BFA700F61872 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF407E431993BFA700F61872 /* main.m */; };
+		AF407E481993BFA700F61872 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF407E471993BFA700F61872 /* AppDelegate.m */; };
+		AF407E531993BFA700F61872 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF407E521993BFA700F61872 /* Images.xcassets */; };
+		AF407E5A1993BFA700F61872 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF407E591993BFA700F61872 /* XCTest.framework */; };
+		AF407E5B1993BFA700F61872 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF407E371993BFA700F61872 /* Foundation.framework */; };
+		AF407E5C1993BFA700F61872 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF407E3B1993BFA700F61872 /* UIKit.framework */; };
+		AF407E641993BFA700F61872 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF407E621993BFA700F61872 /* InfoPlist.strings */; };
+		AF407E661993BFA700F61872 /* InstagramSimpleOAuthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF407E651993BFA700F61872 /* InstagramSimpleOAuthTests.m */; };
+		AF466FD719987F6C00CA2827 /* NSLayoutConstraint+TestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AF466FD619987F6C00CA2827 /* NSLayoutConstraint+TestUtils.m */; };
+		AF753F571993C37F007C8B1B /* InstagramSimpleOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF753F561993C37F007C8B1B /* InstagramSimpleOAuthViewController.m */; };
+		AF753F581993C37F007C8B1B /* InstagramSimpleOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF753F561993C37F007C8B1B /* InstagramSimpleOAuthViewController.m */; };
+		AFC2982C199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC2982B199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib */; };
+		AFC2982D1994940100F13819 /* InstagramSimpleOAuthViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC2982B199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF407E5D1993BFA700F61872 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF407E2C1993BFA700F61872 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF407E331993BFA700F61872;
+			remoteInfo = InstagramSimpleOAuth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2959CA7CCFD9407B921515F0 /* libPods-InstagramSimpleOAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramSimpleOAuth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CC8ACE4BF7D4C44B27FEF60 /* libPods-InstagramSimpleOAuthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramSimpleOAuthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A2BB2D6F4ED43788D682E11 /* Pods-InstagramSimpleOAuthTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuthTests.xcconfig"; path = "Pods/Pods-InstagramSimpleOAuthTests.xcconfig"; sourceTree = "<group>"; };
+		9AFAC9FF7A4549D5A6595EE4 /* Pods-InstagramSimpleOAuth.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuth.xcconfig"; path = "Pods/Pods-InstagramSimpleOAuth.xcconfig"; sourceTree = "<group>"; };
+		AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstagramSimpleOAuthViewController.xib; path = Source/InstagramSimpleOAuthViewController.xib; sourceTree = "<group>"; };
+		AF407E341993BFA700F61872 /* InstagramSimpleOAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramSimpleOAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF407E371993BFA700F61872 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AF407E391993BFA700F61872 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AF407E3B1993BFA700F61872 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AF407E3F1993BFA700F61872 /* InstagramSimpleOAuth-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InstagramSimpleOAuth-Info.plist"; sourceTree = "<group>"; };
+		AF407E411993BFA700F61872 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AF407E431993BFA700F61872 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AF407E451993BFA700F61872 /* InstagramSimpleOAuth-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InstagramSimpleOAuth-Prefix.pch"; sourceTree = "<group>"; };
+		AF407E461993BFA700F61872 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AF407E471993BFA700F61872 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AF407E521993BFA700F61872 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AF407E581993BFA700F61872 /* InstagramSimpleOAuthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramSimpleOAuthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF407E591993BFA700F61872 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AF407E611993BFA700F61872 /* InstagramSimpleOAuthTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InstagramSimpleOAuthTests-Info.plist"; sourceTree = "<group>"; };
+		AF407E631993BFA700F61872 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AF407E651993BFA700F61872 /* InstagramSimpleOAuthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramSimpleOAuthTests.m; sourceTree = "<group>"; };
+		AF466FD519987F6C00CA2827 /* NSLayoutConstraint+TestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+TestUtils.h"; sourceTree = "<group>"; };
+		AF466FD619987F6C00CA2827 /* NSLayoutConstraint+TestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+TestUtils.m"; sourceTree = "<group>"; };
+		AF753F551993C37F007C8B1B /* InstagramSimpleOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstagramSimpleOAuthViewController.h; path = Source/InstagramSimpleOAuthViewController.h; sourceTree = "<group>"; };
+		AF753F561993C37F007C8B1B /* InstagramSimpleOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstagramSimpleOAuthViewController.m; path = Source/InstagramSimpleOAuthViewController.m; sourceTree = "<group>"; };
+		AFC2982B199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "InstagramSimpleOAuthViewController~ipad.xib"; path = "Source/InstagramSimpleOAuthViewController~ipad.xib"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF407E311993BFA700F61872 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF407E3A1993BFA700F61872 /* CoreGraphics.framework in Frameworks */,
+				AF407E3C1993BFA700F61872 /* UIKit.framework in Frameworks */,
+				AF407E381993BFA700F61872 /* Foundation.framework in Frameworks */,
+				058250AA843642B1BEE37140 /* libPods-InstagramSimpleOAuth.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF407E551993BFA700F61872 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF407E5A1993BFA700F61872 /* XCTest.framework in Frameworks */,
+				AF407E5C1993BFA700F61872 /* UIKit.framework in Frameworks */,
+				AF407E5B1993BFA700F61872 /* Foundation.framework in Frameworks */,
+				7A8022D2C7024107A7D37A40 /* libPods-InstagramSimpleOAuthTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF407E2B1993BFA700F61872 = {
+			isa = PBXGroup;
+			children = (
+				AF407E3D1993BFA700F61872 /* InstagramSimpleOAuth */,
+				AF407E5F1993BFA700F61872 /* InstagramSimpleOAuthTests */,
+				AF407E361993BFA700F61872 /* Frameworks */,
+				AF407E351993BFA700F61872 /* Products */,
+				9A2BB2D6F4ED43788D682E11 /* Pods-InstagramSimpleOAuthTests.xcconfig */,
+				9AFAC9FF7A4549D5A6595EE4 /* Pods-InstagramSimpleOAuth.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		AF407E351993BFA700F61872 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF407E341993BFA700F61872 /* InstagramSimpleOAuth.app */,
+				AF407E581993BFA700F61872 /* InstagramSimpleOAuthTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF407E361993BFA700F61872 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF407E371993BFA700F61872 /* Foundation.framework */,
+				AF407E391993BFA700F61872 /* CoreGraphics.framework */,
+				AF407E3B1993BFA700F61872 /* UIKit.framework */,
+				AF407E591993BFA700F61872 /* XCTest.framework */,
+				3CC8ACE4BF7D4C44B27FEF60 /* libPods-InstagramSimpleOAuthTests.a */,
+				2959CA7CCFD9407B921515F0 /* libPods-InstagramSimpleOAuth.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF407E3D1993BFA700F61872 /* InstagramSimpleOAuth */ = {
+			isa = PBXGroup;
+			children = (
+				AF753F541993C34E007C8B1B /* InstagramSimpleOAuth */,
+			);
+			path = InstagramSimpleOAuth;
+			sourceTree = "<group>";
+		};
+		AF407E3E1993BFA700F61872 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF407E3F1993BFA700F61872 /* InstagramSimpleOAuth-Info.plist */,
+				AF407E401993BFA700F61872 /* InfoPlist.strings */,
+				AF407E431993BFA700F61872 /* main.m */,
+				AF407E451993BFA700F61872 /* InstagramSimpleOAuth-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AF407E5F1993BFA700F61872 /* InstagramSimpleOAuthTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF407E651993BFA700F61872 /* InstagramSimpleOAuthTests.m */,
+				AF466FD519987F6C00CA2827 /* NSLayoutConstraint+TestUtils.h */,
+				AF466FD619987F6C00CA2827 /* NSLayoutConstraint+TestUtils.m */,
+				AF407E601993BFA700F61872 /* Supporting Files */,
+			);
+			path = InstagramSimpleOAuthTests;
+			sourceTree = "<group>";
+		};
+		AF407E601993BFA700F61872 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF407E611993BFA700F61872 /* InstagramSimpleOAuthTests-Info.plist */,
+				AF407E621993BFA700F61872 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AF753F531993C31A007C8B1B /* AppCode */ = {
+			isa = PBXGroup;
+			children = (
+				AF407E461993BFA700F61872 /* AppDelegate.h */,
+				AF407E471993BFA700F61872 /* AppDelegate.m */,
+				AF407E521993BFA700F61872 /* Images.xcassets */,
+				AF407E3E1993BFA700F61872 /* Supporting Files */,
+			);
+			name = AppCode;
+			sourceTree = "<group>";
+		};
+		AF753F541993C34E007C8B1B /* InstagramSimpleOAuth */ = {
+			isa = PBXGroup;
+			children = (
+				AF753F551993C37F007C8B1B /* InstagramSimpleOAuthViewController.h */,
+				AF753F561993C37F007C8B1B /* InstagramSimpleOAuthViewController.m */,
+				AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */,
+				AFC2982B199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib */,
+				AF753F531993C31A007C8B1B /* AppCode */,
+			);
+			name = InstagramSimpleOAuth;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF407E331993BFA700F61872 /* InstagramSimpleOAuth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF407E691993BFA700F61872 /* Build configuration list for PBXNativeTarget "InstagramSimpleOAuth" */;
+			buildPhases = (
+				55735EE8A5104E88B75D1C76 /* Check Pods Manifest.lock */,
+				AF407E301993BFA700F61872 /* Sources */,
+				AF407E311993BFA700F61872 /* Frameworks */,
+				AF407E321993BFA700F61872 /* Resources */,
+				D8C6AD3E37624978BCB2F92E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InstagramSimpleOAuth;
+			productName = InstagramSimpleOAuth;
+			productReference = AF407E341993BFA700F61872 /* InstagramSimpleOAuth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AF407E571993BFA700F61872 /* InstagramSimpleOAuthTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF407E6C1993BFA700F61872 /* Build configuration list for PBXNativeTarget "InstagramSimpleOAuthTests" */;
+			buildPhases = (
+				E6F9C05D51344B498C2214F9 /* Check Pods Manifest.lock */,
+				AF407E541993BFA700F61872 /* Sources */,
+				AF407E551993BFA700F61872 /* Frameworks */,
+				AF407E561993BFA700F61872 /* Resources */,
+				D8F1909F5F824E5CBB951E32 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF407E5E1993BFA700F61872 /* PBXTargetDependency */,
+			);
+			name = InstagramSimpleOAuthTests;
+			productName = InstagramSimpleOAuthTests;
+			productReference = AF407E581993BFA700F61872 /* InstagramSimpleOAuthTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF407E2C1993BFA700F61872 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = RKB;
+				TargetAttributes = {
+					AF407E571993BFA700F61872 = {
+						TestTargetID = AF407E331993BFA700F61872;
+					};
+				};
+			};
+			buildConfigurationList = AF407E2F1993BFA700F61872 /* Build configuration list for PBXProject "InstagramSimpleOAuth" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AF407E2B1993BFA700F61872;
+			productRefGroup = AF407E351993BFA700F61872 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF407E331993BFA700F61872 /* InstagramSimpleOAuth */,
+				AF407E571993BFA700F61872 /* InstagramSimpleOAuthTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF407E321993BFA700F61872 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF407E531993BFA700F61872 /* Images.xcassets in Resources */,
+				AF0431D019945F44000C7B6D /* InstagramSimpleOAuthViewController.xib in Resources */,
+				AF407E421993BFA700F61872 /* InfoPlist.strings in Resources */,
+				AFC2982C199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF407E561993BFA700F61872 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF407E641993BFA700F61872 /* InfoPlist.strings in Resources */,
+				AFC2982D1994940100F13819 /* InstagramSimpleOAuthViewController~ipad.xib in Resources */,
+				AF0431D119945F44000C7B6D /* InstagramSimpleOAuthViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		55735EE8A5104E88B75D1C76 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D8C6AD3E37624978BCB2F92E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-InstagramSimpleOAuth-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8F1909F5F824E5CBB951E32 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-InstagramSimpleOAuthTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6F9C05D51344B498C2214F9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF407E301993BFA700F61872 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF407E481993BFA700F61872 /* AppDelegate.m in Sources */,
+				AF407E441993BFA700F61872 /* main.m in Sources */,
+				AF753F571993C37F007C8B1B /* InstagramSimpleOAuthViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF407E541993BFA700F61872 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF407E661993BFA700F61872 /* InstagramSimpleOAuthTests.m in Sources */,
+				AF466FD719987F6C00CA2827 /* NSLayoutConstraint+TestUtils.m in Sources */,
+				AF753F581993C37F007C8B1B /* InstagramSimpleOAuthViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF407E5E1993BFA700F61872 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF407E331993BFA700F61872 /* InstagramSimpleOAuth */;
+			targetProxy = AF407E5D1993BFA700F61872 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AF407E401993BFA700F61872 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF407E411993BFA700F61872 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AF407E621993BFA700F61872 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF407E631993BFA700F61872 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AF407E671993BFA700F61872 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AF407E681993BFA700F61872 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF407E6A1993BFA700F61872 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AFAC9FF7A4549D5A6595EE4 /* Pods-InstagramSimpleOAuth.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch";
+				INFOPLIST_FILE = "InstagramSimpleOAuth/InstagramSimpleOAuth-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AF407E6B1993BFA700F61872 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AFAC9FF7A4549D5A6595EE4 /* Pods-InstagramSimpleOAuth.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch";
+				INFOPLIST_FILE = "InstagramSimpleOAuth/InstagramSimpleOAuth-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AF407E6D1993BFA700F61872 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A2BB2D6F4ED43788D682E11 /* Pods-InstagramSimpleOAuthTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/InstagramSimpleOAuth.app/InstagramSimpleOAuth";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "InstagramSimpleOAuthTests/InstagramSimpleOAuthTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AF407E6E1993BFA700F61872 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A2BB2D6F4ED43788D682E11 /* Pods-InstagramSimpleOAuthTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/InstagramSimpleOAuth.app/InstagramSimpleOAuth";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch";
+				INFOPLIST_FILE = "InstagramSimpleOAuthTests/InstagramSimpleOAuthTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF407E2F1993BFA700F61872 /* Build configuration list for PBXProject "InstagramSimpleOAuth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF407E671993BFA700F61872 /* Debug */,
+				AF407E681993BFA700F61872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF407E691993BFA700F61872 /* Build configuration list for PBXNativeTarget "InstagramSimpleOAuth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF407E6A1993BFA700F61872 /* Debug */,
+				AF407E6B1993BFA700F61872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF407E6C1993BFA700F61872 /* Build configuration list for PBXNativeTarget "InstagramSimpleOAuthTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF407E6D1993BFA700F61872 /* Debug */,
+				AF407E6E1993BFA700F61872 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF407E2C1993BFA700F61872 /* Project object */;
+}

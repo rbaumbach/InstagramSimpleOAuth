@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCv-vE-vZv">
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCv-vE-vZv" userLabel="instagramWebView">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

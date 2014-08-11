@@ -1,16 +1,13 @@
 #import <Specta/Specta.h>
+#import <Swizzlean/Swizzlean.h>
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
 #import "InstagramSimpleOAuthViewController.h"
+#import "NSLayoutConstraint+TestUtils.h"
 
 @interface InstagramSimpleOAuthViewController ()
 
 @property (weak, nonatomic) IBOutlet UIWebView *instagramWebView;
-
-@property (strong, nonatomic, readwrite) NSString *clientID;
-@property (strong, nonatomic, readwrite) NSString *clientSecret;
-@property (strong, nonatomic, readwrite) NSURL *callbackURL;
-@property (copy, nonatomic) void (^completion)(NSString *authToken);
 
 @end
 
@@ -31,22 +28,14 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                                                                        }];
     });
     
-    it(@"throws exception when -init is called", ^{
-        __block InstagramSimpleOAuthViewController *exceptionController;
-        
-        expect(^{
-            @try {
-                exceptionController = [[InstagramSimpleOAuthViewController alloc] init];
-            } @catch (NSException *ex) {
-                // check exception to see if it contains all the right data
-                // if it does, re-throw for the test to pass
-                if ([ex.name isEqualToString:@"InstagramSimpleOAuth"] &&
-                    [ex.reason isEqualToString:@"Cannot use -init:, use :initWithClientID:clientSecret:callbackURL:completion: instead"] &&
-                    !ex.userInfo) {
-                    @throw ex;
-                }
-            }
-        }).to.raise(@"InstagramSimpleOAuth");
+    describe(@"init", ^{
+        it(@"calls -initWithClientID:clientSecret:callbackURL:completion:", ^{
+            InstagramSimpleOAuthViewController *basicController = [[InstagramSimpleOAuthViewController alloc] init];
+            expect(basicController.clientID).to.beNil;
+            expect(basicController.clientSecret).to.beNil;
+            expect(basicController.callbackURL).to.beNil;
+            expect(basicController.completion).to.beNil;
+        });
     });
     
     it(@"has a clientID", ^{
@@ -74,17 +63,168 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         expect(conformsToWebViewDelegateProtocol).to.equal(YES);
     });
     
+    describe(@"constraints", ^{
+        context(@"iPhone", ^{
+            __block UIView *iPhoneView;
+            
+            beforeEach(^{
+                NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"InstagramSimpleOAuthViewController"
+                                                                  owner:controller
+                                                                options:nil];
+                
+                iPhoneView = nibViews[0];
+            });
+            
+            it(@"has at least 4 constraints", ^{
+                expect(iPhoneView.constraints.count).to.beGreaterThanOrEqualTo(4);
+            });
+            
+            it(@"has Vertical Space - instagramWebView to View", ^{
+                NSLayoutConstraint *expectedConstraint = [NSLayoutConstraint constraintWithItem:controller.instagramWebView
+                                                                              attribute:NSLayoutAttributeTop
+                                                                              relatedBy:NSLayoutRelationEqual
+                                                                                 toItem:controller.view
+                                                                              attribute:NSLayoutAttributeTop
+                                                                             multiplier:1
+                                                                               constant:0];
+                expectedConstraint.priority = 1000;
+                expectedConstraint.shouldBeArchived = YES;
+                
+                expect(iPhoneView.constraints).to.contain(expectedConstraint);
+            });
+            
+            it(@"has Horizontal Space - View to instagramWebView", ^{
+                NSLayoutConstraint *expectedConstraint = [NSLayoutConstraint constraintWithItem:controller.view
+                                                                                      attribute:NSLayoutAttributeTrailing
+                                                                                      relatedBy:NSLayoutRelationEqual
+                                                                                         toItem:controller.instagramWebView
+                                                                                      attribute:NSLayoutAttributeTrailing
+                                                                                     multiplier:1
+                                                                                       constant:0];
+                expectedConstraint.priority = 1000;
+                expectedConstraint.shouldBeArchived = YES;
+                
+                expect(iPhoneView.constraints).to.contain(expectedConstraint);
+            });
+            
+            it(@"has Vertical Space - View to instagramWebView", ^{
+                NSLayoutConstraint *expectedConstraint = [NSLayoutConstraint constraintWithItem:controller.view
+                                                                                      attribute:NSLayoutAttributeBottom
+                                                                                      relatedBy:NSLayoutRelationEqual
+                                                                                         toItem:controller.instagramWebView
+                                                                                      attribute:NSLayoutAttributeBottom
+                                                                                     multiplier:1
+                                                                                       constant:0];
+                expectedConstraint.priority = 1000;
+                expectedConstraint.shouldBeArchived = YES;
+                
+                expect(iPhoneView.constraints).to.contain(expectedConstraint);
+            });
+            
+            it(@"has Horizontal Space - instagramWebView to View", ^{
+                NSLayoutConstraint *expectedConstraint = [NSLayoutConstraint constraintWithItem:controller.instagramWebView
+                                                                                      attribute:NSLayoutAttributeLeading
+                                                                                      relatedBy:NSLayoutRelationEqual
+                                                                                         toItem:controller.view
+                                                                                      attribute:NSLayoutAttributeLeading
+                                                                                     multiplier:1
+                                                                                       constant:0];
+                expectedConstraint.priority = 1000;
+                expectedConstraint.shouldBeArchived = YES;
+                
+                expect(iPhoneView.constraints).to.contain(expectedConstraint);
+            });
+        });
+        
+        context(@"iPad", ^{
+            __block UIView *iPadView;
+            
+            beforeEach(^{
+                NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"InstagramSimpleOAuthViewController~ipad"
+                                                                  owner:controller
+                                                                options:nil];
+                
+                iPadView = nibViews[0];
+            });
+            
+            it(@"has at least 4 constraints", ^{
+                expect(iPadView.constraints.count).to.beGreaterThanOrEqualTo(4);
+            });
+            
+            it(@"has Vertical Space - instagramWebView to View", ^{
+                NSLayoutConstraint *expectedConstraint = [NSLayoutConstraint constraintWithItem:controller.instagramWebView
+                                                                                      attribute:NSLayoutAttributeTop
+                                                                                      relatedBy:NSLayoutRelationEqual
+                                                                                         toItem:controller.view
+                                                                                      attribute:NSLayoutAttributeTop
+                                                                                     multiplier:1
+                                                                                       constant:0];
+                expectedConstraint.priority = 1000;
+                expectedConstraint.shouldBeArchived = YES;
+                
+                expect(iPadView.constraints).to.contain(expectedConstraint);
+            });
+            
+            it(@"has Horizontal Space - View to instagramWebView", ^{
+                NSLayoutConstraint *expectedConstraint = [NSLayoutConstraint constraintWithItem:controller.view
+                                                                                      attribute:NSLayoutAttributeTrailing
+                                                                                      relatedBy:NSLayoutRelationEqual
+                                                                                         toItem:controller.instagramWebView
+                                                                                      attribute:NSLayoutAttributeTrailing
+                                                                                     multiplier:1
+                                                                                       constant:0];
+                expectedConstraint.priority = 1000;
+                expectedConstraint.shouldBeArchived = YES;
+                
+                expect(iPadView.constraints).to.contain(expectedConstraint);
+            });
+            
+            it(@"has Vertical Space - View to instagramWebView", ^{
+                NSLayoutConstraint *expectedConstraint = [NSLayoutConstraint constraintWithItem:controller.view
+                                                                                      attribute:NSLayoutAttributeBottom
+                                                                                      relatedBy:NSLayoutRelationEqual
+                                                                                         toItem:controller.instagramWebView
+                                                                                      attribute:NSLayoutAttributeBottom
+                                                                                     multiplier:1
+                                                                                       constant:0];
+                expectedConstraint.priority = 1000;
+                expectedConstraint.shouldBeArchived = YES;
+                
+                expect(iPadView.constraints).to.contain(expectedConstraint);
+            });
+            
+            it(@"has Horizontal Space - instagramWebView to View", ^{
+                NSLayoutConstraint *expectedConstraint = [NSLayoutConstraint constraintWithItem:controller.instagramWebView
+                                                                                      attribute:NSLayoutAttributeLeading
+                                                                                      relatedBy:NSLayoutRelationEqual
+                                                                                         toItem:controller.view
+                                                                                      attribute:NSLayoutAttributeLeading
+                                                                                     multiplier:1
+                                                                                       constant:0];
+                expectedConstraint.priority = 1000;
+                expectedConstraint.shouldBeArchived = YES;
+                
+                expect(iPadView.constraints).to.contain(expectedConstraint);
+            });
+        });
+    });
+    
     describe(@"#viewDidLoad", ^{
+        __block Swizzlean *superSwizz;
+        __block BOOL isSuperCalled;
+        
         beforeEach(^{
+            isSuperCalled = NO;
+            superSwizz = [[Swizzlean alloc] initWithClassToSwizzle:[UIViewController class]];
+            [superSwizz swizzleInstanceMethod:@selector(viewDidLoad) withReplacementImplementation:^(id _self) {
+                isSuperCalled = YES;
+            }];
+            
             [controller view];
         });
         
-        describe(@"view", ^{
-            // Note, the constraints for the view and instagram web view have been set on both xib files
-            // However, this test will need to be run on both iPad and iPhone devices to validate this
-            it(@"has at least 4 constraints", ^{
-                expect(controller.view.constraints.count).to.beGreaterThanOrEqualTo(4);
-            });
+        it(@"calls super!!! Thanks for asking!!! =)", ^{
+            expect(isSuperCalled).to.equal(YES);
         });
     });
     
