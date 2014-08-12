@@ -2,8 +2,15 @@
 #import <Swizzlean/Swizzlean.h>
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
+#define HC_SHORTHAND
+#import <OCHamcrest/OCHamcrest.h>
+#define MOCKITO_SHORTHAND
+#import <OCMockito/OCMockito.h>
 #import "InstagramSimpleOAuthViewController.h"
 #import "NSLayoutConstraint+TestUtils.h"
+
+
+//NSString *const INSTAGRAM_AUTH_URL = @"https://api.instagram.com";
 
 @interface InstagramSimpleOAuthViewController ()
 
@@ -209,27 +216,78 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         });
     });
     
-    describe(@"#viewDidLoad", ^{
+    describe(@"#viewDidAppear", ^{
         __block Swizzlean *superSwizz;
         __block BOOL isSuperCalled;
+        __block BOOL retAnimated;
+        __block UIWebView *fakeWebView;
         
         beforeEach(^{
             isSuperCalled = NO;
             superSwizz = [[Swizzlean alloc] initWithClassToSwizzle:[UIViewController class]];
-            [superSwizz swizzleInstanceMethod:@selector(viewDidLoad) withReplacementImplementation:^(id _self) {
+            [superSwizz swizzleInstanceMethod:@selector(viewDidAppear:) withReplacementImplementation:^(id _self, BOOL isAnimated) {
                 isSuperCalled = YES;
+                retAnimated = isAnimated;
             }];
             
             [controller view];
+            
+            fakeWebView = mock([UIWebView class]);
+            controller.instagramWebView = fakeWebView;
+            
+            [controller viewDidAppear:YES];
         });
         
         it(@"calls super!!! Thanks for asking!!! =)", ^{
+            expect(retAnimated).to.equal(YES);
             expect(isSuperCalled).to.equal(YES);
+        });
+        
+        describe(@"instagramWebView", ^{
+            it(@"loads the Instagram login page", ^{
+                NSString *instagramLoginURLString = [NSString stringWithFormat:@"https://api.instagram.com/oauth/authorize/?client_id=%@&client=touch&redirect_uri=%@&response_type=code",
+                    controller.clientID, controller.callbackURL.absoluteString];
+                NSURL *instagramLoginURL = [NSURL URLWithString:instagramLoginURLString];
+                NSURLRequest *instagramURLRequest = [NSURLRequest requestWithURL:instagramLoginURL];
+                
+                [verify(controller.instagramWebView) loadRequest:instagramURLRequest];
+            });
         });
     });
     
     describe(@"<UIWebViewDelegate>", ^{
         describe(@"#webView:shouldStartLoadWithRequest:navigationType:", ^{
+            __block BOOL shouldStartLoad;
+            __block NSURLRequest *urlRequest;
+            
+            context(@"request contains instagram callback URL as the URL Prefix with code param", ^{
+                beforeEach(^{
+                    NSString *callbackURLString = [NSString stringWithFormat:@"%@/?code=", controller.callbackURL];
+                    NSURL *callbackURL = [NSURL URLWithString:callbackURLString];
+                    urlRequest = [NSURLRequest requestWithURL:callbackURL];
+                    
+                    shouldStartLoad = [controller webView:nil
+                               shouldStartLoadWithRequest:urlRequest
+                                           navigationType:UIWebViewNavigationTypeFormSubmitted];
+                });
+                
+                it(@"returns NO", ^{
+                    expect(shouldStartLoad).to.equal(NO);
+                });
+            });
+            
+            context(@"request does NOT contain instagram callback URL", ^{
+                beforeEach(^{
+                    urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://pumpkin.ale.bills.com"]];
+                    shouldStartLoad = [controller webView:nil
+                               shouldStartLoadWithRequest:urlRequest
+                                           navigationType:UIWebViewNavigationTypeFormSubmitted];
+                });
+                
+                it(@"returns YES", ^{
+                    expect(shouldStartLoad).to.equal(YES);
+                });
+            });
         });
     });
 });
