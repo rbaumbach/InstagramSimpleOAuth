@@ -28,6 +28,9 @@
 		AF753F581993C37F007C8B1B /* InstagramSimpleOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF753F561993C37F007C8B1B /* InstagramSimpleOAuthViewController.m */; };
 		AFC2982C199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC2982B199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib */; };
 		AFC2982D1994940100F13819 /* InstagramSimpleOAuthViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC2982B199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib */; };
+		AFD733B31999D5BB0041F716 /* UIAlertView+TestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD733B21999D5BB0041F716 /* UIAlertView+TestUtils.m */; };
+		AFD733B61999D8040041F716 /* InstagramSimpleOAuthIPhoneNibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD733B51999D8040041F716 /* InstagramSimpleOAuthIPhoneNibTests.m */; };
+		AFD733B81999DA890041F716 /* InstagramSimpleOAuthIPadNibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD733B71999DA890041F716 /* InstagramSimpleOAuthIPadNibTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,10 @@
 		AF753F551993C37F007C8B1B /* InstagramSimpleOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstagramSimpleOAuthViewController.h; path = Source/InstagramSimpleOAuthViewController.h; sourceTree = "<group>"; };
 		AF753F561993C37F007C8B1B /* InstagramSimpleOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstagramSimpleOAuthViewController.m; path = Source/InstagramSimpleOAuthViewController.m; sourceTree = "<group>"; };
 		AFC2982B199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "InstagramSimpleOAuthViewController~ipad.xib"; path = "Source/InstagramSimpleOAuthViewController~ipad.xib"; sourceTree = "<group>"; };
+		AFD733B11999D5BB0041F716 /* UIAlertView+TestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+TestUtils.h"; sourceTree = "<group>"; };
+		AFD733B21999D5BB0041F716 /* UIAlertView+TestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+TestUtils.m"; sourceTree = "<group>"; };
+		AFD733B51999D8040041F716 /* InstagramSimpleOAuthIPhoneNibTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramSimpleOAuthIPhoneNibTests.m; sourceTree = "<group>"; };
+		AFD733B71999DA890041F716 /* InstagramSimpleOAuthIPadNibTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramSimpleOAuthIPadNibTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,9 +158,10 @@
 		AF407E5F1993BFA700F61872 /* InstagramSimpleOAuthTests */ = {
 			isa = PBXGroup;
 			children = (
+				AFD733B41999D5BF0041F716 /* TestUtils */,
 				AF407E651993BFA700F61872 /* InstagramSimpleOAuthTests.m */,
-				AF466FD519987F6C00CA2827 /* NSLayoutConstraint+TestUtils.h */,
-				AF466FD619987F6C00CA2827 /* NSLayoutConstraint+TestUtils.m */,
+				AFD733B51999D8040041F716 /* InstagramSimpleOAuthIPhoneNibTests.m */,
+				AFD733B71999DA890041F716 /* InstagramSimpleOAuthIPadNibTests.m */,
 				AF407E601993BFA700F61872 /* Supporting Files */,
 			);
 			path = InstagramSimpleOAuthTests;
@@ -189,6 +197,17 @@
 				AF753F531993C31A007C8B1B /* AppCode */,
 			);
 			name = InstagramSimpleOAuth;
+			sourceTree = "<group>";
+		};
+		AFD733B41999D5BF0041F716 /* TestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				AF466FD519987F6C00CA2827 /* NSLayoutConstraint+TestUtils.h */,
+				AF466FD619987F6C00CA2827 /* NSLayoutConstraint+TestUtils.m */,
+				AFD733B11999D5BB0041F716 /* UIAlertView+TestUtils.h */,
+				AFD733B21999D5BB0041F716 /* UIAlertView+TestUtils.m */,
+			);
+			name = TestUtils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,9 +387,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFD733B81999DA890041F716 /* InstagramSimpleOAuthIPadNibTests.m in Sources */,
+				AFD733B61999D8040041F716 /* InstagramSimpleOAuthIPhoneNibTests.m in Sources */,
 				AF407E661993BFA700F61872 /* InstagramSimpleOAuthTests.m in Sources */,
 				AF466FD719987F6C00CA2827 /* NSLayoutConstraint+TestUtils.m in Sources */,
 				AF753F581993C37F007C8B1B /* InstagramSimpleOAuthViewController.m in Sources */,
+				AFD733B31999D5BB0041F716 /* UIAlertView+TestUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
