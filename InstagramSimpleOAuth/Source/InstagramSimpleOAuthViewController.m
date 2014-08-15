@@ -1,3 +1,4 @@
+#import <AFNetworking/AFNetworking.h>
 #import "InstagramSimpleOAuthViewController.h"
 
 
@@ -5,10 +6,13 @@ NSString *const INSTAGRAM_AUTH_URL = @"https://api.instagram.com";
 NSString *const INSTAGRAM_AUTH_CLIENT_ID_ENDPOINT = @"/oauth/authorize/?client_id=";
 NSString *const INSTAGRAM_AUTH_REDIRECT_PARAMS = @"&client=touch&redirect_uri=";
 NSString *const INSTAGRAM_AUTH_RESPONSE_TYPE_PARAMS = @"&response_type=code";
+NSString *const INSTAGRAM_AUTH_CODE_PARAM = @"/?code=";
+NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
 
 @interface InstagramSimpleOAuthViewController ()
 
 @property (weak, nonatomic) IBOutlet UIWebView *instagramWebView;
+@property (strong, nonatomic) AFHTTPSessionManager *sessionManager;
 
 @end
 
@@ -27,6 +31,8 @@ NSString *const INSTAGRAM_AUTH_RESPONSE_TYPE_PARAMS = @"&response_type=code";
         self.clientSecret = clientSecret;
         self.callbackURL = callbackURL;
         self.completion = completion;
+        self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:INSTAGRAM_AUTH_URL]];
+        self.sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
     }
     return self;
 }
@@ -52,15 +58,20 @@ NSString *const INSTAGRAM_AUTH_RESPONSE_TYPE_PARAMS = @"&response_type=code";
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 {
-//    let requestURLString = request.URL.absoluteString
-//    println(requestURLString)
-//    
-//    if (requestURLString.hasPrefix(INSTAGRAM_CALLBACK_AUTH_CODE_URL)) {
-    
     NSString *requestURLString = request.URL.absoluteString;
-    NSString *expectedInstagramCallbackPrefix = [NSString stringWithFormat:@"%@/?code=", self.callbackURL.absoluteString];
+    NSString *expectedInstagramCallbackPrefix = [NSString stringWithFormat:@"%@%@", self.callbackURL.absoluteString, INSTAGRAM_AUTH_CODE_PARAM];
     
     if ([requestURLString hasPrefix:expectedInstagramCallbackPrefix]) {
+        NSString *instagramAuthCode = [requestURLString substringFromIndex:[expectedInstagramCallbackPrefix length]];
+
+        [self.sessionManager POST:INSTAGRAM_AUTH_TOKEN_ENDPOINT
+                  parameters:[self instagramTokenParams:instagramAuthCode]
+                     success:^(NSURLSessionDataTask *task, id responseObject) {
+                         self.completion(responseObject[@"access_token"]);
+                         
+                         [self dismissViewController];
+                     } failure:nil];
+        
         return NO;
     }
     
@@ -82,6 +93,25 @@ NSString *const INSTAGRAM_AUTH_RESPONSE_TYPE_PARAMS = @"&response_type=code";
     NSURL *fullInstagramLoginURL = [NSURL URLWithString:fullInstagramLoginURLString];
     NSURLRequest *fullInstagramLoginRequest = [NSURLRequest requestWithURL:fullInstagramLoginURL];
     [self.instagramWebView loadRequest:fullInstagramLoginRequest];
+}
+
+- (NSDictionary *)instagramTokenParams:(NSString *)authCode
+{
+    return @{ @"client_id"     : self.clientID,
+              @"client_secret" : self.clientSecret,
+              @"grant_type"    : @"authorization_code",
+              @"redirect_uri"  : self.callbackURL.absoluteString,
+              @"code"          : authCode };
+}
+
+- (void)dismissViewController
+{
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self dismissViewControllerAnimated:YES
+                                 completion:nil];
+    }
 }
 
 @end

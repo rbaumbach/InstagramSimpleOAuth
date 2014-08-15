@@ -2,18 +2,20 @@
 #import <Swizzlean/Swizzlean.h>
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
-#define HC_SHORTHAND
-#import <OCHamcrest/OCHamcrest.h>
-#define MOCKITO_SHORTHAND
-#import <OCMockito/OCMockito.h>
+#import <OCMock/OCMock.h>
+#import <AFNetworking/AFNetworking.h>
 #import "InstagramSimpleOAuthViewController.h"
 #import "NSLayoutConstraint+TestUtils.h"
 #import "UIAlertView+TestUtils.h"
+#import "FakeAFHTTPSessionManager.h"
+
+#define INSTAGRAM_AUTH_URL = @"https://api.instagram.com";
 
 
 @interface InstagramSimpleOAuthViewController ()
 
 @property (weak, nonatomic) IBOutlet UIWebView *instagramWebView;
+@property (strong, nonatomic) AFHTTPSessionManager *sessionManager;
 
 @end
 
@@ -69,6 +71,12 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         expect(conformsToWebViewDelegateProtocol).to.equal(YES);
     });
     
+    it(@"has an AFHTTPSessionManager", ^{
+        expect(controller.sessionManager).to.beInstanceOf([AFHTTPSessionManager class]);
+        expect(controller.sessionManager.baseURL).to.equal([NSURL URLWithString:@"https://api.instagram.com"]);
+        expect(controller.sessionManager.responseSerializer).to.beInstanceOf([AFJSONResponseSerializer class]);
+    });
+    
     describe(@"#viewDidAppear", ^{
         __block Swizzlean *superSwizz;
         __block BOOL isSuperCalled;
@@ -85,7 +93,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
             
             [controller view];
             
-            fakeWebView = mock([UIWebView class]);
+            fakeWebView = OCMClassMock([UIWebView class]);
             controller.instagramWebView = fakeWebView;
             
             [controller viewDidAppear:YES];
@@ -104,7 +112,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     NSURL *instagramLoginURL = [NSURL URLWithString:instagramLoginURLString];
                     NSURLRequest *instagramURLRequest = [NSURLRequest requestWithURL:instagramLoginURL];
                     
-                    [verify(controller.instagramWebView) loadRequest:instagramURLRequest];
+                    OCMVerify([fakeWebView loadRequest:instagramURLRequest]);
                 });
             });
         });
@@ -114,16 +122,71 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         describe(@"#webView:shouldStartLoadWithRequest:navigationType:", ^{
             __block BOOL shouldStartLoad;
             __block NSURLRequest *urlRequest;
-            
+            __block FakeAFHTTPSessionManager *fakeSessionManager;
+                
             context(@"request contains instagram callback URL as the URL Prefix with code param", ^{
                 beforeEach(^{
-                    NSString *callbackURLString = [NSString stringWithFormat:@"%@/?code=", controller.callbackURL];
+                    NSString *callbackURLString = [NSString stringWithFormat:@"%@/?code=%@", controller.callbackURL, @"authorization-Picard-four-seven-alpha-tango"];
                     NSURL *callbackURL = [NSURL URLWithString:callbackURLString];
                     urlRequest = [NSURLRequest requestWithURL:callbackURL];
                     
+                    fakeSessionManager = [[FakeAFHTTPSessionManager alloc] init];
+                    controller.sessionManager = fakeSessionManager;
                     shouldStartLoad = [controller webView:nil
                                shouldStartLoadWithRequest:urlRequest
                                            navigationType:UIWebViewNavigationTypeFormSubmitted];
+                });
+                
+                it(@"makes a POST call with the correct endpoint and parameters to Instagram", ^{
+                    expect(fakeSessionManager.postURLString).to.equal(@"/oauth/access_token/");
+                    expect(fakeSessionManager.parameters).to.equal(@{ @"client_id"     : controller.clientID,
+                                                                      @"client_secret" : controller.clientSecret,
+                                                                      @"grant_type"    : @"authorization_code",
+                                                                      @"redirect_uri"  : controller.callbackURL.absoluteString,
+                                                                      @"code"          : @"authorization-Picard-four-seven-alpha-tango" });
+                });
+                
+                context(@"successfully gets auth token from Instagram", ^{
+                    __block id partialMock;
+                    
+                    context(@"has a navigation controlller", ^{
+                        __block UINavigationController *navController;
+                        
+                        beforeEach(^{
+                            navController = [[UINavigationController alloc] initWithRootViewController:controller];
+                            partialMock = OCMPartialMock(controller.navigationController);
+                            
+                            if (fakeSessionManager.success) {
+                                fakeSessionManager.success(nil, @{ @"access_token" : @"12345IdiotLuggageCombo" });
+                            }
+                        });
+                        
+                        it(@"calls success with authToken", ^{
+                            expect(retAuthToken).to.equal(@"12345IdiotLuggageCombo");
+                        });
+                        
+                        it(@"pops itself off the navigation controller", ^{
+                            OCMVerify([partialMock popViewControllerAnimated:YES]);
+                        });
+                    });
+                    
+                    context(@"does NOT have a navigation controller", ^{
+                        beforeEach(^{
+                            partialMock = OCMPartialMock(controller);
+                            
+                            if (fakeSessionManager.success) {
+                                fakeSessionManager.success(nil, @{ @"access_token" : @"12345IdiotLuggageCombo" });
+                            }
+                        });
+                        
+                        it(@"calls success with authToken", ^{
+                            expect(retAuthToken).to.equal(@"12345IdiotLuggageCombo");
+                        });
+                        
+                        it(@"pops itself off the navigation controller", ^{
+                            OCMVerify([partialMock dismissViewControllerAnimated:YES completion:nil]);
+                        });
+                    });
                 });
                 
                 it(@"returns NO", ^{
