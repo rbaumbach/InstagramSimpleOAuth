@@ -11,11 +11,23 @@
                                                                       clientSecret:@"eb0f48287350402f862cf3a9b6e4aa1b"
                                                                        callbackURL:[NSURL URLWithString:@"http://honeypot.xyz"]
                                                                         completion:^(NSString *authToken) {
-                                                                            NSLog(@"================> Token From Instagram: %@", authToken);
+                                                                            [self displayToken:authToken];
                                                                         }];
     
     [self.navigationController pushViewController:viewController
                                          animated:YES];
+}
+
+#pragma mark - Private Method
+
+- (void)displayToken:(NSString *)authToken
+{
+    UIAlertView *tokenAlert = [[UIAlertView alloc] initWithTitle:@"Instagram Token"
+                                                         message:[NSString stringWithFormat:@"Your Token is: %@", authToken]
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil, nil];
+    [tokenAlert show];
 }
 
 @end

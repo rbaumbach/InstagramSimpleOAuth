@@ -35,7 +35,7 @@
     UIAlertView *tokenAlert = [[UIAlertView alloc] initWithTitle:@"Instagram Token"
                                                          message:[NSString stringWithFormat:@"Your Token is: %@", authToken]
                                                         delegate:nil
-                                               cancelButtonTitle:nil
+                                               cancelButtonTitle:@"OK"
                                                otherButtonTitles:nil, nil];
     [tokenAlert show];
 }
