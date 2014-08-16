@@ -78,15 +78,20 @@ NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
     return YES;
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
-    NSString *errorMessage = [NSString stringWithFormat:@"%@ - %@", error.domain, error.userInfo[@"NSLocalizedDescription"]];
-    
-    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Network Error"
-                                                         message:errorMessage
-                                                        delegate:nil
-                                               cancelButtonTitle:@"OK"
-                                               otherButtonTitles:nil];
-    [errorAlert show];
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    if (error.code != 102) {
+        NSString *errorMessage = [NSString stringWithFormat:@"%@ - %@", error.domain, error.userInfo[@"NSLocalizedDescription"]];
+        
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Load Request Error"
+                                                             message:errorMessage
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+        [errorAlert show];
+        
+        [self dismissViewController];
+    }
 }
 
 #pragma mark - Private Methods

@@ -208,20 +208,67 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         
         describe(@"#webView:didFailLoadWithError:", ^{
             __block NSError *error;
-            
-            beforeEach(^{
-                error = [NSError errorWithDomain:@"NSURLErrorDomain"
-                                            code:-1009
-                                        userInfo:@{ @"NSLocalizedDescription" : @"You have no internetz"}];
-                [controller webView:nil didFailLoadWithError:error];
+
+            context(@"error code 102 (WebKitErrorDomain)", ^{
+                beforeEach(^{
+                    error = [NSError errorWithDomain:@"LameWebKitErrorThatHappensForNoGoodReason"
+                                                code:102
+                                            userInfo:@{ @"NSLocalizedDescription" : @"WTF Error"}];
+                    
+                    [controller webView:nil didFailLoadWithError:error];
+                });
+                
+                it(@"does nothing", ^{
+                    UIAlertView *errorAlert = [UIAlertView currentAlertView];
+                    expect(errorAlert).to.equal(nil);
+                });
             });
             
-//            - (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id /*<UIAlertViewDelegate>*/)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
-            
-            it(@"displays a UIAlertView with proper error", ^{
-                UIAlertView *errorAlert = [UIAlertView currentAlertView];
-                expect(errorAlert.title).to.equal(@"Network Error");
-                expect(errorAlert.message).to.equal(@"NSURLErrorDomain - You have no internetz");
+            context(@"all other error codes", ^{
+                __block id partialMock;
+
+                beforeEach(^{
+                    error = [NSError errorWithDomain:@"NSURLBlowUpDomain"
+                                                code:42
+                                            userInfo:@{ @"NSLocalizedDescription" : @"You have no internetz"}];
+                });
+                
+                context(@"has a navigation controlller", ^{
+                    beforeEach(^{
+                        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+                        partialMock = OCMPartialMock(navigationController);
+                        
+                        [controller webView:nil didFailLoadWithError:error];
+                    });
+                    
+                    it(@"displays a UIAlertView with proper error", ^{
+                        UIAlertView *errorAlert = [UIAlertView currentAlertView];
+                        expect(errorAlert.title).to.equal(@"Load Request Error");
+                        expect(errorAlert.message).to.equal(@"NSURLBlowUpDomain - You have no internetz");
+                    });
+                    
+                    it(@"pops itself off the navigation controller", ^{
+                        OCMVerify([partialMock popViewControllerAnimated:YES]);
+                    });
+                });
+                
+                context(@"does NOT have a navigation controller", ^{
+                    beforeEach(^{
+                        partialMock = OCMPartialMock(controller);
+                        
+                        [controller webView:nil didFailLoadWithError:error];
+                    });
+                    
+                    it(@"displays a UIAlertView with proper error", ^{
+                        UIAlertView *errorAlert = [UIAlertView currentAlertView];
+                        expect(errorAlert.title).to.equal(@"Load Request Error");
+                        expect(errorAlert.message).to.equal(@"NSURLBlowUpDomain - You have no internetz");
+                    });
+                    
+                    it(@"pops itself off the navigation controller", ^{
+                        OCMVerify([partialMock dismissViewControllerAnimated:YES completion:nil]);
+                    });
+                });
             });
         });
     });
