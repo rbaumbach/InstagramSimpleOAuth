@@ -1,3 +1,8 @@
+#import <Specta/Specta.h>
+#import <Swizzlean/Swizzlean.h>
+#define EXP_SHORTHAND
+#import <Expecta/Expecta.h>
+#import <OCMock/OCMock.h>
 #import <AFNetworking/AFNetworking.h>
 #import "InstagramSimpleOAuthViewController.h"
 #import "NSLayoutConstraint+TestUtils.h"
@@ -7,7 +12,7 @@
 #define INSTAGRAM_AUTH_URL = @"https://api.instagram.com";
 
 
-@interface InstagramSimpleOAuthViewController ()
+@interface InstagramSimpleOAuthViewController () <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *instagramWebView;
 @property (strong, nonatomic) AFHTTPSessionManager *sessionManager;
@@ -145,11 +150,9 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     __block id partialMock;
                     
                     context(@"has a navigation controlller", ^{
-                        __block UINavigationController *navController;
-                        
                         beforeEach(^{
-                            navController = [[UINavigationController alloc] initWithRootViewController:controller];
-                            partialMock = OCMPartialMock(controller.navigationController);
+                            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+                            partialMock = OCMPartialMock(navigationController);
                             
                             if (fakeSessionManager.success) {
                                 fakeSessionManager.success(nil, @{ @"access_token" : @"12345IdiotLuggageCombo" });
@@ -200,6 +203,25 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                 it(@"returns YES", ^{
                     expect(shouldStartLoad).to.equal(YES);
                 });
+            });
+        });
+        
+        describe(@"#webView:didFailLoadWithError:", ^{
+            __block NSError *error;
+            
+            beforeEach(^{
+                error = [NSError errorWithDomain:@"NSURLErrorDomain"
+                                            code:-1009
+                                        userInfo:@{ @"NSLocalizedDescription" : @"You have no internetz"}];
+                [controller webView:nil didFailLoadWithError:error];
+            });
+            
+//            - (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id /*<UIAlertViewDelegate>*/)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
+            
+            it(@"displays a UIAlertView with proper error", ^{
+                UIAlertView *errorAlert = [UIAlertView currentAlertView];
+                expect(errorAlert.title).to.equal(@"Network Error");
+                expect(errorAlert.message).to.equal(@"NSURLErrorDomain - You have no internetz");
             });
         });
     });

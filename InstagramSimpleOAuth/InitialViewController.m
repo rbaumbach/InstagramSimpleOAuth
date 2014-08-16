@@ -2,7 +2,10 @@
 #import "InstagramSimpleOAuthViewController.h"
 #import "JustAViewController.h"
 
+
 @implementation InitialViewController
+
+#pragma mark - IBActions
 
 - (IBAction)presentInstagramVCTapped:(id)sender
 {

@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>9A575956-033C-4393-98CB-1B708E235496</string>
+	<string>E6E7C25E-A6EC-4A39-868D-6457A2D456D7</string>
 	<key>IDESourceControlProjectName</key>
 	<string>InstagramSimpleOAuth</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>B3D1EC0E-A60C-48E0-811E-1BB13DCFF296</key>
+		<key>C6E32B21-ECD2-4641-9282-CB2B13337F47</key>
 		<string>ssh://github.com/rbaumbach/InstagramSimpleOAuth.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>InstagramSimpleOAuth.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>B3D1EC0E-A60C-48E0-811E-1BB13DCFF296</key>
+		<key>C6E32B21-ECD2-4641-9282-CB2B13337F47</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B3D1EC0E-A60C-48E0-811E-1BB13DCFF296</string>
+	<string>C6E32B21-ECD2-4641-9282-CB2B13337F47</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B3D1EC0E-A60C-48E0-811E-1BB13DCFF296</string>
+			<string>C6E32B21-ECD2-4641-9282-CB2B13337F47</string>
 			<key>IDESourceControlWCCName</key>
 			<string>InstagramSimpleOAuth</string>
 		</dict>

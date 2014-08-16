@@ -1,10 +1,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface InstagramSimpleOAuthViewController : UIViewController <UIWebViewDelegate>
+@interface InstagramSimpleOAuthViewController : UIViewController
 
-@property (strong, nonatomic) NSString *clientID;
-@property (strong, nonatomic) NSString *clientSecret;
+@property (copy, nonatomic) NSString *clientID;
+@property (copy, nonatomic) NSString *clientSecret;
 @property (strong, nonatomic) NSURL *callbackURL;
 @property (copy, nonatomic) void (^completion)(NSString *authToken);
 

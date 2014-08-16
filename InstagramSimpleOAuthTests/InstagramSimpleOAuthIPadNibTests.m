@@ -1,9 +1,9 @@
 #import <Specta/Specta.h>
-#import <Swizzlean/Swizzlean.h>
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
 #import "InstagramSimpleOAuthViewController.h"
 #import "NSLayoutConstraint+TestUtils.h"
+
 
 SpecBegin(InstagramSimpleOAuthIPadNibTests)
 

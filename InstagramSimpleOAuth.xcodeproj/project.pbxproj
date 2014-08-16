@@ -80,7 +80,6 @@
 		AF407E651993BFA700F61872 /* InstagramSimpleOAuthViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramSimpleOAuthViewControllerTests.m; sourceTree = "<group>"; };
 		AF466FD519987F6C00CA2827 /* NSLayoutConstraint+TestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+TestUtils.h"; sourceTree = "<group>"; };
 		AF466FD619987F6C00CA2827 /* NSLayoutConstraint+TestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+TestUtils.m"; sourceTree = "<group>"; };
-		AF5B37BA199DC1EC003C1E06 /* InstagramSimpleOAuthTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "InstagramSimpleOAuthTests-Prefix.pch"; sourceTree = "<group>"; };
 		AF753F551993C37F007C8B1B /* InstagramSimpleOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstagramSimpleOAuthViewController.h; path = Source/InstagramSimpleOAuthViewController.h; sourceTree = "<group>"; };
 		AF753F561993C37F007C8B1B /* InstagramSimpleOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstagramSimpleOAuthViewController.m; path = Source/InstagramSimpleOAuthViewController.m; sourceTree = "<group>"; };
 		AFC2982B199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "InstagramSimpleOAuthViewController~ipad.xib"; path = "Source/InstagramSimpleOAuthViewController~ipad.xib"; sourceTree = "<group>"; };
@@ -194,7 +193,6 @@
 		AF407E601993BFA700F61872 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AF5B37BA199DC1EC003C1E06 /* InstagramSimpleOAuthTests-Prefix.pch */,
 				AF407E611993BFA700F61872 /* InstagramSimpleOAuthTests-Info.plist */,
 				AF407E621993BFA700F61872 /* InfoPlist.strings */,
 			);
@@ -575,7 +573,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "InstagramSimpleOAuthTests/InstagramSimpleOAuthTests-Prefix.pch";
+				GCC_PREFIX_HEADER = "InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -598,7 +596,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "InstagramSimpleOAuthTests/InstagramSimpleOAuthTests-Prefix.pch";
+				GCC_PREFIX_HEADER = "InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch";
 				INFOPLIST_FILE = "InstagramSimpleOAuthTests/InstagramSimpleOAuthTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";

@@ -9,7 +9,7 @@ NSString *const INSTAGRAM_AUTH_RESPONSE_TYPE_PARAMS = @"&response_type=code";
 NSString *const INSTAGRAM_AUTH_CODE_PARAM = @"/?code=";
 NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
 
-@interface InstagramSimpleOAuthViewController ()
+@interface InstagramSimpleOAuthViewController () <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *instagramWebView;
 @property (strong, nonatomic) AFHTTPSessionManager *sessionManager;
@@ -76,6 +76,17 @@ NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
     }
     
     return YES;
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    NSString *errorMessage = [NSString stringWithFormat:@"%@ - %@", error.domain, error.userInfo[@"NSLocalizedDescription"]];
+    
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Network Error"
+                                                         message:errorMessage
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+    [errorAlert show];
 }
 
 #pragma mark - Private Methods

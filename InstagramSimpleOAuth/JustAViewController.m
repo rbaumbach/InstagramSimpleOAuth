@@ -4,6 +4,8 @@
 
 @implementation JustAViewController
 
+#pragma mark - IBActions
+
 - (IBAction)pushInstagramVCOnNavStackTapped:(id)sender
 {
     InstagramSimpleOAuthViewController
