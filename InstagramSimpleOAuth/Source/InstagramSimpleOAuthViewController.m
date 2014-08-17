@@ -81,14 +81,7 @@ NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     if (error.code != 102) {
-        NSString *errorMessage = [NSString stringWithFormat:@"%@ - %@", error.domain, error.userInfo[@"NSLocalizedDescription"]];
-        
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Load Request Error"
-                                                             message:errorMessage
-                                                            delegate:nil
-                                                   cancelButtonTitle:@"OK"
-                                                   otherButtonTitles:nil];
-        [errorAlert show];
+        [self showErrorAlert:error];
         
         [self dismissViewController];
     }
@@ -109,6 +102,18 @@ NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
     NSURL *fullInstagramLoginURL = [NSURL URLWithString:fullInstagramLoginURLString];
     NSURLRequest *fullInstagramLoginRequest = [NSURLRequest requestWithURL:fullInstagramLoginURL];
     [self.instagramWebView loadRequest:fullInstagramLoginRequest];
+}
+
+- (void)showErrorAlert:(NSError *)error
+{
+    NSString *errorMessage = [NSString stringWithFormat:@"%@ - %@", error.domain, error.userInfo[@"NSLocalizedDescription"]];
+    
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Load Request Error"
+                                                         message:errorMessage
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+    [errorAlert show];
 }
 
 - (NSDictionary *)instagramTokenParams:(NSString *)authCode
