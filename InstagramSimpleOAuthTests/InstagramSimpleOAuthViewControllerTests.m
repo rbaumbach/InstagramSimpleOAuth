@@ -159,7 +159,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                             }
                         });
                         
-                        it(@"calls success with authToken", ^{
+                        it(@"calls completion with authToken", ^{
                             expect(retAuthToken).to.equal(@"12345IdiotLuggageCombo");
                         });
                         
@@ -177,8 +177,49 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                             }
                         });
                         
-                        it(@"calls success with authToken", ^{
+                        it(@"calls completion with authToken", ^{
                             expect(retAuthToken).to.equal(@"12345IdiotLuggageCombo");
+                        });
+                        
+                        it(@"pops itself off the navigation controller", ^{
+                            OCMVerify([partialMock dismissViewControllerAnimated:YES completion:nil]);
+                        });
+                    });
+                });
+                
+                context(@"failure while attempting to get auth token from Instagram", ^{
+                    __block id partialMock;
+                    
+                    context(@"has a navigation controlller", ^{
+                        beforeEach(^{
+                            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+                            partialMock = OCMPartialMock(navigationController);
+                            
+                            if (fakeSessionManager.failure) {
+                                fakeSessionManager.failure(nil, [[NSError alloc] init]);
+                            }
+                        });
+                        
+                        it(@"calls completion with nil token", ^{
+                            expect(retAuthToken).to.equal(nil);
+                        });
+                        
+                        it(@"pops itself off the navigation controller", ^{
+                            OCMVerify([partialMock popViewControllerAnimated:YES]);
+                        });
+                    });
+                    
+                    context(@"does NOT have a navigation controller", ^{
+                        beforeEach(^{
+                            partialMock = OCMPartialMock(controller);
+                            
+                            if (fakeSessionManager.failure) {
+                                fakeSessionManager.failure(nil, [[NSError alloc] init]);
+                            }
+                        });
+                        
+                        it(@"calls success with nil token", ^{
+                            expect(retAuthToken).to.equal(nil);
                         });
                         
                         it(@"pops itself off the navigation controller", ^{

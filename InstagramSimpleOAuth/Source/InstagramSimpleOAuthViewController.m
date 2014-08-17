@@ -70,8 +70,12 @@ NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
                          self.completion(responseObject[@"access_token"]);
                          
                          [self dismissViewController];
-                     } failure:nil];
-        
+                     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                         self.completion(nil);
+                         
+                         [self dismissViewController];
+                     }];
+
         return NO;
     }
     
