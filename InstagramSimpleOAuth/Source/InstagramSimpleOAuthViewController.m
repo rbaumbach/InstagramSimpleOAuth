@@ -1,5 +1,6 @@
 #import <AFNetworking/AFNetworking.h>
 #import "InstagramSimpleOAuthViewController.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 
 NSString *const INSTAGRAM_AUTH_URL = @"https://api.instagram.com";
@@ -8,6 +9,7 @@ NSString *const INSTAGRAM_AUTH_REDIRECT_PARAMS = @"&client=touch&redirect_uri=";
 NSString *const INSTAGRAM_AUTH_RESPONSE_TYPE_PARAMS = @"&response_type=code";
 NSString *const INSTAGRAM_AUTH_CODE_PARAM = @"/?code=";
 NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
+NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
 
 @interface InstagramSimpleOAuthViewController () <UIWebViewDelegate>
 
@@ -23,7 +25,7 @@ NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
 - (instancetype)initWithClientID:(NSString *)clientID
                     clientSecret:(NSString *)clientSecret
                      callbackURL:(NSURL *)callbackURL
-                      completion:(void (^)(NSString *authToken))completion
+                      completion:(void (^)(NSString *authToken, NSError *error))completion
 {
     self = [super init];
     if (self) {
@@ -50,7 +52,6 @@ NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
     [self loadInstagramLogin];
 }
 
@@ -58,22 +59,20 @@ NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 {
+    [self showProgressHUD];
+    
     NSString *requestURLString = request.URL.absoluteString;
     NSString *expectedInstagramCallbackPrefix = [NSString stringWithFormat:@"%@%@", self.callbackURL.absoluteString, INSTAGRAM_AUTH_CODE_PARAM];
     
     if ([requestURLString hasPrefix:expectedInstagramCallbackPrefix]) {
         NSString *instagramAuthCode = [requestURLString substringFromIndex:[expectedInstagramCallbackPrefix length]];
-
+        
         [self.sessionManager POST:INSTAGRAM_AUTH_TOKEN_ENDPOINT
                   parameters:[self instagramTokenParams:instagramAuthCode]
                      success:^(NSURLSessionDataTask *task, id responseObject) {
-                         self.completion(responseObject[@"access_token"]);
-                         
-                         [self dismissViewController];
+                         [self completeAuthWithToken:responseObject[INSTAGRAM_AUTH_ACCESS_TOKEN_KEY]];
                      } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                         self.completion(nil);
-                         
-                         [self dismissViewController];
+                         [self completeWithError:error];
                      }];
 
         return NO;
@@ -82,13 +81,20 @@ NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
     return YES;
 }
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self hideProgressHUD];
+}
+
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     if (error.code != 102) {
+        [self completeWithError:error];
         [self showErrorAlert:error];
-        
         [self dismissViewController];
     }
+    
+    [self hideProgressHUD];
 }
 
 #pragma mark - Private Methods
@@ -108,6 +114,39 @@ NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
     [self.instagramWebView loadRequest:fullInstagramLoginRequest];
 }
 
+- (NSDictionary *)instagramTokenParams:(NSString *)authCode
+{
+    return @{ @"client_id"     : self.clientID,
+              @"client_secret" : self.clientSecret,
+              @"grant_type"    : @"authorization_code",
+              @"redirect_uri"  : self.callbackURL.absoluteString,
+              @"code"          : authCode };
+}
+
+- (void)completeAuthWithToken:(NSString *)authToken
+{
+    self.completion(authToken, nil);
+    [self dismissViewController];
+    [self hideProgressHUD];
+}
+
+- (void)completeWithError:(NSError *)error
+{
+    self.completion(nil, error);
+    [self dismissViewController];
+    [self hideProgressHUD];
+}
+
+- (void)dismissViewController
+{
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self dismissViewControllerAnimated:YES
+                                 completion:nil];
+    }
+}
+
 - (void)showErrorAlert:(NSError *)error
 {
     NSString *errorMessage = [NSString stringWithFormat:@"%@ - %@", error.domain, error.userInfo[@"NSLocalizedDescription"]];
@@ -120,23 +159,16 @@ NSString *const INSTAGRAM_AUTH_TOKEN_ENDPOINT = @"/oauth/access_token/";
     [errorAlert show];
 }
 
-- (NSDictionary *)instagramTokenParams:(NSString *)authCode
+- (void)showProgressHUD
 {
-    return @{ @"client_id"     : self.clientID,
-              @"client_secret" : self.clientSecret,
-              @"grant_type"    : @"authorization_code",
-              @"redirect_uri"  : self.callbackURL.absoluteString,
-              @"code"          : authCode };
+    [MBProgressHUD showHUDAddedTo:self.view
+                         animated:YES];
 }
 
-- (void)dismissViewController
+- (void)hideProgressHUD
 {
-    if (self.navigationController) {
-        [self.navigationController popViewControllerAnimated:YES];
-    } else {
-        [self dismissViewControllerAnimated:YES
-                                 completion:nil];
-    }
+    [MBProgressHUD hideHUDForView:self.view
+                         animated:YES];
 }
 
 @end

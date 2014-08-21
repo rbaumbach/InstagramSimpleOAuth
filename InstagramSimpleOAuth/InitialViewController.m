@@ -13,8 +13,10 @@
     *viewController = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"d34a41b0195f4f50b829a278b9b534ee"
                                                                       clientSecret:@"eb0f48287350402f862cf3a9b6e4aa1b"
                                                                        callbackURL:[NSURL URLWithString:@"http://honeypot.xyz"]
-                                                                        completion:^(NSString *authToken) {
-                                                                            [self displayToken:authToken];
+                                                                        completion:^(NSString *authToken, NSError *error) {
+                                                                            if (authToken) {
+                                                                                [self displayToken:authToken];
+                                                                            }
                                                                         }];
     
     [self presentViewController:viewController

@@ -21,6 +21,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Expecta (0.2.4)
+  - MBProgressHUD (0.9)
   - OCMock (3.0.2)
   - Specta (0.2.1)
   - Swizzlean (0.2.0)
@@ -28,6 +29,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - Expecta (~> 0.2.4)
+  - MBProgressHUD (~> 0.9)
   - OCMock (~> 3.0.2)
   - Specta (~> 0.2.1)
   - Swizzlean (= 0.2.0)
@@ -35,6 +37,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   Expecta: 112bcafa2304ee0f3c5e586505f24555a47b25d5
+  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   OCMock: b9836ab89d8d5e66cbe6333f93857037c310ee62
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
   Swizzlean: dc03ad1d847a3748f456982b7ede4e3bad4a9630

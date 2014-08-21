@@ -4,6 +4,7 @@
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
 #import <AFNetworking/AFNetworking.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 #import "InstagramSimpleOAuthViewController.h"
 #import "NSLayoutConstraint+TestUtils.h"
 #import "UIAlertView+TestUtils.h"
@@ -25,14 +26,16 @@ describe(@"InstagramSimpleOAuthViewController", ^{
     __block InstagramSimpleOAuthViewController *controller;
     __block NSURL *callbackURL;
     __block NSString *retAuthToken;
+    __block NSError *retError;
     
     beforeEach(^{
         callbackURL = [NSURL URLWithString:@"http://swizzlean.com"];
         controller = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"fancyID"
                                                                      clientSecret:@"12345"
                                                                       callbackURL:callbackURL
-                                                                       completion:^(NSString *authToken) {
+                                                                       completion:^(NSString *authToken, NSError *error) {
                                                                            retAuthToken = authToken;
+                                                                           retError = error;
                                                                        }];
     });
     
@@ -120,9 +123,14 @@ describe(@"InstagramSimpleOAuthViewController", ^{
     
     describe(@"<UIWebViewDelegate>", ^{
         describe(@"#webView:shouldStartLoadWithRequest:navigationType:", ^{
+            __block id hudClassMethodMock;
             __block BOOL shouldStartLoad;
             __block NSURLRequest *urlRequest;
             __block FakeAFHTTPSessionManager *fakeSessionManager;
+            
+            beforeEach(^{
+                hudClassMethodMock = OCMClassMock([MBProgressHUD class]);
+            });
                 
             context(@"request contains instagram callback URL as the URL Prefix with code param", ^{
                 beforeEach(^{
@@ -135,6 +143,10 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     shouldStartLoad = [controller webView:nil
                                shouldStartLoadWithRequest:urlRequest
                                            navigationType:UIWebViewNavigationTypeFormSubmitted];
+                });
+                
+                it(@"displays Progress HUD", ^{
+                    OCMVerify([hudClassMethodMock showHUDAddedTo:controller.view animated:YES]);
                 });
                 
                 it(@"makes a POST call with the correct endpoint and parameters to Instagram", ^{
@@ -166,6 +178,11 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         it(@"pops itself off the navigation controller", ^{
                             OCMVerify([partialMock popViewControllerAnimated:YES]);
                         });
+                        
+                        it(@"removes the progress HUD", ^{
+                            OCMVerify([hudClassMethodMock hideHUDForView:controller.view
+                                                                animated:YES]);
+                        });
                     });
                     
                     context(@"does NOT have a navigation controller", ^{
@@ -184,11 +201,21 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         it(@"pops itself off the navigation controller", ^{
                             OCMVerify([partialMock dismissViewControllerAnimated:YES completion:nil]);
                         });
+                        
+                        it(@"removes the progress HUD", ^{
+                            OCMVerify([hudClassMethodMock hideHUDForView:controller.view
+                                                                animated:YES]);
+                        });
                     });
                 });
                 
                 context(@"failure while attempting to get auth token from Instagram", ^{
                     __block id partialMock;
+                    __block NSError *bogusError;
+                    
+                    beforeEach(^{
+                        bogusError = [[NSError alloc] initWithDomain:@"bogusDomain" code:177 userInfo:nil];
+                    });
                     
                     context(@"has a navigation controlller", ^{
                         beforeEach(^{
@@ -196,7 +223,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                             partialMock = OCMPartialMock(navigationController);
                             
                             if (fakeSessionManager.failure) {
-                                fakeSessionManager.failure(nil, [[NSError alloc] init]);
+                                fakeSessionManager.failure(nil, bogusError);
                             }
                         });
                         
@@ -204,8 +231,17 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                             expect(retAuthToken).to.equal(nil);
                         });
                         
+                        it(@"calls completion with AFNetworking error", ^{
+                            expect(retError).to.equal(bogusError);
+                        });
+                        
                         it(@"pops itself off the navigation controller", ^{
                             OCMVerify([partialMock popViewControllerAnimated:YES]);
+                        });
+                        
+                        it(@"removes the progress HUD", ^{
+                            OCMVerify([hudClassMethodMock hideHUDForView:controller.view
+                                                                animated:YES]);
                         });
                     });
                     
@@ -214,16 +250,25 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                             partialMock = OCMPartialMock(controller);
                             
                             if (fakeSessionManager.failure) {
-                                fakeSessionManager.failure(nil, [[NSError alloc] init]);
+                                fakeSessionManager.failure(nil, bogusError);
                             }
                         });
                         
                         it(@"calls success with nil token", ^{
                             expect(retAuthToken).to.equal(nil);
                         });
+
+                        it(@"calls completion with AFNetworking error", ^{
+                            expect(retError).to.equal(bogusError);
+                        });
                         
-                        it(@"pops itself off the navigation controller", ^{
+                        it(@"pops itself off the view controller", ^{
                             OCMVerify([partialMock dismissViewControllerAnimated:YES completion:nil]);
+                        });
+                        
+                        it(@"removes the progress HUD", ^{
+                            OCMVerify([hudClassMethodMock hideHUDForView:controller.view
+                                                                animated:YES]);
                         });
                     });
                 });
@@ -241,27 +286,55 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                                            navigationType:UIWebViewNavigationTypeFormSubmitted];
                 });
                 
+                it(@"displays Progress HUD", ^{
+                    OCMVerify([hudClassMethodMock showHUDAddedTo:controller.view animated:YES]);
+                });
+                
                 it(@"returns YES", ^{
                     expect(shouldStartLoad).to.equal(YES);
                 });
             });
         });
         
+        describe(@"#webViewDidFinishLoad:", ^{
+            __block id hudClassMethodMock;
+            
+            beforeEach(^{
+                hudClassMethodMock = OCMClassMock([MBProgressHUD class]);
+                [controller webViewDidFinishLoad:nil];
+            });
+            
+            it(@"removes the progress HUD", ^{
+                OCMVerify([hudClassMethodMock hideHUDForView:controller.view
+                                                    animated:YES]);
+            });
+        });
+        
         describe(@"#webView:didFailLoadWithError:", ^{
-            __block NSError *error;
+            __block id hudClassMethodMock;
+            __block NSError *bogusRequestError;
+            
+            beforeEach(^{
+                hudClassMethodMock = OCMClassMock([MBProgressHUD class]);
+            });
 
             context(@"error code 102 (WebKitErrorDomain)", ^{
                 beforeEach(^{
-                    error = [NSError errorWithDomain:@"LameWebKitErrorThatHappensForNoGoodReason"
-                                                code:102
-                                            userInfo:@{ @"NSLocalizedDescription" : @"WTF Error"}];
+                    bogusRequestError = [NSError errorWithDomain:@"LameWebKitErrorThatHappensForNoGoodReason"
+                                                            code:102
+                                                        userInfo:@{ @"NSLocalizedDescription" : @"WTF Error"}];
                     
-                    [controller webView:nil didFailLoadWithError:error];
+                    [controller webView:nil didFailLoadWithError:bogusRequestError];
                 });
                 
-                it(@"does nothing", ^{
+                it(@"does not display alert view for the error", ^{
                     UIAlertView *errorAlert = [UIAlertView currentAlertView];
                     expect(errorAlert).to.equal(nil);
+                });
+                
+                it(@"removes the progress HUD", ^{
+                    OCMVerify([hudClassMethodMock hideHUDForView:controller.view
+                                                        animated:YES]);
                 });
             });
             
@@ -269,9 +342,9 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                 __block id partialMock;
 
                 beforeEach(^{
-                    error = [NSError errorWithDomain:@"NSURLBlowUpDomain"
-                                                code:42
-                                            userInfo:@{ @"NSLocalizedDescription" : @"You have no internetz"}];
+                    bogusRequestError = [NSError errorWithDomain:@"NSURLBlowUpDomain"
+                                                            code:42
+                                                        userInfo:@{ @"NSLocalizedDescription" : @"You have no internetz"}];
                 });
                 
                 context(@"has a navigation controlller", ^{
@@ -279,7 +352,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
                         partialMock = OCMPartialMock(navigationController);
                         
-                        [controller webView:nil didFailLoadWithError:error];
+                        [controller webView:nil didFailLoadWithError:bogusRequestError];
                     });
                     
                     it(@"displays a UIAlertView with proper error", ^{
@@ -288,8 +361,21 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         expect(errorAlert.message).to.equal(@"NSURLBlowUpDomain - You have no internetz");
                     });
                     
+                    it(@"calls completion with nil token", ^{
+                        expect(retAuthToken).to.equal(nil);
+                    });
+                    
+                    it(@"calls completion with request error", ^{
+                        expect(retError).to.equal(bogusRequestError);
+                    });
+                    
                     it(@"pops itself off the navigation controller", ^{
                         OCMVerify([partialMock popViewControllerAnimated:YES]);
+                    });
+                    
+                    it(@"removes the progress HUD", ^{
+                        OCMVerify([hudClassMethodMock hideHUDForView:controller.view
+                                                            animated:YES]);
                     });
                 });
                 
@@ -297,7 +383,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     beforeEach(^{
                         partialMock = OCMPartialMock(controller);
                         
-                        [controller webView:nil didFailLoadWithError:error];
+                        [controller webView:nil didFailLoadWithError:bogusRequestError];
                     });
                     
                     it(@"displays a UIAlertView with proper error", ^{
@@ -306,8 +392,21 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         expect(errorAlert.message).to.equal(@"NSURLBlowUpDomain - You have no internetz");
                     });
                     
-                    it(@"pops itself off the navigation controller", ^{
+                    it(@"calls completion with nil token", ^{
+                        expect(retAuthToken).to.equal(nil);
+                    });
+                    
+                    it(@"calls completion with request error", ^{
+                        expect(retError).to.equal(bogusRequestError);
+                    });
+                    
+                    it(@"pops itself off the view controller", ^{
                         OCMVerify([partialMock dismissViewControllerAnimated:YES completion:nil]);
+                    });
+                    
+                    it(@"removes the progress HUD", ^{
+                        OCMVerify([hudClassMethodMock hideHUDForView:controller.view
+                                                            animated:YES]);
                     });
                 });
             });

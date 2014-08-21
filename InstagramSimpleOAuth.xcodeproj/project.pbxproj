@@ -51,8 +51,8 @@
 /* Begin PBXFileReference section */
 		2959CA7CCFD9407B921515F0 /* libPods-InstagramSimpleOAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramSimpleOAuth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC8ACE4BF7D4C44B27FEF60 /* libPods-InstagramSimpleOAuthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramSimpleOAuthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A2BB2D6F4ED43788D682E11 /* Pods-InstagramSimpleOAuthTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuthTests.xcconfig"; path = "Pods/Pods-InstagramSimpleOAuthTests.xcconfig"; sourceTree = "<group>"; };
-		9AFAC9FF7A4549D5A6595EE4 /* Pods-InstagramSimpleOAuth.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuth.xcconfig"; path = "Pods/Pods-InstagramSimpleOAuth.xcconfig"; sourceTree = "<group>"; };
+		9A2BB2D6F4ED43788D682E11 /* Pods-InstagramSimpleOAuthTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuthTests.xcconfig"; path = "../Pods/Pods-InstagramSimpleOAuthTests.xcconfig"; sourceTree = "<group>"; };
+		9AFAC9FF7A4549D5A6595EE4 /* Pods-InstagramSimpleOAuth.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuth.xcconfig"; path = "../Pods/Pods-InstagramSimpleOAuth.xcconfig"; sourceTree = "<group>"; };
 		AF026535199A971C001CA450 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
 		AF026536199A971C001CA450 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		AF026537199A971C001CA450 /* InitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialViewController.xib; sourceTree = "<group>"; };
@@ -131,8 +131,6 @@
 				AF407E5F1993BFA700F61872 /* InstagramSimpleOAuthTests */,
 				AF407E361993BFA700F61872 /* Frameworks */,
 				AF407E351993BFA700F61872 /* Products */,
-				9A2BB2D6F4ED43788D682E11 /* Pods-InstagramSimpleOAuthTests.xcconfig */,
-				9AFAC9FF7A4549D5A6595EE4 /* Pods-InstagramSimpleOAuth.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,6 +193,8 @@
 			children = (
 				AF407E611993BFA700F61872 /* InstagramSimpleOAuthTests-Info.plist */,
 				AF407E621993BFA700F61872 /* InfoPlist.strings */,
+				9A2BB2D6F4ED43788D682E11 /* Pods-InstagramSimpleOAuthTests.xcconfig */,
+				9AFAC9FF7A4549D5A6595EE4 /* Pods-InstagramSimpleOAuth.xcconfig */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
