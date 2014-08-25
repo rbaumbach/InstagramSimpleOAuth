@@ -33,6 +33,7 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
         self.clientSecret = clientSecret;
         self.callbackURL = callbackURL;
         self.completion = completion;
+        self.shouldShowErrorAlert = YES;
         self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:INSTAGRAM_AUTH_URL]];
         self.sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
     }
@@ -90,7 +91,11 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
 {
     if (error.code != 102) {
         [self completeWithError:error];
-        [self showErrorAlert:error];
+        
+        if (self.shouldShowErrorAlert) {
+            [self showErrorAlert:error];
+        }
+        
         [self dismissViewController];
     }
     
@@ -126,6 +131,7 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
 - (void)completeAuthWithToken:(NSString *)authToken
 {
     self.completion(authToken, nil);
+    
     [self dismissViewController];
     [self hideProgressHUD];
 }
@@ -133,6 +139,11 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
 - (void)completeWithError:(NSError *)error
 {
     self.completion(nil, error);
+    
+    if (self.shouldShowErrorAlert) {
+        [self showErrorAlert:error];
+    }
+    
     [self dismissViewController];
     [self hideProgressHUD];
 }
@@ -151,7 +162,7 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
 {
     NSString *errorMessage = [NSString stringWithFormat:@"%@ - %@", error.domain, error.userInfo[@"NSLocalizedDescription"]];
     
-    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Load Request Error"
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Instagram Login Error"
                                                          message:errorMessage
                                                         delegate:nil
                                                cancelButtonTitle:@"OK"

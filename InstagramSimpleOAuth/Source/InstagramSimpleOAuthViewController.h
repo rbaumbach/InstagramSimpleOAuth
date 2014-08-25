@@ -7,6 +7,7 @@
 @property (copy, nonatomic) NSString *clientSecret;
 @property (strong, nonatomic) NSURL *callbackURL;
 @property (copy, nonatomic) void (^completion)(NSString *authToken, NSError *error);
+@property (nonatomic) BOOL shouldShowErrorAlert;
 
 - (instancetype)initWithClientID:(NSString *)clientID
                     clientSecret:(NSString *)clientSecret

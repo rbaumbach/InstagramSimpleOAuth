@@ -69,6 +69,10 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         expect(hasCompletionBlock).to.equal(YES);
     });
     
+    it(@"has shouldShowErrorAlert flag that defaults to YES", ^{
+        expect(controller.shouldShowErrorAlert).to.equal(YES);
+    });
+    
     it(@"conforms to <UIWebViewDelegate>", ^{
         BOOL conformsToWebViewDelegateProtocol = [controller conformsToProtocol:@protocol(UIWebViewDelegate)];
         expect(conformsToWebViewDelegateProtocol).to.equal(YES);
@@ -214,7 +218,32 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     __block NSError *bogusError;
                     
                     beforeEach(^{
-                        bogusError = [[NSError alloc] initWithDomain:@"bogusDomain" code:177 userInfo:nil];
+                        bogusError = [[NSError alloc] initWithDomain:@"bogusDomain" code:177 userInfo:@{ @"NSLocalizedDescription" : @"boooogussss"}];
+                    });
+                    
+                    context(@"shouldShowErrorAlert == YES", ^{
+                        beforeEach(^{
+                            controller.shouldShowErrorAlert = YES;
+                            [controller webView:nil didFailLoadWithError:bogusError];
+                        });
+                        
+                        it(@"displays a UIAlertView with proper error", ^{
+                            UIAlertView *errorAlert = [UIAlertView currentAlertView];
+                            expect(errorAlert.title).to.equal(@"Instagram Login Error");
+                            expect(errorAlert.message).to.equal(@"bogusDomain - boooogussss");
+                        });
+                    });
+                    
+                    context(@"shouldShowErrorAlert == NO", ^{
+                        beforeEach(^{
+                            controller.shouldShowErrorAlert = NO;
+                            [controller webView:nil didFailLoadWithError:bogusError];
+                        });
+                        
+                        it(@"does not display alert view for the error", ^{
+                            UIAlertView *errorAlert = [UIAlertView currentAlertView];
+                            expect(errorAlert).to.equal(nil);
+                        });
                     });
                     
                     context(@"has a navigation controlller", ^{
@@ -254,7 +283,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                             }
                         });
                         
-                        it(@"calls success with nil token", ^{
+                        it(@"calls completion with nil token", ^{
                             expect(retAuthToken).to.equal(nil);
                         });
 
@@ -347,18 +376,37 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                                                         userInfo:@{ @"NSLocalizedDescription" : @"You have no internetz"}];
                 });
                 
+                context(@"shouldShowErrorAlert == YES", ^{
+                    beforeEach(^{
+                        controller.shouldShowErrorAlert = YES;
+                        [controller webView:nil didFailLoadWithError:bogusRequestError];
+                    });
+                    
+                    it(@"displays a UIAlertView with proper error", ^{
+                        UIAlertView *errorAlert = [UIAlertView currentAlertView];
+                        expect(errorAlert.title).to.equal(@"Instagram Login Error");
+                        expect(errorAlert.message).to.equal(@"NSURLBlowUpDomain - You have no internetz");
+                    });
+                });
+                
+                context(@"shouldShowErrorAlert == NO", ^{
+                    beforeEach(^{
+                        controller.shouldShowErrorAlert = NO;
+                        [controller webView:nil didFailLoadWithError:bogusRequestError];
+                    });
+                    
+                    it(@"does not display alert view for the error", ^{
+                        UIAlertView *errorAlert = [UIAlertView currentAlertView];
+                        expect(errorAlert).to.equal(nil);
+                    });
+                });
+                
                 context(@"has a navigation controlller", ^{
                     beforeEach(^{
                         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
                         partialMock = OCMPartialMock(navigationController);
                         
                         [controller webView:nil didFailLoadWithError:bogusRequestError];
-                    });
-                    
-                    it(@"displays a UIAlertView with proper error", ^{
-                        UIAlertView *errorAlert = [UIAlertView currentAlertView];
-                        expect(errorAlert.title).to.equal(@"Load Request Error");
-                        expect(errorAlert.message).to.equal(@"NSURLBlowUpDomain - You have no internetz");
                     });
                     
                     it(@"calls completion with nil token", ^{
@@ -384,12 +432,6 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         partialMock = OCMPartialMock(controller);
                         
                         [controller webView:nil didFailLoadWithError:bogusRequestError];
-                    });
-                    
-                    it(@"displays a UIAlertView with proper error", ^{
-                        UIAlertView *errorAlert = [UIAlertView currentAlertView];
-                        expect(errorAlert.title).to.equal(@"Load Request Error");
-                        expect(errorAlert.message).to.equal(@"NSURLBlowUpDomain - You have no internetz");
                     });
                     
                     it(@"calls completion with nil token", ^{
