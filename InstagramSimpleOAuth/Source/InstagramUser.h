@@ -7,4 +7,6 @@
 @property (copy, nonatomic) NSString *fullName;
 @property (strong, nonatomic) NSURL *profilePictureURL;
 
+- (instancetype)initWithUserResponse:(NSDictionary *)userResponse;
+
 @end

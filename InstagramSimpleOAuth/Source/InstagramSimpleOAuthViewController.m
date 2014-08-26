@@ -1,6 +1,7 @@
 #import <AFNetworking/AFNetworking.h>
-#import "InstagramSimpleOAuthViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "InstagramSimpleOAuthViewController.h"
+#import "InstagramLoginResponse.h"
 
 
 NSString *const INSTAGRAM_AUTH_URL = @"https://api.instagram.com";
@@ -25,7 +26,7 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
 - (instancetype)initWithClientID:(NSString *)clientID
                     clientSecret:(NSString *)clientSecret
                      callbackURL:(NSURL *)callbackURL
-                      completion:(void (^)(NSString *authToken, NSError *error))completion
+                      completion:(void (^)(InstagramLoginResponse *response, NSError *error))completion
 {
     self = [super init];
     if (self) {
@@ -71,7 +72,9 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
         [self.sessionManager POST:INSTAGRAM_AUTH_TOKEN_ENDPOINT
                   parameters:[self instagramTokenParams:instagramAuthCode]
                      success:^(NSURLSessionDataTask *task, id responseObject) {
-                         [self completeAuthWithToken:responseObject[INSTAGRAM_AUTH_ACCESS_TOKEN_KEY]];
+                         InstagramLoginResponse *loginResponse = [[InstagramLoginResponse alloc] initWithInstagramAuthResponse:responseObject];
+                         
+                         [self completeAuthWithToken:loginResponse];
                      } failure:^(NSURLSessionDataTask *task, NSError *error) {
                          [self completeWithError:error];
                      }];
@@ -128,9 +131,9 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
               @"code"          : authCode };
 }
 
-- (void)completeAuthWithToken:(NSString *)authToken
+- (void)completeAuthWithToken:(InstagramLoginResponse *)response
 {
-    self.completion(authToken, nil);
+    self.completion(response, nil);
     
     [self dismissViewController];
     [self hideProgressHUD];

@@ -9,6 +9,9 @@
 #import "NSLayoutConstraint+TestUtils.h"
 #import "UIAlertView+TestUtils.h"
 #import "FakeAFHTTPSessionManager.h"
+#import "InstagramLoginResponse.h"
+#import "FakeInstagramAuthResponse.h"
+#import "InstagramUser.h"
 
 #define INSTAGRAM_AUTH_URL = @"https://api.instagram.com";
 
@@ -25,7 +28,7 @@ SpecBegin(InstagramSimpleOAuthViewControllerTests)
 describe(@"InstagramSimpleOAuthViewController", ^{
     __block InstagramSimpleOAuthViewController *controller;
     __block NSURL *callbackURL;
-    __block NSString *retAuthToken;
+    __block InstagramLoginResponse *retLoginResponse;
     __block NSError *retError;
     
     beforeEach(^{
@@ -33,8 +36,8 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         controller = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"fancyID"
                                                                      clientSecret:@"12345"
                                                                       callbackURL:callbackURL
-                                                                       completion:^(NSString *authToken, NSError *error) {
-                                                                           retAuthToken = authToken;
+                                                                       completion:^(InstagramLoginResponse *response, NSError *error) {
+                                                                           retLoginResponse = response;
                                                                            retError = error;
                                                                        }];
     });
@@ -167,16 +170,22 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     
                     context(@"has a navigation controlller", ^{
                         beforeEach(^{
+                            
                             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
                             partialMock = OCMPartialMock(navigationController);
                             
                             if (fakeSessionManager.success) {
-                                fakeSessionManager.success(nil, @{ @"access_token" : @"12345IdiotLuggageCombo" });
+                                fakeSessionManager.success(nil, [FakeInstagramAuthResponse response]);
                             }
                         });
                         
-                        it(@"calls completion with authToken", ^{
-                            expect(retAuthToken).to.equal(@"12345IdiotLuggageCombo");
+                        it(@"calls completion with login response", ^{
+                            expect(retLoginResponse).to.beInstanceOf([InstagramLoginResponse class]);
+                            expect(retLoginResponse.authToken).to.equal(@"12345IdiotLuggageCombo");
+                            expect(retLoginResponse.user.userID).to.equal(@"yepyepyep");
+                            expect(retLoginResponse.user.username).to.equal(@"og-gsta");
+                            expect(retLoginResponse.user.fullName).to.equal(@"Ice Cube");
+                            expect(retLoginResponse.user.profilePictureURL).to.equal([NSURL URLWithString:@"http://uh.yeah.yuuueaaah.com/og-gsta"]);
                         });
                         
                         it(@"pops itself off the navigation controller", ^{
@@ -194,12 +203,12 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                             partialMock = OCMPartialMock(controller);
                             
                             if (fakeSessionManager.success) {
-                                fakeSessionManager.success(nil, @{ @"access_token" : @"12345IdiotLuggageCombo" });
+                                fakeSessionManager.success(nil, [FakeInstagramAuthResponse response]);
                             }
                         });
                         
-                        it(@"calls completion with authToken", ^{
-                            expect(retAuthToken).to.equal(@"12345IdiotLuggageCombo");
+                        it(@"calls completion with instagram login response", ^{
+                            expect(retLoginResponse).to.beInstanceOf([InstagramLoginResponse class]);
                         });
                         
                         it(@"pops itself off the navigation controller", ^{
@@ -257,7 +266,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         });
                         
                         it(@"calls completion with nil token", ^{
-                            expect(retAuthToken).to.equal(nil);
+                            expect(retLoginResponse).to.equal(nil);
                         });
                         
                         it(@"calls completion with AFNetworking error", ^{
@@ -284,7 +293,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         });
                         
                         it(@"calls completion with nil token", ^{
-                            expect(retAuthToken).to.equal(nil);
+                            expect(retLoginResponse).to.equal(nil);
                         });
 
                         it(@"calls completion with AFNetworking error", ^{
@@ -410,7 +419,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     });
                     
                     it(@"calls completion with nil token", ^{
-                        expect(retAuthToken).to.equal(nil);
+                        expect(retLoginResponse).to.equal(nil);
                     });
                     
                     it(@"calls completion with request error", ^{
@@ -435,7 +444,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     });
                     
                     it(@"calls completion with nil token", ^{
-                        expect(retAuthToken).to.equal(nil);
+                        expect(retLoginResponse).to.equal(nil);
                     });
                     
                     it(@"calls completion with request error", ^{
