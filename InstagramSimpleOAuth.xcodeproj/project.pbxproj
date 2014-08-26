@@ -69,6 +69,7 @@
 		AF026540199AF0AB001CA450 /* FakeAFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeAFHTTPSessionManager.h; sourceTree = "<group>"; };
 		AF026541199AF0AB001CA450 /* FakeAFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeAFHTTPSessionManager.m; sourceTree = "<group>"; };
 		AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstagramSimpleOAuthViewController.xib; path = Source/InstagramSimpleOAuthViewController.xib; sourceTree = "<group>"; };
+		AF10A73619ACD1C400311E0A /* InstagramSimpleOAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstagramSimpleOAuth.h; sourceTree = "<group>"; };
 		AF407E341993BFA700F61872 /* InstagramSimpleOAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramSimpleOAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF407E371993BFA700F61872 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AF407E391993BFA700F61872 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -237,6 +238,7 @@
 		AF753F541993C34E007C8B1B /* InstagramSimpleOAuth */ = {
 			isa = PBXGroup;
 			children = (
+				AF10A73619ACD1C400311E0A /* InstagramSimpleOAuth.h */,
 				AF753F551993C37F007C8B1B /* InstagramSimpleOAuthViewController.h */,
 				AF753F561993C37F007C8B1B /* InstagramSimpleOAuthViewController.m */,
 				AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */,

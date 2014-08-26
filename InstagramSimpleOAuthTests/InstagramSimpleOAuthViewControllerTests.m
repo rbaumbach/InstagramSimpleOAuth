@@ -5,13 +5,11 @@
 #import <OCMock/OCMock.h>
 #import <AFNetworking/AFNetworking.h>
 #import <MBProgressHUD/MBProgressHUD.h>
-#import "InstagramSimpleOAuthViewController.h"
 #import "NSLayoutConstraint+TestUtils.h"
 #import "UIAlertView+TestUtils.h"
 #import "FakeAFHTTPSessionManager.h"
-#import "InstagramLoginResponse.h"
 #import "FakeInstagramAuthResponse.h"
-#import "InstagramUser.h"
+#import "InstagramSimpleOAuth.h"
 
 #define INSTAGRAM_AUTH_URL = @"https://api.instagram.com";
 

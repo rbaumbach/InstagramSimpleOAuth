@@ -3,9 +3,8 @@
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
-#import "InstagramLoginResponse.h"
-#import "InstagramUser.h"
 #import "FakeInstagramAuthResponse.h"
+#import "InstagramSimpleOAuth.h"
 
 
 SpecBegin(InstagramLoginResponseTests)
