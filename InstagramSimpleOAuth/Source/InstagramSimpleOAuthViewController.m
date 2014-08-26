@@ -61,12 +61,12 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 {
-    [self showProgressHUD];
-    
     NSString *requestURLString = request.URL.absoluteString;
     NSString *expectedInstagramCallbackPrefix = [NSString stringWithFormat:@"%@%@", self.callbackURL.absoluteString, INSTAGRAM_AUTH_CODE_PARAM];
     
     if ([requestURLString hasPrefix:expectedInstagramCallbackPrefix]) {
+        [self showProgressHUD];
+
         NSString *instagramAuthCode = [requestURLString substringFromIndex:[expectedInstagramCallbackPrefix length]];
         
         [self.sessionManager POST:INSTAGRAM_AUTH_TOKEN_ENDPOINT
@@ -109,6 +109,8 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
 
 - (void)loadInstagramLogin
 {
+    [self showProgressHUD];
+    
     NSString *fullInstagramLoginURLString = [NSString stringWithFormat:@"%@%@%@%@%@%@",
                                              INSTAGRAM_AUTH_URL,
                                              INSTAGRAM_AUTH_CLIENT_ID_ENDPOINT,

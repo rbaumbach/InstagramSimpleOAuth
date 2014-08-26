@@ -324,10 +324,6 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                                            navigationType:UIWebViewNavigationTypeFormSubmitted];
                 });
                 
-                it(@"displays Progress HUD", ^{
-                    OCMVerify([hudClassMethodMock showHUDAddedTo:controller.view animated:YES]);
-                });
-                
                 it(@"returns YES", ^{
                     expect(shouldStartLoad).to.equal(YES);
                 });
