@@ -74,7 +74,7 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
                      success:^(NSURLSessionDataTask *task, id responseObject) {
                          InstagramLoginResponse *loginResponse = [[InstagramLoginResponse alloc] initWithInstagramAuthResponse:responseObject];
                          
-                         [self completeAuthWithToken:loginResponse];
+                         [self completeAuthWithLoginResponse:loginResponse];
                      } failure:^(NSURLSessionDataTask *task, NSError *error) {
                          [self completeWithError:error];
                      }];
@@ -133,7 +133,7 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
               @"code"          : authCode };
 }
 
-- (void)completeAuthWithToken:(InstagramLoginResponse *)response
+- (void)completeAuthWithLoginResponse:(InstagramLoginResponse *)response
 {
     self.completion(response, nil);
     
