@@ -60,6 +60,20 @@ describe(@"InstagramLoginUtils", ^{
             });
         });
     });
+    
+    describe(@"#authCodeFromRequest:withCallbackURL:", ^{
+        __block NSString *authCode;
+        
+        beforeEach(^{
+            NSURL *callbackURL = [NSURL URLWithString:@"http://dogs.with.booze.woof"];
+            NSURLRequest *nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://dogs.with.booze.woof/?code=7awe-50me"]];
+            authCode = [utils authCodeFromRequest:nonFancyURLRequest withCallbackURL:callbackURL];
+        });
+        
+        it(@"returns the auth code", ^{
+            expect(authCode).to.equal(@"7awe-50me");
+        });
+    });
 });
 
 SpecEnd

@@ -9,6 +9,8 @@
 
 @implementation InstagramLoginUtils
 
+#pragma mark - Public Methods
+
 - (NSURLRequest *)buildLoginRequestWithClientID:(NSString *)clientID
                                     callbackURL:(NSURL *)callbackURL
 {
@@ -27,11 +29,25 @@
 - (BOOL)request:(NSURLRequest *)request hasAuthCodeWithCallbackURL:(NSURL *)callbackURL;
 {
     NSString *requestURLString = request.URL.absoluteString;
-    NSString *expectedInstagramCallbackPrefix = [NSString stringWithFormat:@"%@%@",
-                                                 callbackURL.absoluteString,
-                                                 INSTAGRAM_AUTH_CODE_PARAM];
+    NSString *callbackWithAuthParam = [self appendAuthCodeParamToURLString:callbackURL.absoluteString];
     
-    return [requestURLString hasPrefix:expectedInstagramCallbackPrefix];
+    return [requestURLString hasPrefix:callbackWithAuthParam];
+}
+
+- (NSString *)authCodeFromRequest:(NSURLRequest *)request withCallbackURL:(NSURL *)callbackURL
+{
+    NSString *requestURLString = request.URL.absoluteString;
+    NSString *callbackWithAuthParam = [self appendAuthCodeParamToURLString:callbackURL.absoluteString];
+    
+    return [requestURLString substringFromIndex:[callbackWithAuthParam length]];
+}
+
+#pragma mark - Private Methods
+
+- (NSString *)appendAuthCodeParamToURLString:(NSString *)urlString
+{
+    return [NSString stringWithFormat:@"%@%@",
+            urlString, INSTAGRAM_AUTH_CODE_PARAM];
 }
 
 @end
