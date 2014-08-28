@@ -10,6 +10,7 @@
 #import "FakeAFHTTPSessionManager.h"
 #import "FakeInstagramAuthResponse.h"
 #import "InstagramSimpleOAuth.h"
+#import "InstagramLoginUtils.h"
 
 #define INSTAGRAM_AUTH_URL = @"https://api.instagram.com";
 
@@ -18,13 +19,14 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *instagramWebView;
 @property (strong, nonatomic) AFHTTPSessionManager *sessionManager;
-
+@property (strong, nonatomic) InstagramLoginUtils *instagramLoginUtils;
 @end
 
 SpecBegin(InstagramSimpleOAuthViewControllerTests)
 
 describe(@"InstagramSimpleOAuthViewController", ^{
     __block InstagramSimpleOAuthViewController *controller;
+    __block id fakeLoginUtils;
     __block NSURL *callbackURL;
     __block InstagramLoginResponse *retLoginResponse;
     __block NSError *retError;
@@ -85,11 +87,16 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         expect(controller.sessionManager.responseSerializer).to.beInstanceOf([AFJSONResponseSerializer class]);
     });
     
+    it(@"has an InstagramLoginUtils", ^{
+        expect(controller.instagramLoginUtils).to.beInstanceOf([InstagramLoginUtils class]);
+    });
+    
     describe(@"#viewDidAppear", ^{
         __block Swizzlean *superSwizz;
         __block BOOL isSuperCalled;
         __block BOOL retAnimated;
         __block UIWebView *fakeWebView;
+        __block id fakeLoginRequest;
         
         beforeEach(^{
             isSuperCalled = NO;
@@ -104,6 +111,14 @@ describe(@"InstagramSimpleOAuthViewController", ^{
             fakeWebView = OCMClassMock([UIWebView class]);
             controller.instagramWebView = fakeWebView;
             
+            fakeLoginRequest = OCMClassMock([NSURLRequest class]);
+            
+            fakeLoginUtils = OCMClassMock([InstagramLoginUtils class]);
+            controller.instagramLoginUtils = fakeLoginUtils;
+            OCMStub([controller.instagramLoginUtils buildLoginRequestWithClientID:@"fancyID"
+                                                                      callbackURL:callbackURL]).andReturn(fakeLoginRequest);
+            
+
             [controller viewDidAppear:YES];
         });
         
@@ -113,15 +128,8 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         });
         
         describe(@"instagramWebView", ^{
-            context(@"has clientID, clientSecret, callbackURL", ^{
-                it(@"loads the Instagram login page", ^{
-                    NSString *instagramLoginURLString = [NSString stringWithFormat:@"https://api.instagram.com/oauth/authorize/?client_id=%@&client=touch&redirect_uri=%@&response_type=code",
-                                                         controller.clientID, controller.callbackURL.absoluteString];
-                    NSURL *instagramLoginURL = [NSURL URLWithString:instagramLoginURLString];
-                    NSURLRequest *instagramURLRequest = [NSURLRequest requestWithURL:instagramLoginURL];
-                    
-                    OCMVerify([fakeWebView loadRequest:instagramURLRequest]);
-                });
+            it(@"loads the login using the login request", ^{
+                OCMVerify([fakeWebView loadRequest:fakeLoginRequest]);
             });
         });
     });
@@ -130,7 +138,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         describe(@"#webView:shouldStartLoadWithRequest:navigationType:", ^{
             __block id hudClassMethodMock;
             __block BOOL shouldStartLoad;
-            __block NSURLRequest *urlRequest;
+            __block id fakeURLRequest;
             __block FakeAFHTTPSessionManager *fakeSessionManager;
             
             beforeEach(^{
@@ -139,14 +147,18 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                 
             context(@"request contains instagram callback URL as the URL Prefix with code param", ^{
                 beforeEach(^{
-                    NSString *callbackURLString = [NSString stringWithFormat:@"%@/?code=%@", controller.callbackURL, @"authorization-Picard-four-seven-alpha-tango"];
-                    NSURL *callbackURL = [NSURL URLWithString:callbackURLString];
-                    urlRequest = [NSURLRequest requestWithURL:callbackURL];
+                    fakeURLRequest = OCMClassMock([NSURLRequest class]);
+                    
+                    fakeLoginUtils = OCMClassMock([InstagramLoginUtils class]);
+                    controller.instagramLoginUtils = fakeLoginUtils;
+                    OCMStub([controller.instagramLoginUtils request:fakeURLRequest hasAuthCodeWithCallbackURL:controller.callbackURL]).andReturn(YES);
+                    OCMStub([controller.instagramLoginUtils authCodeFromRequest:fakeURLRequest withCallbackURL:controller.callbackURL]).andReturn(@"authorization-Picard-four-seven-alpha-tango");
                     
                     fakeSessionManager = [[FakeAFHTTPSessionManager alloc] init];
                     controller.sessionManager = fakeSessionManager;
+                    
                     shouldStartLoad = [controller webView:nil
-                               shouldStartLoadWithRequest:urlRequest
+                               shouldStartLoadWithRequest:fakeURLRequest
                                            navigationType:UIWebViewNavigationTypeFormSubmitted];
                 });
                 
@@ -316,9 +328,14 @@ describe(@"InstagramSimpleOAuthViewController", ^{
             
             context(@"request does NOT contain instagram callback URL", ^{
                 beforeEach(^{
-                    urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://pumpkin.ale.bills.com"]];
+                    fakeURLRequest = OCMClassMock([NSURLRequest class]);
+
+                    fakeLoginUtils = OCMClassMock([InstagramLoginUtils class]);
+                    controller.instagramLoginUtils = fakeLoginUtils;
+                    OCMStub([controller.instagramLoginUtils request:fakeURLRequest hasAuthCodeWithCallbackURL:controller.callbackURL]).andReturn(NO); // need to refactor tests
+                    
                     shouldStartLoad = [controller webView:nil
-                               shouldStartLoadWithRequest:urlRequest
+                               shouldStartLoadWithRequest:fakeURLRequest
                                            navigationType:UIWebViewNavigationTypeFormSubmitted];
                 });
                 

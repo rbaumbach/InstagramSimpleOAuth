@@ -2,6 +2,7 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "InstagramSimpleOAuthViewController.h"
 #import "InstagramLoginResponse.h"
+#import "InstagramLoginUtils.h"
 
 
 NSString *const INSTAGRAM_AUTH_URL = @"https://api.instagram.com";
@@ -16,6 +17,7 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
 
 @property (weak, nonatomic) IBOutlet UIWebView *instagramWebView;
 @property (strong, nonatomic) AFHTTPSessionManager *sessionManager;
+@property (strong, nonatomic) InstagramLoginUtils *instagramLoginUtils;
 
 @end
 
@@ -37,6 +39,7 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
         self.shouldShowErrorAlert = YES;
         self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:INSTAGRAM_AUTH_URL]];
         self.sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
+        self.instagramLoginUtils = [[InstagramLoginUtils alloc] init];
     }
     return self;
 }
@@ -61,13 +64,11 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 {
-    NSString *requestURLString = request.URL.absoluteString;
-    NSString *expectedInstagramCallbackPrefix = [NSString stringWithFormat:@"%@%@", self.callbackURL.absoluteString, INSTAGRAM_AUTH_CODE_PARAM];
-    
-    if ([requestURLString hasPrefix:expectedInstagramCallbackPrefix]) {
+    if ([self.instagramLoginUtils request:request hasAuthCodeWithCallbackURL:self.callbackURL]) {
         [self showProgressHUD];
 
-        NSString *instagramAuthCode = [requestURLString substringFromIndex:[expectedInstagramCallbackPrefix length]];
+        NSString *instagramAuthCode = [self.instagramLoginUtils authCodeFromRequest:request
+                                                                    withCallbackURL:self.callbackURL];
         
         [self.sessionManager POST:INSTAGRAM_AUTH_TOKEN_ENDPOINT
                   parameters:[self instagramTokenParams:instagramAuthCode]
@@ -111,17 +112,10 @@ NSString *const INSTAGRAM_AUTH_ACCESS_TOKEN_KEY = @"access_token";
 {
     [self showProgressHUD];
     
-    NSString *fullInstagramLoginURLString = [NSString stringWithFormat:@"%@%@%@%@%@%@",
-                                             INSTAGRAM_AUTH_URL,
-                                             INSTAGRAM_AUTH_CLIENT_ID_ENDPOINT,
-                                             self.clientID,
-                                             INSTAGRAM_AUTH_REDIRECT_PARAMS,
-                                             self.callbackURL,
-                                             INSTAGRAM_AUTH_RESPONSE_TYPE_PARAMS];
-    
-    NSURL *fullInstagramLoginURL = [NSURL URLWithString:fullInstagramLoginURLString];
-    NSURLRequest *fullInstagramLoginRequest = [NSURLRequest requestWithURL:fullInstagramLoginURL];
-    [self.instagramWebView loadRequest:fullInstagramLoginRequest];
+    NSURLRequest *loginRequest = [self.instagramLoginUtils buildLoginRequestWithClientID:self.clientID
+                                                                             callbackURL:self.callbackURL];
+    [self.instagramWebView loadRequest:loginRequest];
+
 }
 
 - (NSDictionary *)instagramTokenParams:(NSString *)authCode
