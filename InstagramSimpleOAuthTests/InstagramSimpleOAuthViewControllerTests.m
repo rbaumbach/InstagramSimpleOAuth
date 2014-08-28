@@ -12,8 +12,6 @@
 #import "InstagramSimpleOAuth.h"
 #import "InstagramLoginUtils.h"
 
-#define INSTAGRAM_AUTH_URL = @"https://api.instagram.com";
-
 
 @interface InstagramSimpleOAuthViewController () <UIWebViewDelegate>
 
@@ -43,7 +41,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
     });
     
     describe(@"init", ^{
-        it(@"calls -initWithClientID:clientSecret:callbackURL:completion:", ^{
+        it(@"calls -initWithClientID:clientSecret:callbackURL:completion: with nil parameters", ^{
             InstagramSimpleOAuthViewController *basicController = [[InstagramSimpleOAuthViewController alloc] init];
             expect(basicController.clientID).to.beNil;
             expect(basicController.clientSecret).to.beNil;
@@ -69,11 +67,11 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         if (controller.completion) {
             hasCompletionBlock = YES;
         }
-        expect(hasCompletionBlock).to.equal(YES);
+        expect(hasCompletionBlock).to.beTruthy();
     });
     
     it(@"has shouldShowErrorAlert flag that defaults to YES", ^{
-        expect(controller.shouldShowErrorAlert).to.equal(YES);
+        expect(controller.shouldShowErrorAlert).to.beTruthy();
     });
     
     it(@"conforms to <UIWebViewDelegate>", ^{
@@ -89,6 +87,8 @@ describe(@"InstagramSimpleOAuthViewController", ^{
     
     it(@"has an InstagramLoginUtils", ^{
         expect(controller.instagramLoginUtils).to.beInstanceOf([InstagramLoginUtils class]);
+        expect(controller.instagramLoginUtils.clientID).to.equal(@"fancyID");
+        expect(controller.instagramLoginUtils.callbackURL).to.equal(callbackURL);
     });
     
     describe(@"#viewDidAppear", ^{
@@ -115,16 +115,15 @@ describe(@"InstagramSimpleOAuthViewController", ^{
             
             fakeLoginUtils = OCMClassMock([InstagramLoginUtils class]);
             controller.instagramLoginUtils = fakeLoginUtils;
-            OCMStub([controller.instagramLoginUtils buildLoginRequestWithClientID:@"fancyID"
-                                                                      callbackURL:callbackURL]).andReturn(fakeLoginRequest);
+            OCMStub([controller.instagramLoginUtils buildLoginRequest]).andReturn(fakeLoginRequest);
             
 
             [controller viewDidAppear:YES];
         });
         
         it(@"calls super!!! Thanks for asking!!! =)", ^{
-            expect(retAnimated).to.equal(YES);
-            expect(isSuperCalled).to.equal(YES);
+            expect(retAnimated).to.beTruthy();
+            expect(isSuperCalled).to.beTruthy();
         });
         
         describe(@"instagramWebView", ^{
@@ -151,8 +150,8 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     
                     fakeLoginUtils = OCMClassMock([InstagramLoginUtils class]);
                     controller.instagramLoginUtils = fakeLoginUtils;
-                    OCMStub([controller.instagramLoginUtils request:fakeURLRequest hasAuthCodeWithCallbackURL:controller.callbackURL]).andReturn(YES);
-                    OCMStub([controller.instagramLoginUtils authCodeFromRequest:fakeURLRequest withCallbackURL:controller.callbackURL]).andReturn(@"authorization-Picard-four-seven-alpha-tango");
+                    OCMStub([controller.instagramLoginUtils requestHasAuthCode:fakeURLRequest]).andReturn(YES);
+                    OCMStub([controller.instagramLoginUtils authCodeFromRequest:fakeURLRequest]).andReturn(@"authorization-Picard-four-seven-alpha-tango");
                     
                     fakeSessionManager = [[FakeAFHTTPSessionManager alloc] init];
                     controller.sessionManager = fakeSessionManager;
@@ -261,7 +260,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         
                         it(@"does not display alert view for the error", ^{
                             UIAlertView *errorAlert = [UIAlertView currentAlertView];
-                            expect(errorAlert).to.equal(nil);
+                            expect(errorAlert).to.beNil();
                         });
                     });
                     
@@ -276,7 +275,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         });
                         
                         it(@"calls completion with nil token", ^{
-                            expect(retLoginResponse).to.equal(nil);
+                            expect(retLoginResponse).to.beNil();
                         });
                         
                         it(@"calls completion with AFNetworking error", ^{
@@ -303,7 +302,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         });
                         
                         it(@"calls completion with nil token", ^{
-                            expect(retLoginResponse).to.equal(nil);
+                            expect(retLoginResponse).to.beNil();
                         });
 
                         it(@"calls completion with AFNetworking error", ^{
@@ -322,7 +321,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                 });
                 
                 it(@"returns NO", ^{
-                    expect(shouldStartLoad).to.equal(NO);
+                    expect(shouldStartLoad).to.beFalsy();
                 });
             });
             
@@ -332,7 +331,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
 
                     fakeLoginUtils = OCMClassMock([InstagramLoginUtils class]);
                     controller.instagramLoginUtils = fakeLoginUtils;
-                    OCMStub([controller.instagramLoginUtils request:fakeURLRequest hasAuthCodeWithCallbackURL:controller.callbackURL]).andReturn(NO); // need to refactor tests
+                    OCMStub([controller.instagramLoginUtils requestHasAuthCode:fakeURLRequest]).andReturn(NO);
                     
                     shouldStartLoad = [controller webView:nil
                                shouldStartLoadWithRequest:fakeURLRequest
@@ -340,7 +339,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                 });
                 
                 it(@"returns YES", ^{
-                    expect(shouldStartLoad).to.equal(YES);
+                    expect(shouldStartLoad).to.beTruthy();
                 });
             });
         });
@@ -378,7 +377,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                 
                 it(@"does not display alert view for the error", ^{
                     UIAlertView *errorAlert = [UIAlertView currentAlertView];
-                    expect(errorAlert).to.equal(nil);
+                    expect(errorAlert).to.beNil();
                 });
                 
                 it(@"removes the progress HUD", ^{
@@ -417,7 +416,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     
                     it(@"does not display alert view for the error", ^{
                         UIAlertView *errorAlert = [UIAlertView currentAlertView];
-                        expect(errorAlert).to.equal(nil);
+                        expect(errorAlert).to.beNil();
                     });
                 });
                 
@@ -430,7 +429,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     });
                     
                     it(@"calls completion with nil token", ^{
-                        expect(retLoginResponse).to.equal(nil);
+                        expect(retLoginResponse).to.beNil();
                     });
                     
                     it(@"calls completion with request error", ^{
@@ -455,7 +454,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     });
                     
                     it(@"calls completion with nil token", ^{
-                        expect(retLoginResponse).to.equal(nil);
+                        expect(retLoginResponse).to.beNil();
                     });
                     
                     it(@"calls completion with request error", ^{

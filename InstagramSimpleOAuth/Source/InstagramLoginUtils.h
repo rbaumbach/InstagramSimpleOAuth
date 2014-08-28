@@ -2,11 +2,16 @@
 
 @interface InstagramLoginUtils : NSObject
 
-- (NSURLRequest *)buildLoginRequestWithClientID:(NSString *)clientID
-                                    callbackURL:(NSURL *)callbackURL;
+@property (copy, nonatomic, readonly) NSString *clientID;
+@property (strong, nonatomic, readonly) NSURL *callbackURL;
 
-- (BOOL)request:(NSURLRequest *)request hasAuthCodeWithCallbackURL:(NSURL *)callbackURL;
+- (instancetype)initWithClientID:(NSString *)clientID
+                  andCallbackURL:(NSURL *)callbackURL;
 
-- (NSString *)authCodeFromRequest:(NSURLRequest *)request withCallbackURL:(NSURL *)callbackURL;
+- (NSURLRequest *)buildLoginRequest;
+
+- (BOOL)requestHasAuthCode:(NSURLRequest *)request;
+
+- (NSString *)authCodeFromRequest:(NSURLRequest *)request;
 
 @end

@@ -19,7 +19,6 @@
     return self;
 }
 
-
 - (instancetype)init
 {
     return [self initWithUserResponse:nil];

@@ -17,7 +17,7 @@ describe(@"InstagramUser", ^{
     });
     
     describe(@"init", ^{
-        it(@"calls -initWithInstagramAuthResponse:", ^{
+        it(@"calls -initWithInstagramAuthResponse: with nil parameters", ^{
             user = [[InstagramUser alloc] init];
             expect(user.userID).to.beNil();
             expect(user.username).to.beNil();

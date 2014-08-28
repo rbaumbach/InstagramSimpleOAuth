@@ -6,21 +6,36 @@
 #import "InstagramLoginUtils.h"
 
 
+@interface InstagramLoginUtils ()
+
+@property (copy, nonatomic, readwrite) NSString *clientID;
+@property (strong, nonatomic, readwrite) NSURL *callbackURL;
+
+@end
+
 SpecBegin(InstagramLoginUtilsTests)
 
 describe(@"InstagramLoginUtils", ^{
     __block InstagramLoginUtils *utils;
     
     beforeEach(^{
-        utils = [[InstagramLoginUtils alloc] init];
+        utils = [[InstagramLoginUtils alloc] initWithClientID:@"schlitz-blue-bull"
+                                               andCallbackURL:[NSURL URLWithString:@"https://bluebull.32oz"]];
     });
     
-    describe(@"#buildLoginRequestWithClientID:callbackURL:", ^{
+    it(@"has a clientID", ^{
+        expect(utils.clientID).to.equal(@"schlitz-blue-bull");
+    });
+    
+    it(@"has a callbackURL", ^{
+        expect(utils.callbackURL).to.equal([NSURL URLWithString:@"https://bluebull.32oz"]);
+    });
+    
+    describe(@"#buildLoginRequest", ^{
         __block NSURLRequest *request;
         
         beforeEach(^{
-            request = [utils buildLoginRequestWithClientID:@"schlitz-blue-bull"
-                                               callbackURL:[NSURL URLWithString:@"https://bluebull.32oz"]];
+            request = [utils buildLoginRequest];
         });
         
         it(@"builds proper login request for Instagram login", ^{
@@ -31,16 +46,14 @@ describe(@"InstagramLoginUtils", ^{
         });
     });
     
-    describe(@"#request:hasAuthCodeWithCallbackURL:", ^{
+    describe(@"#requestHasAuthCode:", ^{
         __block BOOL requestContainsAuthCode;
-        __block NSURL *callbackURL;
         __block NSURLRequest *nonFancyURLRequest;
         
         context(@"request contains auth code", ^{
             beforeEach(^{
-                callbackURL = [NSURL URLWithString:@"http://fluffy.dogs"];
-                nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://fluffy.dogs/?code=buck"]];
-                requestContainsAuthCode = [utils request:nonFancyURLRequest hasAuthCodeWithCallbackURL:callbackURL];
+                nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://bluebull.32oz/?code=buck"]];
+                requestContainsAuthCode = [utils requestHasAuthCode:nonFancyURLRequest];
             });
             
             it(@"returns YES", ^{
@@ -50,9 +63,8 @@ describe(@"InstagramLoginUtils", ^{
         
         context(@"request DOES NOT contain auth code", ^{
             beforeEach(^{
-                callbackURL = [NSURL URLWithString:@"http://fluffy.dogs"];
-                nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://short.haired.dogs/?code=pancho"]];
-                requestContainsAuthCode = [utils request:nonFancyURLRequest hasAuthCodeWithCallbackURL:callbackURL];
+                nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://bluebull.32oz/"]];
+                requestContainsAuthCode = [utils requestHasAuthCode:nonFancyURLRequest];
             });
             
             it(@"returns NO", ^{
@@ -61,13 +73,12 @@ describe(@"InstagramLoginUtils", ^{
         });
     });
     
-    describe(@"#authCodeFromRequest:withCallbackURL:", ^{
+    describe(@"#authCodeFromRequest:", ^{
         __block NSString *authCode;
         
         beforeEach(^{
-            NSURL *callbackURL = [NSURL URLWithString:@"http://dogs.with.booze.woof"];
-            NSURLRequest *nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://dogs.with.booze.woof/?code=7awe-50me"]];
-            authCode = [utils authCodeFromRequest:nonFancyURLRequest withCallbackURL:callbackURL];
+            NSURLRequest *nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://bluebull.32oz/?code=7awe-50me"]];
+            authCode = [utils authCodeFromRequest:nonFancyURLRequest];
         });
         
         it(@"returns the auth code", ^{
