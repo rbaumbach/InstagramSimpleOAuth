@@ -1,11 +1,11 @@
 #import "InstagramLoginUtils.h"
+#import "InstagramConstants.h"
 
 
-#define INSTAGRAM_AUTH_URL @"https://api.instagram.com"
-#define INSTAGRAM_AUTH_CLIENT_ID_ENDPOINT @"/oauth/authorize/?client_id="
-#define INSTAGRAM_AUTH_REDIRECT_PARAMS @"&client=touch&redirect_uri="
-#define INSTAGRAM_AUTH_RESPONSE_TYPE_PARAMS @"&response_type=code"
-#define INSTAGRAM_AUTH_CODE_PARAM @"/?code="
+NSString *const InstagramAuthClientIDEndpoint = @"/oauth/authorize/?client_id=";
+NSString *const InstagramAuthRedirectParams = @"&client=touch&redirect_uri=";
+NSString *const InstagramAuthResponseTypeParams = @"&response_type=code";
+NSString *const InstagramAuthCodeParam = @"/?code=";
 
 @implementation InstagramLoginUtils
 
@@ -15,12 +15,12 @@
                                     callbackURL:(NSURL *)callbackURL
 {
     NSString *fullInstagramLoginURLString = [NSString stringWithFormat:@"%@%@%@%@%@%@",
-                                             INSTAGRAM_AUTH_URL,
-                                             INSTAGRAM_AUTH_CLIENT_ID_ENDPOINT,
+                                             InstagramAuthURL,
+                                             InstagramAuthClientIDEndpoint,
                                              clientID,
-                                             INSTAGRAM_AUTH_REDIRECT_PARAMS,
+                                             InstagramAuthRedirectParams,
                                              callbackURL.absoluteString,
-                                             INSTAGRAM_AUTH_RESPONSE_TYPE_PARAMS];
+                                             InstagramAuthResponseTypeParams];
     
     NSURL *fullInstagramLoginURL = [NSURL URLWithString:fullInstagramLoginURLString];
     return [NSURLRequest requestWithURL:fullInstagramLoginURL];
@@ -46,8 +46,7 @@
 
 - (NSString *)appendAuthCodeParamToURLString:(NSString *)urlString
 {
-    return [NSString stringWithFormat:@"%@%@",
-            urlString, INSTAGRAM_AUTH_CODE_PARAM];
+    return [NSString stringWithFormat:@"%@%@", urlString, InstagramAuthCodeParam];
 }
 
 @end
