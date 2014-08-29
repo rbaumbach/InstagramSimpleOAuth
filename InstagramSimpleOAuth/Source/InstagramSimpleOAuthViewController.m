@@ -1,17 +1,13 @@
-#import <AFNetworking/AFNetworking.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "InstagramSimpleOAuthViewController.h"
-#import "InstagramConstants.h"
-#import "InstagramLoginResponse.h"
+#import "InstagramLoginManager.h"
 #import "InstagramLoginUtils.h"
 
-
-NSString *const InstagramAuthTokenEndpoint = @"/oauth/access_token/";
 
 @interface InstagramSimpleOAuthViewController () <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *instagramWebView;
-@property (strong, nonatomic) AFHTTPSessionManager *sessionManager;
+@property (strong, nonatomic) InstagramLoginManager *loginManager;
 @property (strong, nonatomic) InstagramLoginUtils *instagramLoginUtils;
 
 @end
@@ -32,8 +28,9 @@ NSString *const InstagramAuthTokenEndpoint = @"/oauth/access_token/";
         self.callbackURL = callbackURL;
         self.completion = completion;
         self.shouldShowErrorAlert = YES;
-        self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:InstagramAuthURL]];
-        self.sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
+        self.loginManager = [[InstagramLoginManager alloc] initWithClientID:self.clientID
+                                                               clientSecret:self.clientSecret
+                                                                callbackURL:self.callbackURL];
         self.instagramLoginUtils = [[InstagramLoginUtils alloc] initWithClientID:self.clientID
                                                                   andCallbackURL:self.callbackURL];
     }
@@ -53,6 +50,7 @@ NSString *const InstagramAuthTokenEndpoint = @"/oauth/access_token/";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
     [self loadInstagramLogin];
 }
 
@@ -63,20 +61,14 @@ NSString *const InstagramAuthTokenEndpoint = @"/oauth/access_token/";
     if ([self.instagramLoginUtils requestHasAuthCode:request]) {
         [self showProgressHUD];
         
-//        NSString *instagramAuthCode = [self.instagramLoginUtils authCodeFromRequest:request
-//                                                                    withCallbackURL:self.callbackURL];
-        
         NSString *instagramAuthCode = [self.instagramLoginUtils authCodeFromRequest:request];
         
-        [self.sessionManager POST:InstagramAuthTokenEndpoint
-                       parameters:[self instagramTokenParams:instagramAuthCode]
-                          success:^(NSURLSessionDataTask *task, id responseObject) {
-                              InstagramLoginResponse *loginResponse = [[InstagramLoginResponse alloc] initWithInstagramAuthResponse:responseObject];
-                              
-                              [self completeAuthWithLoginResponse:loginResponse];
-                          } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                              [self completeWithError:error];
-                          }];
+        [self.loginManager authenticateWithAuthCode:instagramAuthCode
+                                            success:^(InstagramLoginResponse *instagramLoginResponse) {
+                                                [self completeAuthWithLoginResponse:instagramLoginResponse];
+                                            } failure:^(NSError *error) {
+                                                [self completeWithError:error];
+                                            }];
         
         return NO;
     }
@@ -112,16 +104,6 @@ NSString *const InstagramAuthTokenEndpoint = @"/oauth/access_token/";
     
     NSURLRequest *loginRequest = [self.instagramLoginUtils buildLoginRequest];
     [self.instagramWebView loadRequest:loginRequest];
-
-}
-
-- (NSDictionary *)instagramTokenParams:(NSString *)authCode
-{
-    return @{ @"client_id"     : self.clientID,
-              @"client_secret" : self.clientSecret,
-              @"grant_type"    : @"authorization_code",
-              @"redirect_uri"  : self.callbackURL.absoluteString,
-              @"code"          : authCode };
 }
 
 - (void)completeAuthWithLoginResponse:(InstagramLoginResponse *)response

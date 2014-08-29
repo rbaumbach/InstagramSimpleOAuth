@@ -13,7 +13,7 @@ describe(@"InstagramUser", ^{
     __block InstagramUser *user;
     
     beforeEach(^{
-        user = [[InstagramUser alloc] initWithUserResponse:[FakeInstagramAuthResponse userResponse]];
+        user = [[InstagramUser alloc] initWithDictionary:[FakeInstagramAuthResponse userResponse]];
     });
     
     describe(@"init", ^{

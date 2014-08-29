@@ -4,8 +4,8 @@
 
 @interface InstagramLoginResponse : NSObject
 
-@property (copy, nonatomic) NSString *authToken;
-@property (strong, nonatomic) InstagramUser *user;
+@property (copy, nonatomic, readonly) NSString *authToken;
+@property (strong, nonatomic, readonly) InstagramUser *user;
 
 - (instancetype)initWithInstagramAuthResponse:(NSDictionary *)response;
 

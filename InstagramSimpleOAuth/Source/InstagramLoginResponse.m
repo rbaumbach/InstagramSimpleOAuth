@@ -2,6 +2,16 @@
 #import "InstagramUser.h"
 
 
+NSString *const InstagramAccessTokenKey = @"access_token";
+NSString *const InstagramUserKey = @"user";
+
+@interface InstagramLoginResponse ()
+
+@property (copy, nonatomic, readwrite) NSString *authToken;
+@property (strong, nonatomic, readwrite) InstagramUser *user;
+
+@end
+
 @implementation InstagramLoginResponse
 
 #pragma mark - Init Methods
@@ -11,18 +21,13 @@
     self = [super init];
     if (self) {
         if (response) {
-            self.authToken = response[@"access_token"];
+            self.authToken = response[InstagramAccessTokenKey];
             
-            InstagramUser *user = [[InstagramUser alloc] initWithUserResponse:response[@"user"]];
+            InstagramUser *user = [[InstagramUser alloc] initWithDictionary:response[InstagramUserKey]];
             self.user = user;
         }
     }
     return self;
-}
-
-- (instancetype)init
-{
-    return [self initWithInstagramAuthResponse:nil];
 }
 
 @end

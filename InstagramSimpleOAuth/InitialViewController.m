@@ -18,7 +18,7 @@
                                                                                 [self displayToken:response.authToken];
                                                                             }
                                                                         }];
-    
+
     [self presentViewController:viewController
                        animated:YES
                      completion:nil];

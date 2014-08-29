@@ -16,14 +16,6 @@ describe(@"InstagramLoginResponse", ^{
         loginResponse = [[InstagramLoginResponse alloc] initWithInstagramAuthResponse:[FakeInstagramAuthResponse response]];
     });
     
-    describe(@"init", ^{
-        it(@"calls -initWithInstagramAuthResponse: with nil parameters", ^{
-            loginResponse = [[InstagramLoginResponse alloc] init];
-            expect(loginResponse.authToken).to.beNil();
-            expect(loginResponse.user).to.beNil();
-        });
-    });
-    
     it(@"has an auth token", ^{
         expect(loginResponse.authToken).to.equal(@"12345IdiotLuggageCombo");
     });

@@ -1,19 +1,24 @@
 #import "InstagramUser.h"
 
 
+NSString *const InstagramIDKey = @"id";
+NSString *const InstagramUsernameKey = @"username";
+NSString *const InstagramFullNameKey = @"full_name";
+NSString *const InstagramProfilePictureKey = @"profile_picture";
+
 @implementation InstagramUser
 
 #pragma mark - Init Methods
 
-- (instancetype)initWithUserResponse:(NSDictionary *)userResponse
+- (instancetype)initWithDictionary:(NSDictionary *)userResponse
 {
     self = [super init];
     if (self) {
         if (userResponse) {
-            self.userID = userResponse[@"id"];
-            self.username = userResponse[@"username"];
-            self.fullName = userResponse[@"full_name"];
-            self.profilePictureURL = [NSURL URLWithString:userResponse[@"profile_picture"]];
+            self.userID = userResponse[InstagramIDKey];
+            self.username = userResponse[InstagramUsernameKey];
+            self.fullName = userResponse[InstagramFullNameKey];
+            self.profilePictureURL = [NSURL URLWithString:userResponse[InstagramProfilePictureKey]];
         }
     }
     return self;
@@ -21,6 +26,6 @@
 
 - (instancetype)init
 {
-    return [self initWithUserResponse:nil];
+    return [self initWithDictionary:nil];
 }
 @end
