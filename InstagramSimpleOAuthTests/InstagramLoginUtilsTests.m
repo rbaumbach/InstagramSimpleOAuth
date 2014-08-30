@@ -31,18 +31,53 @@ describe(@"InstagramLoginUtils", ^{
         expect(utils.callbackURL).to.equal([NSURL URLWithString:@"https://bluebull.32oz"]);
     });
     
-    describe(@"#buildLoginRequest", ^{
+    describe(@"#buildLoginRequestWithPermissionScope:", ^{
         __block NSURLRequest *request;
         
-        beforeEach(^{
-            request = [utils buildLoginRequest];
+        context(@"populated scope permissions", ^{
+            beforeEach(^{
+                request = [utils buildLoginRequestWithPermissionScope:@[@"basic", @"relationships", @"likes", @"comments"]];
+            });
+            
+            it(@"builds proper login request for Instagram login with scope permission params", ^{
+                NSString *expectedLoginURLString = [NSString stringWithFormat:@"%@%@%@%@",
+                                                    @"https://api.instagram.com/oauth/authorize/",
+                                                    @"?client_id=schlitz-blue-bull&client=touch",
+                                                    @"&redirect_uri=https://bluebull.32oz&response_type=code",
+                                                    @"&scope=basic+relationships+likes+comments"];
+                
+                expect(request.URL.absoluteString).to.equal(expectedLoginURLString);
+            });
         });
         
-        it(@"builds proper login request for Instagram login", ^{
-            NSString *expectedLoginURLString =
-            @"https://api.instagram.com/oauth/authorize/?client_id=schlitz-blue-bull&client=touch&redirect_uri=https://bluebull.32oz&response_type=code";
+        context(@"empty scope permissions", ^{
+            beforeEach(^{
+                request = [utils buildLoginRequestWithPermissionScope:@[]];
+            });
             
-            expect(request.URL.absoluteString).to.equal(expectedLoginURLString);
+            it(@"builds proper login request for Instagram login WITHOUT scope permission params", ^{
+                NSString *expectedLoginURLString = [NSString stringWithFormat:@"%@%@%@",
+                                                    @"https://api.instagram.com/oauth/authorize/",
+                                                    @"?client_id=schlitz-blue-bull&client=touch",
+                                                    @"&redirect_uri=https://bluebull.32oz&response_type=code"];
+                
+                expect(request.URL.absoluteString).to.equal(expectedLoginURLString);
+            });
+        });
+        
+        context(@"nil scope permissions", ^{
+            beforeEach(^{
+                request = [utils buildLoginRequestWithPermissionScope:nil];
+            });
+            
+            it(@"builds proper login request for Instagram login WITHOUT scope permission params", ^{
+                NSString *expectedLoginURLString = [NSString stringWithFormat:@"%@%@%@",
+                                                    @"https://api.instagram.com/oauth/authorize/",
+                                                    @"?client_id=schlitz-blue-bull&client=touch",
+                                                    @"&redirect_uri=https://bluebull.32oz&response_type=code"];
+                
+                expect(request.URL.absoluteString).to.equal(expectedLoginURLString);
+            });
         });
     });
     

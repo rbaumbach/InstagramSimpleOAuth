@@ -8,7 +8,7 @@
 - (instancetype)initWithClientID:(NSString *)clientID
                   andCallbackURL:(NSURL *)callbackURL;
 
-- (NSURLRequest *)buildLoginRequest;
+- (NSURLRequest *)buildLoginRequestWithPermissionScope:(NSArray *)permissionScope;
 
 - (BOOL)requestHasAuthCode:(NSURLRequest *)request;
 

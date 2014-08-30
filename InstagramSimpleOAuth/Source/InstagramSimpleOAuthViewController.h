@@ -10,6 +10,7 @@
 @property (strong, nonatomic) NSURL *callbackURL;
 @property (copy, nonatomic) void (^completion)(InstagramLoginResponse *response, NSError *error);
 @property (nonatomic) BOOL shouldShowErrorAlert;
+@property (strong, nonatomic) NSArray *permissionScope;
 
 - (instancetype)initWithClientID:(NSString *)clientID
                     clientSecret:(NSString *)clientSecret

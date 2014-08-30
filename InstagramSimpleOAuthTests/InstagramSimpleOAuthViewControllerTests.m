@@ -58,7 +58,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
     it(@"has a clientSecet", ^{
         expect(controller.clientSecret).to.equal(@"12345");
     });
-    
+
     it(@"has a callbackURL", ^{
         expect(controller.callbackURL).to.equal([NSURL URLWithString:@"http://swizzlean.com"]);
     });
@@ -73,6 +73,10 @@ describe(@"InstagramSimpleOAuthViewController", ^{
     
     it(@"has shouldShowErrorAlert flag that defaults to YES", ^{
         expect(controller.shouldShowErrorAlert).to.beTruthy();
+    });
+    
+    it(@"sets the permission scope empty by default", ^{
+        expect(controller.permissionScope).to.beNil();
     });
     
     it(@"conforms to <UIWebViewDelegate>", ^{
@@ -117,7 +121,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
             
             fakeLoginUtils = OCMClassMock([InstagramLoginUtils class]);
             controller.instagramLoginUtils = fakeLoginUtils;
-            OCMStub([controller.instagramLoginUtils buildLoginRequest]).andReturn(fakeLoginRequest);
+            OCMStub([controller.instagramLoginUtils buildLoginRequestWithPermissionScope:controller.permissionScope]).andReturn(fakeLoginRequest);
             
 
             [controller viewDidAppear:YES];

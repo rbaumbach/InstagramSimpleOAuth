@@ -102,7 +102,7 @@
 {
     [self showProgressHUD];
     
-    NSURLRequest *loginRequest = [self.instagramLoginUtils buildLoginRequest];
+    NSURLRequest *loginRequest = [self.instagramLoginUtils buildLoginRequestWithPermissionScope:self.permissionScope];
     [self.instagramWebView loadRequest:loginRequest];
 }
 

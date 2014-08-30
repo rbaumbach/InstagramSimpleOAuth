@@ -6,6 +6,7 @@ NSString *const InstagramAuthClientIDEndpoint = @"/oauth/authorize/?client_id=";
 NSString *const InstagramAuthRedirectParams = @"&client=touch&redirect_uri=";
 NSString *const InstagramAuthResponseTypeParams = @"&response_type=code";
 NSString *const InstagramAuthCodeParam = @"/?code=";
+NSString *const InstagramScopePermissionsParam = @"&scope=";
 
 @interface InstagramLoginUtils ()
 
@@ -30,9 +31,9 @@ NSString *const InstagramAuthCodeParam = @"/?code=";
 
 #pragma mark - Public Methods
 
-- (NSURLRequest *)buildLoginRequest
+- (NSURLRequest *)buildLoginRequestWithPermissionScope:(NSArray *)permissionScope
 {
-    NSURL *fullInstagramLoginURL = [NSURL URLWithString:[self instagramLoginURLString]];
+    NSURL *fullInstagramLoginURL = [NSURL URLWithString:[self instagramLoginURLStringWithPermissionScope:permissionScope]];
     return [NSURLRequest requestWithURL:fullInstagramLoginURL];
 }
 
@@ -54,15 +55,30 @@ NSString *const InstagramAuthCodeParam = @"/?code=";
 
 #pragma mark - Private Methods
 
-- (NSString *)instagramLoginURLString
+- (NSString *)instagramLoginURLStringWithPermissionScope:(NSArray *)permissionScope
 {
-    return [NSString stringWithFormat:@"%@%@%@%@%@%@",
-            InstagramAuthURL,
-            InstagramAuthClientIDEndpoint,
-            self.clientID,
-            InstagramAuthRedirectParams,
-            self.callbackURL.absoluteString,
-            InstagramAuthResponseTypeParams];
+    NSMutableString *instagramLoginURLString = [[NSMutableString alloc] init];
+    [instagramLoginURLString appendString:[NSString stringWithFormat:@"%@%@%@%@%@%@",
+                                          InstagramAuthURL,
+                                          InstagramAuthClientIDEndpoint,
+                                          self.clientID,
+                                          InstagramAuthRedirectParams,
+                                          self.callbackURL.absoluteString,
+                                          InstagramAuthResponseTypeParams]];
+    
+    if (permissionScope.count > 0) {
+        [instagramLoginURLString appendString:InstagramScopePermissionsParam];
+        
+        [permissionScope enumerateObjectsUsingBlock:^(NSString *permission, NSUInteger idx, BOOL *stop) {
+            if (idx != 0) {
+                [instagramLoginURLString appendString:@"+"];
+            }
+            
+            [instagramLoginURLString appendString:permission];
+        }];
+    }
+    
+    return instagramLoginURLString;
 }
 
 - (NSString *)callbackWithAuthCode
