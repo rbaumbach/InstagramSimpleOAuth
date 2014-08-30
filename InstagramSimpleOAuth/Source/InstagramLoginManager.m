@@ -8,6 +8,7 @@ NSString *const InstagramAuthTokenEndpoint = @"/oauth/access_token/";
 NSString *const ClientIDKey = @"client_id";
 NSString *const ClientSecretKey = @"client_secret";
 NSString *const GrantTypeKey = @"grant_type";
+NSString *const GrantTypeValue = @"authorization_code";
 NSString *const RedirectURIKey = @"redirect_uri";
 NSString *const CodeKey = @"code";
 
@@ -61,7 +62,7 @@ NSString *const CodeKey = @"code";
 {
     return @{ ClientIDKey     : self.clientID,
               ClientSecretKey : self.clientSecret,
-              GrantTypeKey    : @"authorization_code",
+              GrantTypeKey    : GrantTypeValue,
               RedirectURIKey  : self.callbackURL.absoluteString,
               CodeKey         : authCode };
 }
