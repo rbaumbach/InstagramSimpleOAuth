@@ -12,7 +12,7 @@ A quick and simple way to authenticate an Instagram user in your iPhone or iPad 
 
 1.  Add InstagramSimpleOAuth to your Podfile `pod 'InstagramSimpleOAuth'`.
 2.  Install the pod(s) by running `pod install`.
-3.  Include Swizzlean to your files with `#import <InstagramSimpleOAuth/InstagramSimpleOAuth.h>`.
+3.  Include InstagramSimpleOAuth to your files with `#import <InstagramSimpleOAuth/InstagramSimpleOAuth.h>`.
 
 ### Clone from Github
 
