@@ -57,6 +57,31 @@ viewController.permissionScope = @[@"basic", @"comments", @"relationships", @"li
                                      animated:YES];
 ```
 
+## Testing
+
+* Prerequisites: [ruby](https://github.com/sstephenson/rbenv), [ruby gems](https://rubygems.org/pages/download), [bundler](http://bundler.io)
+
+To use the included Rakefile to run expecta tests, run the setup.sh script to bundle required gems and cocoapods:
+
+```bash
+$ ./setup.sh
+```
+
+Then run rake to run the tests on the command line:
+
+```bash
+$ bundle exec rake
+```
+
+Additional rake tasks can be seen using rake -T:
+
+```bash
+$ rake -T
+rake build  # Build InstagramSimpleOAuth
+rake clean  # Clean
+rake test   # Run Tests
+```
+
 ## Version History
 
 Version history can be found at the [InstagramSimpleOAuth wiki](https://github.com/rbaumbach/InstagramSimpleOAuth/wiki/Version-History).
