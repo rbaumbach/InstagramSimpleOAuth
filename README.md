@@ -21,8 +21,8 @@ A quick and simple way to authenticate an Instagram user in your iPhone or iPad 
 
 ## How To
 
-* Create an instance of `InstagramSimpleOAuthViewController` and pass in [Instagram client ID, client secret, client callback URL](http://instagram.com/developer/authentication/) and completion block to be executed with `InstagramLoginResponse` and `NSError` arguments.
-* Once the instance of `InstagramSimpleOAuthViewController` is presented (either as a modal or on the navigation stack), it will allow the user to login.  After the user logs in, completion block provided in the initialization of the view controller will be executed, and the `InstagramLoginResponse` contains authToken and other login information for the authenticated user provided by [Instagram API Response](http://instagram.com/developer/authentication/).  If there is an issue attempting to authenticate, an error will be given instead.
+* Create an instance of `InstagramSimpleOAuthViewController` and pass in an [Instagram client ID, client secret, client callback URL](http://instagram.com/developer/register/#) and completion block to be executed with `InstagramLoginResponse` and `NSError` arguments.
+* Once the instance of `InstagramSimpleOAuthViewController` is presented (either as a modal or pushed on the navigation stack), it will allow the user to login.  After the user logs in, the completion block given in the initialization of the view controller will be executed.  The argument in the completion block, `InstagramLoginResponse`, contains an authToken and other login information for the authenticated user provided by [Instagram API Response](http://instagram.com/developer/authentication/).  If there is an issue attempting to authenticate, an error will be given instead.
 * By default, if there are issues with authentication, an UIAlertView will be given to the user.  To disable this, and rely on the NSError directly, set the property `shouldShowErrorAlert` to NO.
 * The default Instagram scope permissions for authentication are 'basic.'  If additional permissions are needed, the permissions can be set using the `permissionScope` property.
 
