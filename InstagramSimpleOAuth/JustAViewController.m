@@ -8,9 +8,9 @@
 - (IBAction)pushInstagramVCOnNavStackTapped:(id)sender
 {
     InstagramSimpleOAuthViewController
-    *viewController = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"d34a41b0195f4f50b829a278b9b534ee" // Don't worry, this doesn't exist anymore =)
-                                                                      clientSecret:@"eb0f48287350402f862cf3a9b6e4aa1b" // Don't worry, this doesn't exist anymore =)
-                                                                       callbackURL:[NSURL URLWithString:@"http://honeypot.xyz"]
+    *viewController = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"enter_your_client_ID_here"
+                                                                      clientSecret:@"enter_your_client_secret_here"
+                                                                       callbackURL:[NSURL URLWithString:@"http://enter.callback.url.here"]
                                                                         completion:^(InstagramLoginResponse *response, NSError *error) {
                                                                             if (response.authToken) {
                                                                                 [self displayToken:response.authToken];
