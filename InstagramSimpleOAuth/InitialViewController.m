@@ -1,7 +1,7 @@
 #import "InitialViewController.h"
-#import "InstagramSimpleOAuthViewController.h"
 #import "JustAViewController.h"
-#import "InstagramLoginResponse.h"
+#import "InstagramSimpleOAuth.h"
+
 
 @implementation InitialViewController
 
