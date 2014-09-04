@@ -83,7 +83,7 @@
 		AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstagramSimpleOAuthViewController.xib; path = Source/InstagramSimpleOAuthViewController.xib; sourceTree = "<group>"; };
 		AF04B70819B0330B004BF65D /* FakeInstagramLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeInstagramLoginManager.h; sourceTree = "<group>"; };
 		AF04B70919B0330B004BF65D /* FakeInstagramLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInstagramLoginManager.m; sourceTree = "<group>"; };
-		AF10A73619ACD1C400311E0A /* InstagramSimpleOAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstagramSimpleOAuth.h; sourceTree = "<group>"; };
+		AF27E95A19B83CD70060DA91 /* InstagramSimpleOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstagramSimpleOAuth.h; path = Source/InstagramSimpleOAuth.h; sourceTree = "<group>"; };
 		AF407E341993BFA700F61872 /* InstagramSimpleOAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramSimpleOAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF407E371993BFA700F61872 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AF407E391993BFA700F61872 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -268,7 +268,7 @@
 		AF753F541993C34E007C8B1B /* InstagramSimpleOAuth */ = {
 			isa = PBXGroup;
 			children = (
-				AF10A73619ACD1C400311E0A /* InstagramSimpleOAuth.h */,
+				AF27E95A19B83CD70060DA91 /* InstagramSimpleOAuth.h */,
 				AF793E7B19AEF6E2008C3656 /* InstagramConstants.h */,
 				AF793E7C19AEF6E2008C3656 /* InstagramConstants.m */,
 				AF753F551993C37F007C8B1B /* InstagramSimpleOAuthViewController.h */,
