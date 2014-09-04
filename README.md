@@ -1,4 +1,4 @@
-# InstagramSimpleOAuth
+# InstagramSimpleOAuth [![Build Status](https://travis-ci.org/rbaumbach/InstagramSimpleOAuth.svg?branch=master)](https://travis-ci.org/rbaumbach/InstagramSimpleOAuth)
 
 A quick and simple way to authenticate an Instagram user in your iPhone or iPad app.
 
