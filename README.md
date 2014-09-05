@@ -1,4 +1,5 @@
-# InstagramSimpleOAuth [![Build Status](https://travis-ci.org/rbaumbach/InstagramSimpleOAuth.svg?branch=master)](https://travis-ci.org/rbaumbach/InstagramSimpleOAuth) [![Cocoapod Version](http://img.shields.io/badge/pod-v0.0.1-blue.svg)](http://cocoapods.org/?q=InstagramSimpleOAuth) [![Cocoapod Platform](http://img.shields.io/badge/platform-iOS-blue.svg)](http://cocoapods.org/?q=InstagramSimpleOAuth) [![License](http://b.repl.ca/v1/License-MIT-blue.png)](https://github.com/rbaumbach/InstagramSimpleOAuth/blob/master/MIT.LICENSE)
+# InstagramSimpleOAuth 
+[![Build Status](https://travis-ci.org/rbaumbach/InstagramSimpleOAuth.svg?branch=master)](https://travis-ci.org/rbaumbach/InstagramSimpleOAuth) [![Cocoapod Version](http://img.shields.io/badge/pod-v0.0.1-blue.svg)](http://cocoapods.org/?q=InstagramSimpleOAuth) [![Cocoapod Platform](http://img.shields.io/badge/platform-iOS-blue.svg)](http://cocoapods.org/?q=InstagramSimpleOAuth) [![License](http://b.repl.ca/v1/License-MIT-blue.png)](https://github.com/rbaumbach/InstagramSimpleOAuth/blob/master/MIT.LICENSE)
 
 A quick and simple way to authenticate an Instagram user in your iPhone or iPad app.
 
