@@ -10,4 +10,5 @@ target :InstagramSimpleOAuthTests do
     pod 'Specta', '~> 0.2.1'
     pod 'Expecta', '~> 0.2.4'
     pod 'OCMock', '~> 3.0.2'
+    pod 'RealFakes'
 end

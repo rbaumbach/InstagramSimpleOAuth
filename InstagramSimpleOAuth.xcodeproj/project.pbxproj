@@ -13,7 +13,6 @@
 		AF026539199A971C001CA450 /* InitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF026537199A971C001CA450 /* InitialViewController.xib */; };
 		AF02653D199AA164001CA450 /* JustAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF02653B199AA164001CA450 /* JustAViewController.m */; };
 		AF02653E199AA164001CA450 /* JustAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF02653C199AA164001CA450 /* JustAViewController.xib */; };
-		AF026542199AF0AB001CA450 /* FakeAFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF026541199AF0AB001CA450 /* FakeAFHTTPSessionManager.m */; };
 		AF0431D019945F44000C7B6D /* InstagramSimpleOAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */; };
 		AF0431D119945F44000C7B6D /* InstagramSimpleOAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */; };
 		AF04B70A19B0330B004BF65D /* FakeInstagramLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF04B70919B0330B004BF65D /* FakeInstagramLoginManager.m */; };
@@ -78,8 +77,6 @@
 		AF02653A199AA164001CA450 /* JustAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JustAViewController.h; sourceTree = "<group>"; };
 		AF02653B199AA164001CA450 /* JustAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JustAViewController.m; sourceTree = "<group>"; };
 		AF02653C199AA164001CA450 /* JustAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JustAViewController.xib; sourceTree = "<group>"; };
-		AF026540199AF0AB001CA450 /* FakeAFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeAFHTTPSessionManager.h; sourceTree = "<group>"; };
-		AF026541199AF0AB001CA450 /* FakeAFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeAFHTTPSessionManager.m; sourceTree = "<group>"; };
 		AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstagramSimpleOAuthViewController.xib; path = Source/InstagramSimpleOAuthViewController.xib; sourceTree = "<group>"; };
 		AF04B70819B0330B004BF65D /* FakeInstagramLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeInstagramLoginManager.h; sourceTree = "<group>"; };
 		AF04B70919B0330B004BF65D /* FakeInstagramLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInstagramLoginManager.m; sourceTree = "<group>"; };
@@ -159,8 +156,6 @@
 		AF02653F199AF08C001CA450 /* Real Fakes */ = {
 			isa = PBXGroup;
 			children = (
-				AF026540199AF0AB001CA450 /* FakeAFHTTPSessionManager.h */,
-				AF026541199AF0AB001CA450 /* FakeAFHTTPSessionManager.m */,
 				AF04B70819B0330B004BF65D /* FakeInstagramLoginManager.h */,
 				AF04B70919B0330B004BF65D /* FakeInstagramLoginManager.m */,
 			);
@@ -507,7 +502,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF026542199AF0AB001CA450 /* FakeAFHTTPSessionManager.m in Sources */,
 				AF793E7E19AEF6E2008C3656 /* InstagramConstants.m in Sources */,
 				AF66544019AB7B53004D2DAE /* InstagramLoginResponseTests.m in Sources */,
 				AFE9E9AB19ACEB5100D6F122 /* InstagramLoginUtils.m in Sources */,

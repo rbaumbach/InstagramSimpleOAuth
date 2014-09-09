@@ -4,7 +4,7 @@
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
 #import <AFNetworking/AFNetworking.h>
-#import "FakeAFHTTPSessionManager.h"
+#import <RealFakes/RealFakes.h>
 #import "InstagramLoginManager.h"
 #import "InstagramSimpleOAuth.h"
 #import "FakeInstagramAuthResponse.h"
@@ -54,11 +54,12 @@ describe(@"InstagramLoginManager", ^{
             fakeSessionManager = [[FakeAFHTTPSessionManager alloc] init];
             manager.sessionManager = fakeSessionManager;
             
-            [manager authenticateWithAuthCode:@"Fidelio" success:^(InstagramLoginResponse *instagramLoginResponse) {
-                retLoginResponse = instagramLoginResponse;
-            } failure:^(NSError *error) {
-                retError = error;
-            }];
+            [manager authenticateWithAuthCode:@"Fidelio"
+                                      success:^(InstagramLoginResponse *instagramLoginResponse) {
+                                          retLoginResponse = instagramLoginResponse;
+                                      } failure:^(NSError *error) {
+                                          retError = error;
+                                      }];
         });
         
         context(@"on success", ^{
@@ -67,18 +68,18 @@ describe(@"InstagramLoginManager", ^{
             beforeEach(^{
                 fakeLoginResponse = OCMClassMock([InstagramLoginResponse class]);
 
-                if (fakeSessionManager.success) {
-                    fakeSessionManager.success(nil, [FakeInstagramAuthResponse response]);
+                if (fakeSessionManager.postSuccessBlock) {
+                    fakeSessionManager.postSuccessBlock(nil, [FakeInstagramAuthResponse response]);
                 }
             });
             
             it(@"makes a POST call with the correct endpoint and parameters to Instagram", ^{
                 expect(fakeSessionManager.postURLString).to.equal(@"/oauth/access_token/");
-                expect(fakeSessionManager.parameters).to.equal(@{ @"client_id"     : manager.clientID,
-                                                                  @"client_secret" : manager.clientSecret,
-                                                                  @"grant_type"    : @"authorization_code",
-                                                                  @"redirect_uri"  : manager.callbackURL.absoluteString,
-                                                                  @"code"          : @"Fidelio" });
+                expect(fakeSessionManager.postParameters).to.equal(@{ @"client_id"     : manager.clientID,
+                                                                      @"client_secret" : manager.clientSecret,
+                                                                      @"grant_type"    : @"authorization_code",
+                                                                      @"redirect_uri"  : manager.callbackURL.absoluteString,
+                                                                      @"code"          : @"Fidelio" });
             });
             
             it(@"calls success with instagramLoginResponse", ^{
@@ -97,8 +98,8 @@ describe(@"InstagramLoginManager", ^{
             beforeEach(^{
                 fakeError = OCMClassMock([NSError class]);
                 
-                if (fakeSessionManager.failure) {
-                    fakeSessionManager.failure(nil, fakeError);
+                if (fakeSessionManager.postFailureBlock) {
+                    fakeSessionManager.postFailureBlock(nil, fakeError);
                 }
             });
             
