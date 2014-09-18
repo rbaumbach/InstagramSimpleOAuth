@@ -16,7 +16,7 @@ describe(@"InstagramLoginResponse", ^{
     });
     
     it(@"has an auth token", ^{
-        expect(loginResponse.authToken).to.equal(@"12345IdiotLuggageCombo");
+        expect(loginResponse.accessToken).to.equal(@"12345IdiotLuggageCombo");
     });
     
     it(@"has an Instagram user", ^{

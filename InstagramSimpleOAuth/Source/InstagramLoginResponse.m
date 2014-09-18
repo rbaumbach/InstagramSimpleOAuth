@@ -28,7 +28,7 @@ NSString *const InstagramUserKey = @"user";
 
 @interface InstagramLoginResponse ()
 
-@property (copy, nonatomic, readwrite) NSString *authToken;
+@property (copy, nonatomic, readwrite) NSString *accessToken;
 @property (strong, nonatomic, readwrite) InstagramUser *user;
 
 @end
@@ -42,7 +42,7 @@ NSString *const InstagramUserKey = @"user";
     self = [super init];
     if (self) {
         if (response) {
-            self.authToken = response[InstagramAccessTokenKey];
+            self.accessToken = response[InstagramAccessTokenKey];
             
             InstagramUser *user = [[InstagramUser alloc] initWithDictionary:response[InstagramUserKey]];
             self.user = user;

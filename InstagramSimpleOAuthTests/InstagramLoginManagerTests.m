@@ -83,7 +83,7 @@ describe(@"InstagramLoginManager", ^{
             
             it(@"calls success with instagramLoginResponse", ^{
                 expect(retLoginResponse).to.beInstanceOf([InstagramLoginResponse class]);
-                expect(retLoginResponse.authToken).to.equal(@"12345IdiotLuggageCombo");
+                expect(retLoginResponse.accessToken).to.equal(@"12345IdiotLuggageCombo");
                 expect(retLoginResponse.user.userID).to.equal(@"yepyepyep");
                 expect(retLoginResponse.user.username).to.equal(@"og-gsta");
                 expect(retLoginResponse.user.fullName).to.equal(@"Ice Cube");

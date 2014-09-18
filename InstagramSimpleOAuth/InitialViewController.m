@@ -14,8 +14,8 @@
                                                                       clientSecret:@"enter_your_client_secret_here"
                                                                        callbackURL:[NSURL URLWithString:@"http://enter.callback.url.here"]
                                                                         completion:^(InstagramLoginResponse *response, NSError *error) {
-                                                                            if (response.authToken) {
-                                                                                [self displayToken:response.authToken];
+                                                                            if (response.accessToken) {
+                                                                                [self displayToken:response.accessToken];
                                                                             }
                                                                         }];
 
