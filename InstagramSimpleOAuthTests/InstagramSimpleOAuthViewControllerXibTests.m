@@ -5,9 +5,9 @@
 #import "InstagramSimpleOAuth.h"
 
 
-SpecBegin(InstagramSimpleOAuthIPhoneNibTests)
+SpecBegin(InstagramSimpleOAuthViewControllerXibTests)
 
-describe(@"InstagramSimpleOAuthIPhoneNib", ^{
+describe(@"InstagramSimpleOAuthViewControllerXib", ^{
     __block InstagramSimpleOAuthViewController *controller;
     
     describe(@"constraints", ^{

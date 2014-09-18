@@ -45,12 +45,9 @@
 		AFA8469E19B004850035A004 /* InstagramLoginManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA8469D19B004850035A004 /* InstagramLoginManagerTests.m */; };
 		AFA846A119B0054B0035A004 /* InstagramLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA846A019B0054B0035A004 /* InstagramLoginManager.m */; };
 		AFA846A219B0054B0035A004 /* InstagramLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA846A019B0054B0035A004 /* InstagramLoginManager.m */; };
-		AFC2982C199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC2982B199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib */; };
-		AFC2982D1994940100F13819 /* InstagramSimpleOAuthViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC2982B199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib */; };
 		AFD50DF219ABD34800B05A1D /* FakeInstagramAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD50DF119ABD34800B05A1D /* FakeInstagramAuthResponse.m */; };
 		AFD733B31999D5BB0041F716 /* UIAlertView+TestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD733B21999D5BB0041F716 /* UIAlertView+TestUtils.m */; };
-		AFD733B61999D8040041F716 /* InstagramSimpleOAuthIPhoneNibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD733B51999D8040041F716 /* InstagramSimpleOAuthIPhoneNibTests.m */; };
-		AFD733B81999DA890041F716 /* InstagramSimpleOAuthIPadNibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD733B71999DA890041F716 /* InstagramSimpleOAuthIPadNibTests.m */; };
+		AFD733B61999D8040041F716 /* InstagramSimpleOAuthViewControllerXibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD733B51999D8040041F716 /* InstagramSimpleOAuthViewControllerXibTests.m */; };
 		AFE9E9A719ACEAFF00D6F122 /* InstagramLoginUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE9E9A619ACEAFF00D6F122 /* InstagramLoginUtilsTests.m */; };
 		AFE9E9AA19ACEB5100D6F122 /* InstagramLoginUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE9E9A919ACEB5100D6F122 /* InstagramLoginUtils.m */; };
 		AFE9E9AB19ACEB5100D6F122 /* InstagramLoginUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE9E9A919ACEB5100D6F122 /* InstagramLoginUtils.m */; };
@@ -115,13 +112,11 @@
 		AFA8469D19B004850035A004 /* InstagramLoginManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramLoginManagerTests.m; sourceTree = "<group>"; };
 		AFA8469F19B0054B0035A004 /* InstagramLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstagramLoginManager.h; path = Source/InstagramLoginManager.h; sourceTree = "<group>"; };
 		AFA846A019B0054B0035A004 /* InstagramLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstagramLoginManager.m; path = Source/InstagramLoginManager.m; sourceTree = "<group>"; };
-		AFC2982B199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "InstagramSimpleOAuthViewController~ipad.xib"; path = "Source/InstagramSimpleOAuthViewController~ipad.xib"; sourceTree = "<group>"; };
 		AFD50DF019ABD34800B05A1D /* FakeInstagramAuthResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeInstagramAuthResponse.h; sourceTree = "<group>"; };
 		AFD50DF119ABD34800B05A1D /* FakeInstagramAuthResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInstagramAuthResponse.m; sourceTree = "<group>"; };
 		AFD733B11999D5BB0041F716 /* UIAlertView+TestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+TestUtils.h"; sourceTree = "<group>"; };
 		AFD733B21999D5BB0041F716 /* UIAlertView+TestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+TestUtils.m"; sourceTree = "<group>"; };
-		AFD733B51999D8040041F716 /* InstagramSimpleOAuthIPhoneNibTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramSimpleOAuthIPhoneNibTests.m; sourceTree = "<group>"; };
-		AFD733B71999DA890041F716 /* InstagramSimpleOAuthIPadNibTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramSimpleOAuthIPadNibTests.m; sourceTree = "<group>"; };
+		AFD733B51999D8040041F716 /* InstagramSimpleOAuthViewControllerXibTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramSimpleOAuthViewControllerXibTests.m; sourceTree = "<group>"; };
 		AFE9E9A619ACEAFF00D6F122 /* InstagramLoginUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramLoginUtilsTests.m; sourceTree = "<group>"; };
 		AFE9E9A819ACEB5100D6F122 /* InstagramLoginUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstagramLoginUtils.h; path = Source/InstagramLoginUtils.h; sourceTree = "<group>"; };
 		AFE9E9A919ACEB5100D6F122 /* InstagramLoginUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstagramLoginUtils.m; path = Source/InstagramLoginUtils.m; sourceTree = "<group>"; };
@@ -221,8 +216,7 @@
 				AF02653F199AF08C001CA450 /* Real Fakes */,
 				AFD733B41999D5BF0041F716 /* TestUtils */,
 				AF407E651993BFA700F61872 /* InstagramSimpleOAuthViewControllerTests.m */,
-				AFD733B51999D8040041F716 /* InstagramSimpleOAuthIPhoneNibTests.m */,
-				AFD733B71999DA890041F716 /* InstagramSimpleOAuthIPadNibTests.m */,
+				AFD733B51999D8040041F716 /* InstagramSimpleOAuthViewControllerXibTests.m */,
 				AF66543F19AB7B53004D2DAE /* InstagramLoginResponseTests.m */,
 				AF66544519AB7DCC004D2DAE /* InstagramUserTests.m */,
 				AFE9E9A619ACEAFF00D6F122 /* InstagramLoginUtilsTests.m */,
@@ -269,7 +263,6 @@
 				AF753F551993C37F007C8B1B /* InstagramSimpleOAuthViewController.h */,
 				AF753F561993C37F007C8B1B /* InstagramSimpleOAuthViewController.m */,
 				AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */,
-				AFC2982B199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib */,
 				AF66544119AB7BF1004D2DAE /* InstagramLoginResponse.h */,
 				AF66544219AB7BF1004D2DAE /* InstagramLoginResponse.m */,
 				AF66544719AB80E7004D2DAE /* InstagramUser.h */,
@@ -401,7 +394,6 @@
 				AF407E421993BFA700F61872 /* InfoPlist.strings in Resources */,
 				AF976E9E19B60C89006D1CF7 /* iPadScreenshot.jpg in Resources */,
 				AF02653E199AA164001CA450 /* JustAViewController.xib in Resources */,
-				AFC2982C199493F300F13819 /* InstagramSimpleOAuthViewController~ipad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +402,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF407E641993BFA700F61872 /* InfoPlist.strings in Resources */,
-				AFC2982D1994940100F13819 /* InstagramSimpleOAuthViewController~ipad.xib in Resources */,
 				AF0431D119945F44000C7B6D /* InstagramSimpleOAuthViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,11 +496,10 @@
 				AF793E7E19AEF6E2008C3656 /* InstagramConstants.m in Sources */,
 				AF66544019AB7B53004D2DAE /* InstagramLoginResponseTests.m in Sources */,
 				AFE9E9AB19ACEB5100D6F122 /* InstagramLoginUtils.m in Sources */,
-				AFD733B81999DA890041F716 /* InstagramSimpleOAuthIPadNibTests.m in Sources */,
 				AFA846A219B0054B0035A004 /* InstagramLoginManager.m in Sources */,
 				AF66544619AB7DCC004D2DAE /* InstagramUserTests.m in Sources */,
 				AF66544419AB7BF1004D2DAE /* InstagramLoginResponse.m in Sources */,
-				AFD733B61999D8040041F716 /* InstagramSimpleOAuthIPhoneNibTests.m in Sources */,
+				AFD733B61999D8040041F716 /* InstagramSimpleOAuthViewControllerXibTests.m in Sources */,
 				AF407E661993BFA700F61872 /* InstagramSimpleOAuthViewControllerTests.m in Sources */,
 				AFE9E9A719ACEAFF00D6F122 /* InstagramLoginUtilsTests.m in Sources */,
 				AF04B70A19B0330B004BF65D /* FakeInstagramLoginManager.m in Sources */,
