@@ -37,7 +37,7 @@ NSString *const InstagramUserKey = @"user";
 
 #pragma mark - Init Methods
 
-- (instancetype)initWithInstagramAuthResponse:(NSDictionary *)response
+- (instancetype)initWithInstagramOAuthResponse:(NSDictionary *)response
 {
     self = [super init];
     if (self) {

@@ -6,7 +6,7 @@
 #import <RealFakes/RealFakes.h>
 #import "InstagramLoginManager.h"
 #import "InstagramSimpleOAuth.h"
-#import "FakeInstagramAuthResponse.h"
+#import "FakeInstagramOAuthResponse.h"
 
 
 @interface InstagramLoginManager ()
@@ -68,7 +68,7 @@ describe(@"InstagramLoginManager", ^{
                 fakeLoginResponse = OCMClassMock([InstagramLoginResponse class]);
 
                 if (fakeSessionManager.postSuccessBlock) {
-                    fakeSessionManager.postSuccessBlock(nil, [FakeInstagramAuthResponse response]);
+                    fakeSessionManager.postSuccessBlock(nil, [FakeInstagramOAuthResponse response]);
                 }
             });
             

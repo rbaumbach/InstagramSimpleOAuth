@@ -70,7 +70,7 @@ NSString *const CodeKey = @"code";
     [self.sessionManager POST:InstagramAuthTokenEndpoint
                    parameters:[self instagramTokenParams:authCode]
                       success:^(NSURLSessionDataTask *task, id responseObject) {
-                          InstagramLoginResponse *loginResponse = [[InstagramLoginResponse alloc] initWithInstagramAuthResponse:responseObject];
+                          InstagramLoginResponse *loginResponse = [[InstagramLoginResponse alloc] initWithInstagramOAuthResponse:responseObject];
                           success(loginResponse);
                       } failure:^(NSURLSessionDataTask *task, NSError *error) {
                           failure(error);

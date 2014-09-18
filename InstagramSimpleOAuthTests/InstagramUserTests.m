@@ -2,7 +2,7 @@
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
-#import "FakeInstagramAuthResponse.h"
+#import "FakeInstagramOAuthResponse.h"
 #import "InstagramSimpleOAuth.h"
 
 
@@ -12,7 +12,7 @@ describe(@"InstagramUser", ^{
     __block InstagramUser *user;
     
     beforeEach(^{
-        user = [[InstagramUser alloc] initWithDictionary:[FakeInstagramAuthResponse userResponse]];
+        user = [[InstagramUser alloc] initWithDictionary:[FakeInstagramOAuthResponse userResponse]];
     });
     
     describe(@"init", ^{

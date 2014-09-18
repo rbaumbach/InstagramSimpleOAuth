@@ -2,7 +2,7 @@
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
-#import "FakeInstagramAuthResponse.h"
+#import "FakeInstagramOAuthResponse.h"
 #import "InstagramSimpleOAuth.h"
 
 
@@ -12,7 +12,7 @@ describe(@"InstagramLoginResponse", ^{
     __block InstagramLoginResponse *loginResponse;
     
     beforeEach(^{
-        loginResponse = [[InstagramLoginResponse alloc] initWithInstagramAuthResponse:[FakeInstagramAuthResponse response]];
+        loginResponse = [[InstagramLoginResponse alloc] initWithInstagramOAuthResponse:[FakeInstagramOAuthResponse response]];
     });
     
     it(@"has an auth token", ^{

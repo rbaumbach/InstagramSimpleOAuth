@@ -1,6 +1,6 @@
 
 
-@interface FakeInstagramAuthResponse : NSObject
+@interface FakeInstagramOAuthResponse : NSObject
 
 + (NSDictionary *)response;
 + (NSDictionary *)userResponse;

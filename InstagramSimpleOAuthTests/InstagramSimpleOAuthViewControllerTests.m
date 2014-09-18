@@ -6,7 +6,6 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "UIAlertView+TestUtils.h"
 #import "FakeAFHTTPSessionManager.h"
-#import "FakeInstagramAuthResponse.h"
 #import "InstagramSimpleOAuth.h"
 #import "InstagramLoginUtils.h"
 #import "InstagramLoginmanager.h"

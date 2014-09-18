@@ -1,7 +1,7 @@
-#import "FakeInstagramAuthResponse.h"
+#import "FakeInstagramOAuthResponse.h"
 
 
-@implementation FakeInstagramAuthResponse
+@implementation FakeInstagramOAuthResponse
 
 + (NSDictionary *)response
 {
