@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Install Rake, xcpretty
+# Install Gem Dependencies
 bundle
 
 # Install Project Dependencies

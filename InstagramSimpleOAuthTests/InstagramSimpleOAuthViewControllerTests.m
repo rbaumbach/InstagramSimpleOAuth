@@ -4,7 +4,6 @@
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
 #import <MBProgressHUD/MBProgressHUD.h>
-#import "NSLayoutConstraint+TestUtils.h"
 #import "UIAlertView+TestUtils.h"
 #import "FakeAFHTTPSessionManager.h"
 #import "FakeInstagramAuthResponse.h"
