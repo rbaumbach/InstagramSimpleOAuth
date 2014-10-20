@@ -85,13 +85,28 @@ describe(@"InstagramLoginUtils", ^{
         __block NSURLRequest *nonFancyURLRequest;
         
         context(@"request contains auth code", ^{
-            beforeEach(^{
-                nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://bluebull.32oz/?code=buck"]];
-                requestContainsAuthCode = [utils requestHasAuthCode:nonFancyURLRequest];
+            describe(@"request passed in has a '/' between the auth code parameter", ^{
+                beforeEach(^{
+                    utils.callbackURL = [NSURL URLWithString:@"https://bluebull.32oz/"];
+                    nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://bluebull.32oz/?code=buck"]];
+                    requestContainsAuthCode = [utils requestHasAuthCode:nonFancyURLRequest];
+                });
+                
+                it(@"returns YES", ^{
+                    expect(requestContainsAuthCode).to.beTruthy();
+                });
             });
             
-            it(@"returns YES", ^{
-                expect(requestContainsAuthCode).to.beTruthy();
+            describe(@"equest passed DOES NOT have a '/' between the auth code parameter", ^{
+                beforeEach(^{
+                    utils.callbackURL = [NSURL URLWithString:@"https://bluebull.32oz/whocares.html"];
+                    nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://bluebull.32oz/whocares.html?code=buck"]];
+                    requestContainsAuthCode = [utils requestHasAuthCode:nonFancyURLRequest];
+                });
+                
+                it(@"returns YES", ^{
+                    expect(requestContainsAuthCode).to.beTruthy();
+                });
             });
         });
         
@@ -110,13 +125,28 @@ describe(@"InstagramLoginUtils", ^{
     describe(@"#authCodeFromRequest:", ^{
         __block NSString *authCode;
         
-        beforeEach(^{
-            NSURLRequest *nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://bluebull.32oz/?code=7awe-50me"]];
-            authCode = [utils authCodeFromRequest:nonFancyURLRequest];
+        describe(@"request passed in has a '/' between the auth code parameter", ^{
+            beforeEach(^{
+                utils.callbackURL = [NSURL URLWithString:@"https://bluebull.32oz/"];
+                NSURLRequest *nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://bluebull.32oz/?code=7awe-50me"]];
+                authCode = [utils authCodeFromRequest:nonFancyURLRequest];
+            });
+            
+            it(@"returns the auth code", ^{
+                expect(authCode).to.equal(@"7awe-50me");
+            });
         });
-        
-        it(@"returns the auth code", ^{
-            expect(authCode).to.equal(@"7awe-50me");
+    
+        describe(@"request passed DOES NOT have a '/' between the auth code parameter", ^{
+            beforeEach(^{
+                utils.callbackURL = [NSURL URLWithString:@"https://bluebull.32oz/whatever.html"];
+                NSURLRequest *nonFancyURLRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://bluebull.32oz/whatever.html?code=7awe-50me2"]];
+                authCode = [utils authCodeFromRequest:nonFancyURLRequest];
+            });
+            
+            it(@"returns the auth code", ^{
+                expect(authCode).to.equal(@"7awe-50me2");
+            });
         });
     });
 });

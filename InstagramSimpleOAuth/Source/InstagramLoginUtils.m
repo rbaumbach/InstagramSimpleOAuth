@@ -26,7 +26,7 @@
 NSString *const InstagramAuthClientIDEndpoint = @"/oauth/authorize/?client_id=";
 NSString *const InstagramAuthRedirectParams = @"&client=touch&redirect_uri=";
 NSString *const InstagramAuthResponseTypeParams = @"&response_type=code";
-NSString *const InstagramAuthCodeParam = @"/?code=";
+NSString *const InstagramAuthCodeParam = @"?code=";
 NSString *const InstagramScopePermissionsParam = @"&scope=";
 
 @interface InstagramLoginUtils ()
@@ -62,8 +62,9 @@ NSString *const InstagramScopePermissionsParam = @"&scope=";
 {
     NSString *requestURLString = request.URL.absoluteString;
     NSString *callbackWithAuthParam = [self callbackWithAuthCode];
+    NSString *callbackWithTrailingSlashWithAuthParam = [self callbackWithTrailingSlashAndAuthCode];
     
-    return [requestURLString hasPrefix:callbackWithAuthParam];
+    return [requestURLString hasPrefix:callbackWithAuthParam] || [requestURLString hasPrefix:callbackWithTrailingSlashWithAuthParam];
 }
 
 - (NSString *)authCodeFromRequest:(NSURLRequest *)request
@@ -71,7 +72,13 @@ NSString *const InstagramScopePermissionsParam = @"&scope=";
     NSString *requestURLString = request.URL.absoluteString;
     NSString *callbackWithAuthParam = [self callbackWithAuthCode];
     
-    return [requestURLString substringFromIndex:[callbackWithAuthParam length]];
+    NSString *authCode = [requestURLString substringFromIndex:[callbackWithAuthParam length]];
+    
+    if ([authCode containsString:@"="]) {
+        authCode = [authCode substringFromIndex:1];
+    }
+    
+    return authCode;
 }
 
 #pragma mark - Private Methods
@@ -105,6 +112,11 @@ NSString *const InstagramScopePermissionsParam = @"&scope=";
 - (NSString *)callbackWithAuthCode
 {
     return [NSString stringWithFormat:@"%@%@", self.callbackURL.absoluteString, InstagramAuthCodeParam];
+}
+
+- (NSString *)callbackWithTrailingSlashAndAuthCode
+{
+    return [NSString stringWithFormat:@"%@/%@", self.callbackURL.absoluteString, InstagramAuthCodeParam];
 }
 
 @end
