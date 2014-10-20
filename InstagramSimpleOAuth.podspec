@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version               = '0.1.1'
   s.summary               = 'A quick and simple way to authenticate an Instagram user in your iPhone or iPad app.'
   s.homepage              = 'https://github.com/rbaumbach/InstagramSimpleOAuth'
-  s.license               = { :type => 'MIT', :file => 'MIT.LICENSE' }
+  s.license               = { :type => 'MIT', :file => 'MIT-LICENSE.txt' }
   s.author                = { 'Ryan Baumbach' => 'rbaumbach.github@gmail.com' }
   s.source                = { :git => 'https://github.com/rbaumbach/InstagramSimpleOAuth.git', :tag => s.version.to_s }
   s.requires_arc          = true
