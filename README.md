@@ -20,7 +20,7 @@ A quick and simple way to authenticate an Instagram user in your iPhone or iPad 
 ### Clone from Github
 
 1.  Clone repository from github and copy files directly, or add it as a git submodule.
-2.  Add all files from 'Source' directory to your project (As well as the dependencies listed in the Podfile).
+2.  Add all files from 'Source' directory to your project (as well as the dependencies listed in the Podfile).
 
 ## How To
 
