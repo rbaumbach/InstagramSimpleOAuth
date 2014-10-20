@@ -74,7 +74,7 @@ NSString *const InstagramScopePermissionsParam = @"&scope=";
     
     NSString *authCode = [requestURLString substringFromIndex:[callbackWithAuthParam length]];
     
-    if ([authCode containsString:@"="]) {
+    if ([authCode hasPrefix:@"="]) {
         authCode = [authCode substringFromIndex:1];
     }
     
