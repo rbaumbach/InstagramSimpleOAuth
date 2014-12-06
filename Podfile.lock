@@ -1,49 +1,63 @@
 PODS:
-  - AFNetworking (2.4.1):
+  - AFNetworking (2.5.0):
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
+  - AFNetworking/NSURLConnection (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.4.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.4.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.4.1)
-  - AFNetworking/Security (2.4.1)
-  - AFNetworking/Serialization (2.4.1)
-  - AFNetworking/UIKit (2.4.1):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-  - Expecta (0.2.4)
+  - Expecta (0.3.1)
   - MBProgressHUD (0.9)
-  - OCMock (3.0.2)
-  - RealFakes (0.0.2):
+  - OCMock (3.1.1)
+  - RealFakes (0.0.4):
     - AFNetworking (~> 2.0)
-  - Specta (0.2.1)
+    - SimpleOAuth2 (~> 0.0.3)
+  - SimpleOAuth2 (0.0.3):
+    - AFNetworking (~> 2.0)
+  - Specta (0.3.0.beta1)
   - Swizzlean (0.2.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
-  - Expecta (~> 0.2.4)
+  - Expecta (~> 0.3.1)
   - MBProgressHUD (~> 0.9)
-  - OCMock (~> 3.0.2)
-  - RealFakes
-  - Specta (~> 0.2.1)
-  - Swizzlean (= 0.2.0)
+  - OCMock (~> 3.1.1)
+  - RealFakes (~> 0.0.4)
+  - Specta (from `https://github.com/specta/specta.git`, tag `v0.3.0.beta1`)
+  - Swizzlean (~> 0.2.0)
+
+EXTERNAL SOURCES:
+  Specta:
+    :git: https://github.com/specta/specta.git
+    :tag: v0.3.0.beta1
+
+CHECKOUT OPTIONS:
+  Specta:
+    :git: https://github.com/specta/specta.git
+    :tag: v0.3.0.beta1
 
 SPEC CHECKSUMS:
-  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
-  Expecta: 112bcafa2304ee0f3c5e586505f24555a47b25d5
+  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
-  OCMock: b9836ab89d8d5e66cbe6333f93857037c310ee62
-  RealFakes: 353c141b780fecc04e7ac19aadb045075898ec81
-  Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
+  OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
+  RealFakes: 386619ccc84d7bf108892068e9a7751dd9a3fff6
+  SimpleOAuth2: e0239a4458ed279d6b8bddccbcf8f782300379ee
+  Specta: 63e8ac8e07db6675c7096d37f77a266a1be4c02d
   Swizzlean: dc03ad1d847a3748f456982b7ede4e3bad4a9630
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0
