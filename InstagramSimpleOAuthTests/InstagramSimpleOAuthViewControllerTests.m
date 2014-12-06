@@ -4,35 +4,41 @@
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <SimpleOAuth2/SimpleOAuth2.h>
 #import "UIAlertView+TestUtils.h"
-#import "FakeAFHTTPSessionManager.h"
+#import "FakeInstagramAuthenticationManager.h"
 #import "InstagramSimpleOAuth.h"
-#import "InstagramLoginUtils.h"
-#import "InstagramLoginmanager.h"
-#import "FakeInstagramLoginManager.h"
+#import "InstagramTokenParameters.h"
+#import "FakeInstagramOAuthResponse.h"
+#import "InstagramAuthenticatioNManager.h"
 
 
 @interface InstagramSimpleOAuthViewController () <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *instagramWebView;
-@property (strong, nonatomic) InstagramLoginManager *loginManager;
-@property (strong, nonatomic) InstagramLoginUtils *instagramLoginUtils;
+@property (strong, nonatomic) InstagramAuthenticationManager *instagramAuthenticationManager;
+
+@end
+
+@interface InstagramAuthenticationManager ()
+
+@property (copy, nonatomic) NSString *clientID;
+@property (copy, nonatomic) NSString *clientSecret;
+@property (copy, nonatomic) NSString *callbackURLString;
+
 @end
 
 SpecBegin(InstagramSimpleOAuthViewControllerTests)
 
 describe(@"InstagramSimpleOAuthViewController", ^{
     __block InstagramSimpleOAuthViewController *controller;
-    __block id fakeLoginUtils;
-    __block NSURL *callbackURL;
     __block InstagramLoginResponse *retLoginResponse;
     __block NSError *retError;
     
     beforeEach(^{
-        callbackURL = [NSURL URLWithString:@"http://swizzlean.com"];
-        controller = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"fancyID"
-                                                                     clientSecret:@"12345"
-                                                                      callbackURL:callbackURL
+        controller = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"They-call-me-number-two"
+                                                                     clientSecret:@"beans"
+                                                                      callbackURL:[NSURL URLWithString:@"http://Delta-Tau-Chi.ios"]
                                                                        completion:^(InstagramLoginResponse *response, NSError *error) {
                                                                            retLoginResponse = response;
                                                                            retError = error;
@@ -50,15 +56,15 @@ describe(@"InstagramSimpleOAuthViewController", ^{
     });
     
     it(@"has a clientID", ^{
-        expect(controller.clientID).to.equal(@"fancyID");
+        expect(controller.clientID).to.equal(@"They-call-me-number-two");
     });
     
-    it(@"has a clientSecet", ^{
-        expect(controller.clientSecret).to.equal(@"12345");
+    it(@"has a client secret", ^{
+        expect(controller.clientSecret).to.equal(@"beans");
     });
-
+    
     it(@"has a callbackURL", ^{
-        expect(controller.callbackURL).to.equal([NSURL URLWithString:@"http://swizzlean.com"]);
+        expect(controller.callbackURL).to.equal([NSURL URLWithString:@"http://Delta-Tau-Chi.ios"]);
     });
     
     it(@"has a completion block", ^{
@@ -73,32 +79,23 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         expect(controller.shouldShowErrorAlert).to.beTruthy();
     });
     
-    it(@"sets the permission scope empty by default", ^{
-        expect(controller.permissionScope).to.beNil();
-    });
-    
     it(@"conforms to <UIWebViewDelegate>", ^{
         BOOL conformsToWebViewDelegateProtocol = [controller conformsToProtocol:@protocol(UIWebViewDelegate)];
         expect(conformsToWebViewDelegateProtocol).to.equal(YES);
     });
     
-    it(@"has an InstagramLoginManager", ^{
-        expect(controller.loginManager).to.beInstanceOf([InstagramLoginManager class]);
-        expect(controller.loginManager.clientID).to.equal(@"fancyID");
-        expect(controller.loginManager.clientSecret).to.equal(@"12345");
-        expect(controller.loginManager.callbackURL).to.equal(controller.callbackURL);
-    });
-    
-    it(@"has an InstagramLoginUtils", ^{
-        expect(controller.instagramLoginUtils).to.beInstanceOf([InstagramLoginUtils class]);
-        expect(controller.instagramLoginUtils.clientID).to.equal(@"fancyID");
-        expect(controller.instagramLoginUtils.callbackURL).to.equal(callbackURL);
+    it(@"has a InstagramAuthenticationManager", ^{
+        expect(controller.instagramAuthenticationManager).to.beInstanceOf([InstagramAuthenticationManager class]);
+        expect(controller.instagramAuthenticationManager.clientID).to.equal(@"They-call-me-number-two");
+        expect(controller.instagramAuthenticationManager.clientSecret).to.equal(@"beans");
+        expect(controller.instagramAuthenticationManager.callbackURLString).to.equal(@"http://Delta-Tau-Chi.ios");
     });
     
     describe(@"#viewDidAppear", ^{
         __block Swizzlean *superSwizz;
         __block BOOL isSuperCalled;
         __block BOOL retAnimated;
+        __block id hudClassMethodMock;
         __block UIWebView *fakeWebView;
         __block id fakeLoginRequest;
         
@@ -112,16 +109,16 @@ describe(@"InstagramSimpleOAuthViewController", ^{
             
             [controller view];
             
+            hudClassMethodMock = OCMClassMock([MBProgressHUD class]);
+            
             fakeWebView = OCMClassMock([UIWebView class]);
             controller.instagramWebView = fakeWebView;
+            controller.permissionScope = @[@"stuff", @"more-stuff", @"lot-o-stuff"];
             
             fakeLoginRequest = OCMClassMock([NSURLRequest class]);
+            NSURL *expectedLoginURL = [NSURL URLWithString:@"https://api.instagram.com/oauth/authorize?client_id=They-call-me-number-two&response_type=code&client=touch&redirect_uri=http://Delta-Tau-Chi.ios"];
+            OCMStub(ClassMethod([fakeLoginRequest buildWebLoginRequestWithURL:expectedLoginURL permissionScope:controller.permissionScope])).andReturn(fakeLoginRequest);
             
-            fakeLoginUtils = OCMClassMock([InstagramLoginUtils class]);
-            controller.instagramLoginUtils = fakeLoginUtils;
-            OCMStub([controller.instagramLoginUtils buildLoginRequestWithPermissionScope:controller.permissionScope]).andReturn(fakeLoginRequest);
-            
-
             [controller viewDidAppear:YES];
         });
         
@@ -130,10 +127,12 @@ describe(@"InstagramSimpleOAuthViewController", ^{
             expect(isSuperCalled).to.beTruthy();
         });
         
-        describe(@"instagramWebView", ^{
-            it(@"loads the login using the login request", ^{
-                OCMVerify([fakeWebView loadRequest:fakeLoginRequest]);
-            });
+        it(@"displays Progress HUD", ^{
+            OCMVerify([hudClassMethodMock showHUDAddedTo:controller.view animated:YES]);
+        });
+        
+        it(@"loads the login using the login request", ^{
+            OCMVerify([fakeWebView loadRequest:fakeLoginRequest]);
         });
     });
     
@@ -142,57 +141,49 @@ describe(@"InstagramSimpleOAuthViewController", ^{
             __block id hudClassMethodMock;
             __block BOOL shouldStartLoad;
             __block id fakeURLRequest;
-            __block FakeInstagramLoginManager *fakeLoginManager;
+            __block FakeInstagramAuthenticationManager *fakeAuthManager;
             
             beforeEach(^{
                 hudClassMethodMock = OCMClassMock([MBProgressHUD class]);
             });
-                
-            context(@"request contains instagram callback URL as the URL Prefix with code param", ^{
+            
+            context(@"request contains Instagram callback URL as the URL Prefix with code param", ^{
                 beforeEach(^{
                     fakeURLRequest = OCMClassMock([NSURLRequest class]);
+                    OCMStub([fakeURLRequest oAuth2AuthorizationCode]).andReturn(@"authorization-sir");
                     
-                    fakeLoginUtils = OCMClassMock([InstagramLoginUtils class]);
-                    controller.instagramLoginUtils = fakeLoginUtils;
-                    OCMStub([controller.instagramLoginUtils requestHasAuthCode:fakeURLRequest]).andReturn(YES);
-                    OCMStub([controller.instagramLoginUtils authCodeFromRequest:fakeURLRequest]).andReturn(@"authorization-Picard-four-seven-alpha-tango");
-                    
-                    fakeLoginManager = [[FakeInstagramLoginManager alloc] init];
-                    controller.loginManager = fakeLoginManager;
+                    fakeAuthManager = [[FakeInstagramAuthenticationManager alloc] init];
+                    controller.instagramAuthenticationManager = fakeAuthManager;
                     
                     shouldStartLoad = [controller webView:nil
                                shouldStartLoadWithRequest:fakeURLRequest
                                            navigationType:UIWebViewNavigationTypeFormSubmitted];
                 });
                 
-                it(@"displays Progress HUD", ^{
-                    OCMVerify([hudClassMethodMock showHUDAddedTo:controller.view animated:YES]);
-                });
-                
                 it(@"attempts to authenticate with instagram with authCode", ^{
-                    expect(fakeLoginManager.authCode).to.equal(@"authorization-Picard-four-seven-alpha-tango");
+                    expect(fakeAuthManager.authCode).to.equal(@"authorization-sir");
                 });
                 
                 context(@"successfully gets auth token from Instagram", ^{
                     __block id partialMock;
-                    __block id fakeInstagramLoginResponse;
+                    __block id fakeInstagramResponse;
                     
                     beforeEach(^{
-                        fakeInstagramLoginResponse = OCMClassMock([InstagramLoginResponse class]);
+                        fakeInstagramResponse = OCMClassMock([InstagramLoginResponse class]);
                     });
-
+                    
                     context(@"has a navigation controlller", ^{
                         beforeEach(^{
                             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
                             partialMock = OCMPartialMock(navigationController);
                             
-                            if (fakeLoginManager.success) {
-                                fakeLoginManager.success(fakeInstagramLoginResponse);
+                            if (fakeAuthManager.success) {
+                                fakeAuthManager.success(fakeInstagramResponse);
                             }
                         });
                         
-                        it(@"calls completion with instagram login response", ^{
-                            expect(retLoginResponse).to.equal(fakeInstagramLoginResponse);
+                        it(@"calls completion with Instagram login response", ^{
+                            expect(retLoginResponse).to.equal(fakeInstagramResponse);
                         });
                         
                         it(@"pops itself off the navigation controller", ^{
@@ -209,13 +200,13 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         beforeEach(^{
                             partialMock = OCMPartialMock(controller);
                             
-                            if (fakeLoginManager.success) {
-                                fakeLoginManager.success(fakeInstagramLoginResponse);
+                            if (fakeAuthManager.success) {
+                                fakeAuthManager.success(fakeInstagramResponse);
                             }
                         });
                         
-                        it(@"calls completion with instagram login response", ^{
-                            expect(retLoginResponse).to.equal(fakeInstagramLoginResponse);
+                        it(@"calls completion with Instagram login response", ^{
+                            expect(retLoginResponse).to.equal(fakeInstagramResponse);
                         });
                         
                         it(@"pops itself off the navigation controller", ^{
@@ -234,7 +225,9 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     __block NSError *bogusError;
                     
                     beforeEach(^{
-                        bogusError = [[NSError alloc] initWithDomain:@"bogusDomain" code:177 userInfo:@{ @"NSLocalizedDescription" : @"boooogussss"}];
+                        bogusError = [[NSError alloc] initWithDomain:@"bogusDomain"
+                                                                code:177
+                                                            userInfo:@{ @"NSLocalizedDescription" : @"boooogussss"}];
                     });
                     
                     context(@"shouldShowErrorAlert == YES", ^{
@@ -267,8 +260,8 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
                             partialMock = OCMPartialMock(navigationController);
                             
-                            if (fakeLoginManager.failure) {
-                                fakeLoginManager.failure(bogusError);
+                            if (fakeAuthManager.failure) {
+                                fakeAuthManager.failure(bogusError);
                             }
                         });
                         
@@ -294,15 +287,15 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         beforeEach(^{
                             partialMock = OCMPartialMock(controller);
                             
-                            if (fakeLoginManager.failure) {
-                                fakeLoginManager.failure(bogusError);
+                            if (fakeAuthManager.failure) {
+                                fakeAuthManager.failure(bogusError);
                             }
                         });
                         
                         it(@"calls completion with nil token", ^{
                             expect(retLoginResponse).to.beNil();
                         });
-
+                        
                         it(@"calls completion with AFNetworking error", ^{
                             expect(retError).to.equal(bogusError);
                         });
@@ -323,13 +316,10 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                 });
             });
             
-            context(@"request does NOT contain instagram callback URL", ^{
+            context(@"request does NOT contain Instagram callback URL", ^{
                 beforeEach(^{
                     fakeURLRequest = OCMClassMock([NSURLRequest class]);
-
-                    fakeLoginUtils = OCMClassMock([InstagramLoginUtils class]);
-                    controller.instagramLoginUtils = fakeLoginUtils;
-                    OCMStub([controller.instagramLoginUtils requestHasAuthCode:fakeURLRequest]).andReturn(NO);
+                    OCMStub([fakeURLRequest oAuth2AuthorizationCode]).andReturn(nil);
                     
                     shouldStartLoad = [controller webView:nil
                                shouldStartLoadWithRequest:fakeURLRequest
@@ -363,12 +353,12 @@ describe(@"InstagramSimpleOAuthViewController", ^{
             beforeEach(^{
                 hudClassMethodMock = OCMClassMock([MBProgressHUD class]);
             });
-
+            
             context(@"error code 102 (WebKitErrorDomain)", ^{
                 beforeEach(^{
                     bogusRequestError = [NSError errorWithDomain:@"LameWebKitErrorThatHappensForNoGoodReason"
                                                             code:102
-                                                        userInfo:@{ @"NSLocalizedDescription" : @"WTF Error"}];
+                                                        userInfo:@{ @"NSLocalizedDescription" : @"WTH Error"}];
                     
                     [controller webView:nil didFailLoadWithError:bogusRequestError];
                 });
@@ -386,11 +376,11 @@ describe(@"InstagramSimpleOAuthViewController", ^{
             
             context(@"all other error codes", ^{
                 __block id partialMock;
-
+                
                 beforeEach(^{
-                    bogusRequestError = [NSError errorWithDomain:@"NSURLBlowUpDomain"
+                    bogusRequestError = [NSError errorWithDomain:@"NSURLBlowUpDomainBOOM"
                                                             code:42
-                                                        userInfo:@{ @"NSLocalizedDescription" : @"You have no internetz"}];
+                                                        userInfo:@{ @"NSLocalizedDescription" : @"You have no internetz and what not"}];
                 });
                 
                 context(@"shouldShowErrorAlert == YES", ^{
@@ -402,7 +392,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     it(@"displays a UIAlertView with proper error", ^{
                         UIAlertView *errorAlert = [UIAlertView currentAlertView];
                         expect(errorAlert.title).to.equal(@"Instagram Login Error");
-                        expect(errorAlert.message).to.equal(@"NSURLBlowUpDomain - You have no internetz");
+                        expect(errorAlert.message).to.equal(@"NSURLBlowUpDomainBOOM - You have no internetz and what not");
                     });
                 });
                 

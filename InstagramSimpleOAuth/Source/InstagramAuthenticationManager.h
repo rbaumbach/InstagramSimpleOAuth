@@ -21,18 +21,14 @@
 
 @class InstagramLoginResponse;
 
-@interface InstagramLoginManager : NSObject
-
-@property (copy, nonatomic, readonly) NSString *clientID;
-@property (copy, nonatomic, readonly) NSString *clientSecret;
-@property (strong, nonatomic, readonly) NSURL *callbackURL;
+@interface InstagramAuthenticationManager : NSObject
 
 - (instancetype)initWithClientID:(NSString *)clientID
                     clientSecret:(NSString *)clientSecret
-                     callbackURL:(NSURL *)callbackURL;
+               callbackURLString:(NSString *)callbackURLString;
 
-- (void)authenticateWithAuthCode:(NSString *)authCode
-                         success:(void (^)(InstagramLoginResponse *instagramLoginResponse))success
-                         failure:(void (^)(NSError *error))failure;
+- (void)authenticateClientWithAuthCode:(NSString *)authCode
+                               success:(void (^)(InstagramLoginResponse *response))success
+                               failure:(void (^)(NSError *error))failure;
 
 @end

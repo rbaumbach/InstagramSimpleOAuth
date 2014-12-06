@@ -2,108 +2,111 @@
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
-#import <AFNetworking/AFNetworking.h>
+#import <SimpleOAuth2/SimpleOAuth2.h>
 #import <RealFakes/RealFakes.h>
-#import "InstagramLoginManager.h"
-#import "InstagramSimpleOAuth.h"
 #import "FakeInstagramOAuthResponse.h"
+#import "FakeSimpleOAuth2AuthenticationManager.h"
+#import "InstagramSimpleOAuth.h"
+#import "InstagramAuthenticationManager.h"
+#import "InstagramTokenParameters.h"
 
 
-@interface InstagramLoginManager ()
+@interface InstagramAuthenticationManager ()
 
-@property (strong, nonatomic) AFHTTPSessionManager *sessionManager;
+@property (copy, nonatomic) NSString *clientID;
+@property (copy, nonatomic) NSString *clientSecret;
+@property (copy, nonatomic) NSString *callbackURLString;
+@property (copy, nonatomic) SimpleOAuth2AuthenticationManager *simpleOAuth2AuthenticationManager;
 
 @end
 
-SpecBegin(InstagramLoginManagerTests)
+SpecBegin(InstagramAuthenticationManagerTests)
 
-describe(@"InstagramLoginManager", ^{
-    __block InstagramLoginManager *manager;
-    __block FakeAFHTTPSessionManager *fakeSessionManager;
+describe(@"InstagramAuthenticationManager", ^{
+    __block InstagramAuthenticationManager *instagramAuthenticationManager;
+    __block FakeSimpleOAuth2AuthenticationManager *fakeSimpleAuthManager;
+    __block InstagramLoginResponse *retInstagramLoginResponse;
+    __block NSError *authError;
     
     beforeEach(^{
-        manager = [[InstagramLoginManager alloc] initWithClientID:@"BiggieSmalls"
-                                                     clientSecret:@"egg, cheese, welch's grape"
-                                                      callbackURL:[NSURL URLWithString:@"http://mo-money-mo-problems.org"]];
-    });
-    
-    it(@"has clientID", ^{
-        expect(manager.clientID).to.equal(@"BiggieSmalls");
-    });
-    
-    it(@"has a clientSecret", ^{
-        expect(manager.clientSecret).to.equal(@"egg, cheese, welch's grape");
-    });
-    
-    it(@"has a callbackURL", ^{
-        expect(manager.callbackURL).to.equal([NSURL URLWithString:@"http://mo-money-mo-problems.org"]);
-    });
-    
-    it(@"has an AFHTTPSessionManager", ^{
-        expect(manager.sessionManager).to.beInstanceOf([AFHTTPSessionManager class]);
-        expect(manager.sessionManager.baseURL).to.equal([NSURL URLWithString:@"https://api.instagram.com"]);
-        expect(manager.sessionManager.responseSerializer).to.beInstanceOf([AFJSONResponseSerializer class]);
-    });
-    
-    describe(@"#authenticateWithAuthCode:success:failure:", ^{
-        __block InstagramLoginResponse *retLoginResponse;
-        __block NSError *retError;
+        instagramAuthenticationManager = [[InstagramAuthenticationManager alloc] initWithClientID:@"give-me-the-keys"
+                                                                                     clientSecret:@"spilling-beans"
+                                                                                callbackURLString:@"http://call-me-back.8675309"];
         
+        fakeSimpleAuthManager = [[FakeSimpleOAuth2AuthenticationManager alloc] init];
+    });
+    
+    it(@"has an appKey", ^{
+        expect(instagramAuthenticationManager.clientID).to.equal(@"give-me-the-keys");
+    });
+    
+    it(@"has an appSecret", ^{
+        expect(instagramAuthenticationManager.clientSecret).to.equal(@"spilling-beans");
+    });
+    
+    it(@"has a callbackURLString", ^{
+        expect(instagramAuthenticationManager.callbackURLString).to.equal(@"http://call-me-back.8675309");
+    });
+    
+    it(@"has a simpleOAuth2AuthenticationManager", ^{
+        expect(instagramAuthenticationManager.simpleOAuth2AuthenticationManager).to.beInstanceOf([SimpleOAuth2AuthenticationManager class]);
+    });
+    
+    describe(@"#authenticateClientWithAuthCode:success:failure:", ^{
         beforeEach(^{
-            fakeSessionManager = [[FakeAFHTTPSessionManager alloc] init];
-            manager.sessionManager = fakeSessionManager;
+            instagramAuthenticationManager.simpleOAuth2AuthenticationManager = fakeSimpleAuthManager;
             
-            [manager authenticateWithAuthCode:@"Fidelio"
-                                      success:^(InstagramLoginResponse *instagramLoginResponse) {
-                                          retLoginResponse = instagramLoginResponse;
-                                      } failure:^(NSError *error) {
-                                          retError = error;
-                                      }];
+            [instagramAuthenticationManager authenticateClientWithAuthCode:@"SF-Giants-The-Best"
+                                                                   success:^(InstagramLoginResponse *response) {
+                                                                       retInstagramLoginResponse = response;
+                                                                   } failure:^(NSError *error) {
+                                                                       authError = error;
+                                                                   }];
         });
         
-        context(@"on success", ^{
-            __block id fakeLoginResponse;
-
+        it(@"is called with authURL", ^{
+            expect(fakeSimpleAuthManager.authURL).to.equal([NSURL URLWithString:@"https://api.instagram.com/oauth/access_token/"]);
+        });
+        
+        it(@"is called with token parameters", ^{
+            InstagramTokenParameters *tokenParameters = (InstagramTokenParameters *)fakeSimpleAuthManager.tokenParameters;
+            
+            expect(tokenParameters.clientID).to.equal(@"give-me-the-keys");
+            expect(tokenParameters.clientSecret).to.equal(@"spilling-beans");
+            expect(tokenParameters.callbackURLString).to.equal(@"http://call-me-back.8675309");
+            expect(tokenParameters.authorizationCode).to.equal(@"SF-Giants-The-Best");
+        });
+        
+        context(@"On Success", ^{
             beforeEach(^{
-                fakeLoginResponse = OCMClassMock([InstagramLoginResponse class]);
-
-                if (fakeSessionManager.postSuccessBlock) {
-                    fakeSessionManager.postSuccessBlock(nil, [FakeInstagramOAuthResponse response]);
+                if (fakeSimpleAuthManager.success) {
+                    fakeSimpleAuthManager.success([FakeInstagramOAuthResponse response]);
                 }
             });
             
-            it(@"makes a POST call with the correct endpoint and parameters to Instagram", ^{
-                expect(fakeSessionManager.postURLString).to.equal(@"/oauth/access_token/");
-                expect(fakeSessionManager.postParameters).to.equal(@{ @"client_id"     : manager.clientID,
-                                                                      @"client_secret" : manager.clientSecret,
-                                                                      @"grant_type"    : @"authorization_code",
-                                                                      @"redirect_uri"  : manager.callbackURL.absoluteString,
-                                                                      @"code"          : @"Fidelio" });
-            });
-            
-            it(@"calls success with instagramLoginResponse", ^{
-                expect(retLoginResponse).to.beInstanceOf([InstagramLoginResponse class]);
-                expect(retLoginResponse.accessToken).to.equal(@"12345IdiotLuggageCombo");
-                expect(retLoginResponse.user.userID).to.equal(@"yepyepyep");
-                expect(retLoginResponse.user.username).to.equal(@"og-gsta");
-                expect(retLoginResponse.user.fullName).to.equal(@"Ice Cube");
-                expect(retLoginResponse.user.profilePictureURL).to.equal([NSURL URLWithString:@"http://uh.yeah.yuuueaaah.com/og-gsta"]);
+            it(@"calls success block with InstagramLoginResponse", ^{
+                expect(retInstagramLoginResponse).to.beInstanceOf([InstagramLoginResponse class]);
+                expect(retInstagramLoginResponse.accessToken).to.equal(@"12345IdiotLuggageCombo");
+                expect(retInstagramLoginResponse.user.userID).to.equal(@"yepyepyep");
+                expect(retInstagramLoginResponse.user.username).to.equal(@"og-gsta");
+                expect(retInstagramLoginResponse.user.fullName).to.equal(@"Ice Cube");
+                expect(retInstagramLoginResponse.user.profilePictureURL).to.equal([NSURL URLWithString:@"http://uh.yeah.yuuueaaah.com/og-gsta"]);
             });
         });
         
-        context(@"on failure", ^{
+        context(@"On Failure", ^{
             __block id fakeError;
             
             beforeEach(^{
                 fakeError = OCMClassMock([NSError class]);
                 
-                if (fakeSessionManager.postFailureBlock) {
-                    fakeSessionManager.postFailureBlock(nil, fakeError);
+                if (fakeSimpleAuthManager.failure) {
+                    fakeSimpleAuthManager.failure(fakeError);
                 }
             });
             
-            it(@"calls failure block", ^{
-                expect(retError).to.equal(fakeError);
+            it(@"calls simpleOAuth failure block with error", ^{
+                expect(authError).to.equal(fakeError);
             });
         });
     });

@@ -16,7 +16,6 @@
                                                                                 [self displayToken:response.accessToken];
                                                                             }
                                                                         }];
-    
     [self.navigationController pushViewController:viewController
                                          animated:YES];
 }

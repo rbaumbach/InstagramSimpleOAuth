@@ -4,7 +4,7 @@ platform :ios, '7.0'
 inhibit_all_warnings!
 
 target :InstagramSimpleOAuth do
-    pod 'AFNetworking', '~> 2.0'
+    pod 'SimpleOAuth2', '0.0.3'
     pod 'MBProgressHUD', '~> 0.9'
 end
 

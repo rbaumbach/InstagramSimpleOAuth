@@ -19,18 +19,14 @@
 //OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 //WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-@interface InstagramLoginUtils : NSObject
+#import <SimpleOAuth2/SimpleOAuth2.h>
 
-@property (copy, nonatomic, readonly) NSString *clientID;
-@property (strong, nonatomic, readonly) NSURL *callbackURL;
 
-- (instancetype)initWithClientID:(NSString *)clientID
-                  andCallbackURL:(NSURL *)callbackURL;
+@interface InstagramTokenParameters : NSObject <TokenParameters>
 
-- (NSURLRequest *)buildLoginRequestWithPermissionScope:(NSArray *)permissionScope;
-
-- (BOOL)requestHasAuthCode:(NSURLRequest *)request;
-
-- (NSString *)authCodeFromRequest:(NSURLRequest *)request;
+@property (copy, nonatomic) NSString *clientID;
+@property (copy, nonatomic) NSString *clientSecret;
+@property (copy, nonatomic) NSString *callbackURLString;
+@property (copy, nonatomic) NSString *authorizationCode;
 
 @end

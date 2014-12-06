@@ -19,17 +19,23 @@
 //OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 //WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import <SimpleOAuth2/SimpleOAuth2.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "InstagramSimpleOAuthViewController.h"
-#import "InstagramLoginManager.h"
-#import "InstagramLoginUtils.h"
+#import "InstagramConstants.h"
+#import "InstagramAuthenticationManager.h"
 
+
+NSString *const InstagramAuthClientIDEndpoint = @"/oauth/authorize?client_id=";
+NSString *const InstagramAuthRequestParams = @"&response_type=code&client=touch&redirect_uri=";
+NSString *const NSLocalizedDescriptionKey = @"NSLocalizedDescription";
+NSString *const InstagramLoginErrorAlertTitle = @"Instagram Login Error";
+NSString *const InstagramLoginCancelButtonTitle = @"OK";
 
 @interface InstagramSimpleOAuthViewController () <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *instagramWebView;
-@property (strong, nonatomic) InstagramLoginManager *loginManager;
-@property (strong, nonatomic) InstagramLoginUtils *instagramLoginUtils;
+@property (strong, nonatomic) InstagramAuthenticationManager *instagramAuthenticationManager;
 
 @end
 
@@ -49,11 +55,9 @@
         self.callbackURL = callbackURL;
         self.completion = completion;
         self.shouldShowErrorAlert = YES;
-        self.loginManager = [[InstagramLoginManager alloc] initWithClientID:self.clientID
-                                                               clientSecret:self.clientSecret
-                                                                callbackURL:self.callbackURL];
-        self.instagramLoginUtils = [[InstagramLoginUtils alloc] initWithClientID:self.clientID
-                                                                  andCallbackURL:self.callbackURL];
+        self.instagramAuthenticationManager = [[InstagramAuthenticationManager alloc] initWithClientID:self.clientID
+                                                                                          clientSecret:self.clientSecret
+                                                                                     callbackURLString:self.callbackURL.absoluteString];
     }
     return self;
 }
@@ -79,18 +83,15 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 {
-    if ([self.instagramLoginUtils requestHasAuthCode:request]) {
-        [self showProgressHUD];
-        
-        NSString *instagramAuthCode = [self.instagramLoginUtils authCodeFromRequest:request];
-        
-        [self.loginManager authenticateWithAuthCode:instagramAuthCode
-                                            success:^(InstagramLoginResponse *instagramLoginResponse) {
-                                                [self completeAuthWithLoginResponse:instagramLoginResponse];
-                                            } failure:^(NSError *error) {
-                                                [self completeWithError:error];
-                                            }];
-        
+    NSString *authorizationCode = [request oAuth2AuthorizationCode];
+    
+    if (authorizationCode) {
+        [self.instagramAuthenticationManager authenticateClientWithAuthCode:authorizationCode
+                                                                    success:^(InstagramLoginResponse *response) {
+                                                                        [self completeAuthWithLoginResponse:response];
+                                                                    } failure:^(NSError *error) {
+                                                                        [self completeWithError:error];
+                                                                    }];
         return NO;
     }
     
@@ -123,8 +124,18 @@
 {
     [self showProgressHUD];
     
-    NSURLRequest *loginRequest = [self.instagramLoginUtils buildLoginRequestWithPermissionScope:self.permissionScope];
-    [self.instagramWebView loadRequest:loginRequest];
+    NSString *loginURLString = [NSString stringWithFormat:@"%@%@%@%@%@",
+                                InstagramAuthURL,
+                                InstagramAuthClientIDEndpoint,
+                                self.clientID,
+                                InstagramAuthRequestParams,
+                                self.callbackURL.absoluteString];
+    
+    NSURL *loginURL = [NSURL URLWithString:loginURLString];
+    NSURLRequest *instagramWebLoginRequest = [NSURLRequest buildWebLoginRequestWithURL:loginURL
+                                                                       permissionScope:self.permissionScope];
+    
+    [self.instagramWebView loadRequest:instagramWebLoginRequest];
 }
 
 - (void)completeAuthWithLoginResponse:(InstagramLoginResponse *)response
@@ -159,12 +170,12 @@
 
 - (void)showErrorAlert:(NSError *)error
 {
-    NSString *errorMessage = [NSString stringWithFormat:@"%@ - %@", error.domain, error.userInfo[@"NSLocalizedDescription"]];
+    NSString *errorMessage = [NSString stringWithFormat:@"%@ - %@", error.domain, error.userInfo[NSLocalizedDescriptionKey]];
     
-    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Instagram Login Error"
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:InstagramLoginErrorAlertTitle
                                                          message:errorMessage
                                                         delegate:nil
-                                               cancelButtonTitle:@"OK"
+                                               cancelButtonTitle:InstagramLoginCancelButtonTitle
                                                otherButtonTitles:nil];
     [errorAlert show];
 }
