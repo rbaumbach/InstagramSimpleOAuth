@@ -140,22 +140,22 @@ NSString *const InstagramLoginCancelButtonTitle = @"OK";
 
 - (void)completeAuthWithLoginResponse:(InstagramLoginResponse *)response
 {
-    self.completion(response, nil);
-    
     [self dismissViewController];
     [self hideProgressHUD];
+    
+    self.completion(response, nil);
 }
 
 - (void)completeWithError:(NSError *)error
 {
-    self.completion(nil, error);
+    [self dismissViewController];
+    [self hideProgressHUD];
     
     if (self.shouldShowErrorAlert) {
         [self showErrorAlert:error];
     }
     
-    [self dismissViewController];
-    [self hideProgressHUD];
+    self.completion(nil, error);
 }
 
 - (void)dismissViewController
