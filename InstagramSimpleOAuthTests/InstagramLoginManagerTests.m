@@ -101,7 +101,11 @@ describe(@"InstagramAuthenticationManager", ^{
                 fakeError = OCMClassMock([NSError class]);
                 
                 if (fakeSimpleAuthManager.failure) {
-                    fakeSimpleAuthManager.failure(fakeError);
+                    // This is here because the Expecta short hand methods #define "failure"
+                    // #define failure(...) EXP_failure((__VA_ARGS__))
+                    void(^authFailure)(NSError *error) = [fakeSimpleAuthManager.failure copy];
+                    
+                    authFailure(fakeError);
                 }
             });
             

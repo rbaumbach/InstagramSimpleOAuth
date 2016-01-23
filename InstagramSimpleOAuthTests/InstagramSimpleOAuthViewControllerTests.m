@@ -1,7 +1,6 @@
+#import <Expecta/Expecta.h>
 #import <Specta/Specta.h>
 #import <Swizzlean/Swizzlean.h>
-#define EXP_SHORTHAND
-#import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <SimpleOAuth2/SimpleOAuth2.h>
@@ -35,7 +34,11 @@ describe(@"InstagramSimpleOAuthViewController", ^{
     __block InstagramLoginResponse *retLoginResponse;
     __block NSError *retError;
     
+    __block id fakeWebView;
+    
     beforeEach(^{
+        fakeWebView = OCMClassMock([UIWebView class]);
+        
         controller = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"They-call-me-number-two"
                                                                      clientSecret:@"beans"
                                                                       callbackURL:[NSURL URLWithString:@"http://Delta-Tau-Chi.ios"]
@@ -43,6 +46,10 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                                                                            retLoginResponse = response;
                                                                            retError = error;
                                                                        }];
+    });
+    
+    afterEach(^{
+        [UIAlertView reset];
     });
     
     describe(@"init", ^{
@@ -96,7 +103,6 @@ describe(@"InstagramSimpleOAuthViewController", ^{
         __block BOOL isSuperCalled;
         __block BOOL retAnimated;
         __block id hudClassMethodMock;
-        __block UIWebView *fakeWebView;
         __block id fakeLoginRequest;
         
         beforeEach(^{
@@ -111,7 +117,6 @@ describe(@"InstagramSimpleOAuthViewController", ^{
             
             hudClassMethodMock = OCMClassMock([MBProgressHUD class]);
             
-            fakeWebView = OCMClassMock([UIWebView class]);
             controller.instagramWebView = fakeWebView;
             controller.permissionScope = @[@"stuff", @"more-stuff", @"lot-o-stuff"];
             
@@ -155,7 +160,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     fakeAuthManager = [[FakeInstagramAuthenticationManager alloc] init];
                     controller.instagramAuthenticationManager = fakeAuthManager;
                     
-                    shouldStartLoad = [controller webView:nil
+                    shouldStartLoad = [controller webView:fakeWebView
                                shouldStartLoadWithRequest:fakeURLRequest
                                            navigationType:UIWebViewNavigationTypeFormSubmitted];
                 });
@@ -233,7 +238,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     context(@"shouldShowErrorAlert == YES", ^{
                         beforeEach(^{
                             controller.shouldShowErrorAlert = YES;
-                            [controller webView:nil didFailLoadWithError:bogusError];
+                            [controller webView:fakeWebView didFailLoadWithError:bogusError];
                         });
                         
                         it(@"displays a UIAlertView with proper error", ^{
@@ -246,7 +251,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     context(@"shouldShowErrorAlert == NO", ^{
                         beforeEach(^{
                             controller.shouldShowErrorAlert = NO;
-                            [controller webView:nil didFailLoadWithError:bogusError];
+                            [controller webView:fakeWebView didFailLoadWithError:bogusError];
                         });
                         
                         it(@"does not display alert view for the error", ^{
@@ -261,7 +266,12 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                             partialMock = OCMPartialMock(navigationController);
                             
                             if (fakeAuthManager.failure) {
-                                fakeAuthManager.failure(bogusError);
+                                // This is here because the Expecta short hand methods #define "failure"
+                                // #define failure(...) EXP_failure((__VA_ARGS__))
+                                void(^authFailure)(NSError *error) = [fakeAuthManager.failure copy];
+                                
+                                authFailure(bogusError);
+//                                fakeAuthManager.failure(bogusError);
                             }
                         });
                         
@@ -288,7 +298,13 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                             partialMock = OCMPartialMock(controller);
                             
                             if (fakeAuthManager.failure) {
-                                fakeAuthManager.failure(bogusError);
+                                // This is here because the Expecta short hand methods #define "failure"
+                                // #define failure(...) EXP_failure((__VA_ARGS__))
+                                void(^authFailure)(NSError *error) = [fakeAuthManager.failure copy];
+                                
+                                authFailure(bogusError);
+//                                
+//                                fakeAuthManager.failure(bogusError);
                             }
                         });
                         
@@ -321,7 +337,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     fakeURLRequest = OCMClassMock([NSURLRequest class]);
                     OCMStub([fakeURLRequest oAuth2AuthorizationCode]).andReturn(nil);
                     
-                    shouldStartLoad = [controller webView:nil
+                    shouldStartLoad = [controller webView:fakeWebView
                                shouldStartLoadWithRequest:fakeURLRequest
                                            navigationType:UIWebViewNavigationTypeFormSubmitted];
                 });
@@ -337,7 +353,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
             
             beforeEach(^{
                 hudClassMethodMock = OCMClassMock([MBProgressHUD class]);
-                [controller webViewDidFinishLoad:nil];
+                [controller webViewDidFinishLoad:fakeWebView];
             });
             
             it(@"removes the progress HUD", ^{
@@ -358,9 +374,9 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                 beforeEach(^{
                     bogusRequestError = [NSError errorWithDomain:@"LameWebKitErrorThatHappensForNoGoodReason"
                                                             code:102
-                                                        userInfo:@{ @"NSLocalizedDescription" : @"WTH Error"}];
+                                                        userInfo:@{ @"NSLocalizedDescription" : @"WTH Error" }];
                     
-                    [controller webView:nil didFailLoadWithError:bogusRequestError];
+                    [controller webView:fakeWebView didFailLoadWithError:bogusRequestError];
                 });
                 
                 it(@"does not display alert view for the error", ^{
@@ -386,7 +402,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                 context(@"shouldShowErrorAlert == YES", ^{
                     beforeEach(^{
                         controller.shouldShowErrorAlert = YES;
-                        [controller webView:nil didFailLoadWithError:bogusRequestError];
+                        [controller webView:fakeWebView didFailLoadWithError:bogusRequestError];
                     });
                     
                     it(@"displays a UIAlertView with proper error", ^{
@@ -399,7 +415,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                 context(@"shouldShowErrorAlert == NO", ^{
                     beforeEach(^{
                         controller.shouldShowErrorAlert = NO;
-                        [controller webView:nil didFailLoadWithError:bogusRequestError];
+                        [controller webView:fakeWebView didFailLoadWithError:bogusRequestError];
                     });
                     
                     it(@"does not display alert view for the error", ^{
@@ -413,7 +429,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
                         partialMock = OCMPartialMock(navigationController);
                         
-                        [controller webView:nil didFailLoadWithError:bogusRequestError];
+                        [controller webView:fakeWebView didFailLoadWithError:bogusRequestError];
                     });
                     
                     it(@"pops itself off the navigation controller", ^{
@@ -438,7 +454,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     beforeEach(^{
                         partialMock = OCMPartialMock(controller);
                         
-                        [controller webView:nil didFailLoadWithError:bogusRequestError];
+                        [controller webView:fakeWebView didFailLoadWithError:bogusRequestError];
                     });
                     
                     it(@"pops itself off the view controller", ^{
