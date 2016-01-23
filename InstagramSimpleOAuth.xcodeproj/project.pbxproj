@@ -322,6 +322,7 @@
 				AF407E311993BFA700F61872 /* Frameworks */,
 				AF407E321993BFA700F61872 /* Resources */,
 				D8C6AD3E37624978BCB2F92E /* Copy Pods Resources */,
+				890B62C66E97B0D446407F2D /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -341,6 +342,7 @@
 				AF407E551993BFA700F61872 /* Frameworks */,
 				AF407E561993BFA700F61872 /* Resources */,
 				D8F1909F5F824E5CBB951E32 /* Copy Pods Resources */,
+				F57B80C2377E3596B2CB9C85 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -428,6 +430,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		890B62C66E97B0D446407F2D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSimpleOAuth/Pods-InstagramSimpleOAuth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D8C6AD3E37624978BCB2F92E /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -471,6 +488,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F57B80C2377E3596B2CB9C85 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSimpleOAuthTests/Pods-InstagramSimpleOAuthTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

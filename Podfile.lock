@@ -20,44 +20,34 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Expecta (0.3.1)
+  - Expecta (1.0.5)
   - MBProgressHUD (0.9)
-  - OCMock (3.1.1)
+  - OCMock (3.2.2)
   - RealFakes (0.0.4):
     - AFNetworking (~> 2.0)
     - SimpleOAuth2 (~> 0.0.3)
   - SimpleOAuth2 (0.0.3):
     - AFNetworking (~> 2.0)
-  - Specta (0.3.0.beta1)
+  - Specta (1.0.5)
   - Swizzlean (0.2.0)
 
 DEPENDENCIES:
-  - Expecta (~> 0.3.1)
+  - Expecta (= 1.0.5)
   - MBProgressHUD (~> 0.9)
-  - OCMock (~> 3.1.1)
-  - RealFakes (~> 0.0.4)
+  - OCMock (= 3.2.2)
+  - RealFakes (= 0.0.4)
   - SimpleOAuth2 (= 0.0.3)
-  - Specta (from `https://github.com/specta/specta.git`, tag `v0.3.0.beta1`)
-  - Swizzlean (~> 0.2.0)
-
-EXTERNAL SOURCES:
-  Specta:
-    :git: https://github.com/specta/specta.git
-    :tag: v0.3.0.beta1
-
-CHECKOUT OPTIONS:
-  Specta:
-    :git: https://github.com/specta/specta.git
-    :tag: v0.3.0.beta1
+  - Specta (= 1.0.5)
+  - Swizzlean (= 0.2.0)
 
 SPEC CHECKSUMS:
-  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
-  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
-  OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
-  RealFakes: 386619ccc84d7bf108892068e9a7751dd9a3fff6
-  SimpleOAuth2: e0239a4458ed279d6b8bddccbcf8f782300379ee
-  Specta: 63e8ac8e07db6675c7096d37f77a266a1be4c02d
-  Swizzlean: dc03ad1d847a3748f456982b7ede4e3bad4a9630
+  AFNetworking: 96ac9bf3eda33582701cb1fcc5b896aa1e20311e
+  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
+  MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
+  OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
+  RealFakes: feed7f3b99aa85bfccf9d5e1d0a01f6f44ca7288
+  SimpleOAuth2: 650ae997858c9d2f97773fc55c76e534ac3747da
+  Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
+  Swizzlean: 6ef3e5a33063b7cd99dc39f8c55164dc55d9a021
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.39.0

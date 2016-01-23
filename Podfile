@@ -9,9 +9,9 @@ target :InstagramSimpleOAuth do
 end
 
 target :InstagramSimpleOAuthTests do
-    pod 'Specta', :git => 'https://github.com/specta/specta.git', :tag => 'v0.3.0.beta1'
-    pod 'Expecta', '~> 0.3.1'
-    pod 'OCMock', '~> 3.1.1'
-    pod 'Swizzlean', '~> 0.2.0'
-    pod 'RealFakes', '~> 0.0.4'
+    pod 'Specta', '1.0.5'
+    pod 'Expecta', '1.0.5'
+    pod 'OCMock', '3.2.2'
+    pod 'Swizzlean', '0.2.0'
+    pod 'RealFakes', '0.0.4'
 end
