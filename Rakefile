@@ -17,6 +17,11 @@ task :test do
   run_tests
 end
 
+desc "Remove Cocoapods"
+task :remove_cocoapods do
+  remove_cocoapods
+end
+
 private
 
 def clean
@@ -43,4 +48,10 @@ end
 
 def red(string)
   "\033[0;31m! #{string}"
+end
+
+def remove_cocoapods
+  sh "rm Podfile.lock"
+  sh "rm -rf InstagramSimpleOAuth.xcworkspace"
+  sh "rm -rf Pods"
 end

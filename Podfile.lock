@@ -1,27 +1,27 @@
 PODS:
-  - AFNetworking (2.5.0):
-    - AFNetworking/NSURLConnection (= 2.5.0)
-    - AFNetworking/NSURLSession (= 2.5.0)
-    - AFNetworking/Reachability (= 2.5.0)
-    - AFNetworking/Security (= 2.5.0)
-    - AFNetworking/Serialization (= 2.5.0)
-    - AFNetworking/UIKit (= 2.5.0)
-  - AFNetworking/NSURLConnection (2.5.0):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.0):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.0)
-  - AFNetworking/Security (2.5.0)
-  - AFNetworking/Serialization (2.5.0)
-  - AFNetworking/UIKit (2.5.0):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Expecta (1.0.5)
-  - MBProgressHUD (0.9)
+  - MBProgressHUD (0.9.2)
   - OCMock (3.2.2)
   - RealFakes (0.0.4):
     - AFNetworking (~> 2.0)
@@ -41,9 +41,9 @@ DEPENDENCIES:
   - Swizzlean (= 0.2.0)
 
 SPEC CHECKSUMS:
-  AFNetworking: 96ac9bf3eda33582701cb1fcc5b896aa1e20311e
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
   RealFakes: feed7f3b99aa85bfccf9d5e1d0a01f6f44ca7288
   SimpleOAuth2: 650ae997858c9d2f97773fc55c76e534ac3747da

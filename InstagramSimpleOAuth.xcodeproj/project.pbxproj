@@ -688,17 +688,14 @@
 			baseConfigurationReference = 08EA946BD35AB70F144D0564 /* Pods-InstagramSimpleOAuthTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/InstagramSimpleOAuth.app/InstagramSimpleOAuth";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "InstagramSimpleOAuthTests/InstagramSimpleOAuthTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "RKB.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -712,13 +709,10 @@
 			baseConfigurationReference = 577B162CE238E3F31128F158 /* Pods-InstagramSimpleOAuthTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/InstagramSimpleOAuth.app/InstagramSimpleOAuth";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "InstagramSimpleOAuthTests/InstagramSimpleOAuthTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "RKB.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
