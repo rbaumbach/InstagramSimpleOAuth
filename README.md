@@ -81,9 +81,10 @@ Additional rake tasks can be seen using rake -T:
 
 ```bash
 $ rake -T
-rake build  # Build InstagramSimpleOAuth
-rake clean  # Clean
-rake test   # Run Tests
+rake build             # Build InstagramSimpleOAuth
+rake clean             # Clean
+rake remove_cocoapods  # Remove Cocoapods
+rake test              # Run Tests
 ```
 
 ## Version History
