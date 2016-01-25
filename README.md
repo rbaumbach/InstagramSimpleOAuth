@@ -94,4 +94,4 @@ Version history can be found at the [InstagramSimpleOAuth wiki](https://github.c
 ## Suggestions, requests, and feedback
 
 Thanks for checking out InstagramSimpleOAuth for your in-app Instagram Authentication.  Any feedback can be
-can be sent to: rbaumbach.github@gmail.com.
+can be sent to: github@ryan.codes.
