@@ -1,0 +1,35 @@
+default_platform :ios
+
+platform :ios do
+
+  before_all do
+    puts "Doin' some fastlane..."
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    test_debug
+    test_release
+  end
+
+  desc "Run Debug tests"
+  lane :test_debug do
+    scan(configuration: "Debug")
+  end
+
+  desc "Run Release tests"
+  lane :test_release do
+    scan(configuration: "Release")
+  end
+
+  after_all do |lane|
+    if lane.equal? :test
+      puts "🌮 🌮 🌮  Taco Time! 🌮 🌮 🌮"
+    end
+  end
+
+  error do |lane, exception|
+    puts "uh oh...."
+  end
+
+end
