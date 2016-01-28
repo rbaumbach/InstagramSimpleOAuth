@@ -45,7 +45,7 @@ InstagramSimpleOAuthViewController
 [self.navigationController pushViewController:viewController
                                      animated:YES];
 
-// Authenticate with all scope permissions and disable error UIAlertViews Example: 
+// Authenticate with all scope permissions and disable error UIAlertViews Example:
 
 InstagramSimpleOAuthViewController
     *viewController = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"clients_r_us"
@@ -65,26 +65,18 @@ viewController.permissionScope = @[@"basic", @"comments", @"relationships", @"li
 
 * Prerequisites: [ruby](https://github.com/sstephenson/rbenv), [ruby gems](https://rubygems.org/pages/download), [bundler](http://bundler.io)
 
-To use the included Rakefile to run expecta tests, run the setup.sh script to bundle required gems and cocoapods:
+This project has been setup to use [fastlane](https://fastlane.tools) to run the tests.
+
+First, run the setup.sh script to bundle required gems and cocoapods when in the project directory:
 
 ```bash
 $ ./setup.sh
 ```
 
-Then run rake to run the tests on the command line:
+And then use fastlane to run the tests on the command line:
 
 ```bash
-$ bundle exec rake
-```
-
-Additional rake tasks can be seen using rake -T:
-
-```bash
-$ rake -T
-rake build             # Build InstagramSimpleOAuth
-rake clean             # Clean
-rake remove_cocoapods  # Remove Cocoapods
-rake test              # Run Tests
+$ bundle exec fastlane test
 ```
 
 ## Version History
@@ -93,5 +85,4 @@ Version history can be found at the [InstagramSimpleOAuth wiki](https://github.c
 
 ## Suggestions, requests, and feedback
 
-Thanks for checking out InstagramSimpleOAuth for your in-app Instagram Authentication.  Any feedback can be
-can be sent to: github@ryan.codes.
+Thanks for checking out InstagramSimpleOAuth for your in-app Instagram Authentication.  Any feedback can be can be sent to: github@ryan.codes.
