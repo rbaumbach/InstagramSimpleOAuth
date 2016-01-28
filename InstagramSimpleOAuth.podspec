@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   s.requires_arc          = true
   s.platform              = :ios
   s.ios.deployment_target = '7.0'
-  s.public_header_files   = 'InstagramSimpleOAuth/InstagramSimpleOAuth.h',   'InstagramSimpleOAuth/InstagramSimpleOAuthViewController.h',
-                            'InstagramSimpleOAuth/InstagramLoginResponse.h', 'InstagramSimpleOAuth/InstagramUser.h'
+  s.public_header_files   = 'InstagramSimpleOAuth/Source/InstagramSimpleOAuth.h',   'InstagramSimpleOAuth/Source/InstagramSimpleOAuthViewController.h',
+                            'InstagramSimpleOAuth/Source/InstagramLoginResponse.h', 'InstagramSimpleOAuth/Source/InstagramUser.h'
   s.source_files          = 'InstagramSimpleOAuth/Source/*.{h,m}'
   s.resources             = 'InstagramSimpleOAuth/Source/*.xib'
   s.frameworks            = 'Foundation', 'UIKit'
