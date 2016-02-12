@@ -9,7 +9,7 @@ A quick and simple way to authenticate an Instagram user in your iPhone or iPad 
 
 ## Adding InstagramSimpleOAuth to your project
 
-### Cocoapods
+### CocoaPods
 
 [CocoaPods](http://cocoapods.org) is the recommended way to add InstagramSimpleOAuth to your project.
 
