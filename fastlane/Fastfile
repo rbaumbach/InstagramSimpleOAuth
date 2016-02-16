@@ -6,10 +6,11 @@ platform :ios do
     puts "Doin' some fastlane..."
   end
 
-  desc "Runs all the tests"
+  desc "Runs all the tests (debug and release) and generates code coverage files"
   lane :test do
     test_debug
     test_release
+    code_coverage
   end
 
   desc "Run Debug tests"
