@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		058250AA843642B1BEE37140 /* libPods-InstagramSimpleOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2959CA7CCFD9407B921515F0 /* libPods-InstagramSimpleOAuth.a */; };
 		7A8022D2C7024107A7D37A40 /* libPods-InstagramSimpleOAuthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC8ACE4BF7D4C44B27FEF60 /* libPods-InstagramSimpleOAuthTests.a */; };
-		AF026538199A971C001CA450 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF026536199A971C001CA450 /* InitialViewController.m */; };
-		AF026539199A971C001CA450 /* InitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF026537199A971C001CA450 /* InitialViewController.xib */; };
-		AF02653D199AA164001CA450 /* JustAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF02653B199AA164001CA450 /* JustAViewController.m */; };
-		AF02653E199AA164001CA450 /* JustAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF02653C199AA164001CA450 /* JustAViewController.xib */; };
+		9460A8D51C72B1DD00DDE4A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460A8CE1C72B1DD00DDE4A2 /* AppDelegate.m */; };
+		9460A8D61C72B1DD00DDE4A2 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460A8D01C72B1DD00DDE4A2 /* InitialViewController.m */; };
+		9460A8D71C72B1DD00DDE4A2 /* InitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9460A8D11C72B1DD00DDE4A2 /* InitialViewController.xib */; };
+		9460A8D81C72B1DD00DDE4A2 /* JustAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460A8D31C72B1DD00DDE4A2 /* JustAViewController.m */; };
+		9460A8D91C72B1DD00DDE4A2 /* JustAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9460A8D41C72B1DD00DDE4A2 /* JustAViewController.xib */; };
 		AF0431D019945F44000C7B6D /* InstagramSimpleOAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */; };
 		AF0431D119945F44000C7B6D /* InstagramSimpleOAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */; };
 		AF04B70A19B0330B004BF65D /* FakeInstagramAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF04B70919B0330B004BF65D /* FakeInstagramAuthenticationManager.m */; };
@@ -21,7 +22,6 @@
 		AF407E3C1993BFA700F61872 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF407E3B1993BFA700F61872 /* UIKit.framework */; };
 		AF407E421993BFA700F61872 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF407E401993BFA700F61872 /* InfoPlist.strings */; };
 		AF407E441993BFA700F61872 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF407E431993BFA700F61872 /* main.m */; };
-		AF407E481993BFA700F61872 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF407E471993BFA700F61872 /* AppDelegate.m */; };
 		AF407E531993BFA700F61872 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF407E521993BFA700F61872 /* Images.xcassets */; };
 		AF407E5A1993BFA700F61872 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF407E591993BFA700F61872 /* XCTest.framework */; };
 		AF407E5B1993BFA700F61872 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF407E371993BFA700F61872 /* Foundation.framework */; };
@@ -69,12 +69,14 @@
 		2959CA7CCFD9407B921515F0 /* libPods-InstagramSimpleOAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramSimpleOAuth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC8ACE4BF7D4C44B27FEF60 /* libPods-InstagramSimpleOAuthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramSimpleOAuthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		577B162CE238E3F31128F158 /* Pods-InstagramSimpleOAuthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuthTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSimpleOAuthTests/Pods-InstagramSimpleOAuthTests.release.xcconfig"; sourceTree = "<group>"; };
-		AF026535199A971C001CA450 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
-		AF026536199A971C001CA450 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
-		AF026537199A971C001CA450 /* InitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialViewController.xib; sourceTree = "<group>"; };
-		AF02653A199AA164001CA450 /* JustAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JustAViewController.h; sourceTree = "<group>"; };
-		AF02653B199AA164001CA450 /* JustAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JustAViewController.m; sourceTree = "<group>"; };
-		AF02653C199AA164001CA450 /* JustAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JustAViewController.xib; sourceTree = "<group>"; };
+		9460A8CD1C72B1DD00DDE4A2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AppCode/AppDelegate.h; sourceTree = "<group>"; };
+		9460A8CE1C72B1DD00DDE4A2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AppCode/AppDelegate.m; sourceTree = "<group>"; };
+		9460A8CF1C72B1DD00DDE4A2 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialViewController.h; path = AppCode/InitialViewController.h; sourceTree = "<group>"; };
+		9460A8D01C72B1DD00DDE4A2 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitialViewController.m; path = AppCode/InitialViewController.m; sourceTree = "<group>"; };
+		9460A8D11C72B1DD00DDE4A2 /* InitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InitialViewController.xib; path = AppCode/InitialViewController.xib; sourceTree = "<group>"; };
+		9460A8D21C72B1DD00DDE4A2 /* JustAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JustAViewController.h; path = AppCode/JustAViewController.h; sourceTree = "<group>"; };
+		9460A8D31C72B1DD00DDE4A2 /* JustAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JustAViewController.m; path = AppCode/JustAViewController.m; sourceTree = "<group>"; };
+		9460A8D41C72B1DD00DDE4A2 /* JustAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JustAViewController.xib; path = AppCode/JustAViewController.xib; sourceTree = "<group>"; };
 		AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstagramSimpleOAuthViewController.xib; path = Source/InstagramSimpleOAuthViewController.xib; sourceTree = "<group>"; };
 		AF04B70819B0330B004BF65D /* FakeInstagramAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeInstagramAuthenticationManager.h; sourceTree = "<group>"; };
 		AF04B70919B0330B004BF65D /* FakeInstagramAuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInstagramAuthenticationManager.m; sourceTree = "<group>"; };
@@ -87,8 +89,6 @@
 		AF407E411993BFA700F61872 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AF407E431993BFA700F61872 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AF407E451993BFA700F61872 /* InstagramSimpleOAuth-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InstagramSimpleOAuth-Prefix.pch"; sourceTree = "<group>"; };
-		AF407E461993BFA700F61872 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		AF407E471993BFA700F61872 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AF407E521993BFA700F61872 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AF407E581993BFA700F61872 /* InstagramSimpleOAuthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramSimpleOAuthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF407E591993BFA700F61872 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -163,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				AF976E9B19B4FD19006D1CF7 /* Github */,
+				AF753F531993C31A007C8B1B /* AppCode */,
 				AF407E3D1993BFA700F61872 /* InstagramSimpleOAuth */,
 				AF407E5F1993BFA700F61872 /* InstagramSimpleOAuthTests */,
 				AF407E361993BFA700F61872 /* Frameworks */,
@@ -210,7 +211,6 @@
 				AFC5B1F11A32C67E0077AA7C /* InstagramTokenParameters.m */,
 				AFA8469F19B0054B0035A004 /* InstagramAuthenticationManager.h */,
 				AFA846A019B0054B0035A004 /* InstagramAuthenticationManager.m */,
-				AF753F531993C31A007C8B1B /* AppCode */,
 			);
 			path = InstagramSimpleOAuth;
 			sourceTree = "<group>";
@@ -255,18 +255,19 @@
 		AF753F531993C31A007C8B1B /* AppCode */ = {
 			isa = PBXGroup;
 			children = (
-				AF407E461993BFA700F61872 /* AppDelegate.h */,
-				AF407E471993BFA700F61872 /* AppDelegate.m */,
-				AF026535199A971C001CA450 /* InitialViewController.h */,
-				AF026536199A971C001CA450 /* InitialViewController.m */,
-				AF026537199A971C001CA450 /* InitialViewController.xib */,
-				AF02653A199AA164001CA450 /* JustAViewController.h */,
-				AF02653B199AA164001CA450 /* JustAViewController.m */,
-				AF02653C199AA164001CA450 /* JustAViewController.xib */,
+				9460A8CD1C72B1DD00DDE4A2 /* AppDelegate.h */,
+				9460A8CE1C72B1DD00DDE4A2 /* AppDelegate.m */,
+				9460A8CF1C72B1DD00DDE4A2 /* InitialViewController.h */,
+				9460A8D01C72B1DD00DDE4A2 /* InitialViewController.m */,
+				9460A8D11C72B1DD00DDE4A2 /* InitialViewController.xib */,
+				9460A8D21C72B1DD00DDE4A2 /* JustAViewController.h */,
+				9460A8D31C72B1DD00DDE4A2 /* JustAViewController.m */,
+				9460A8D41C72B1DD00DDE4A2 /* JustAViewController.xib */,
 				AF407E521993BFA700F61872 /* Images.xcassets */,
 				AF407E3E1993BFA700F61872 /* Supporting Files */,
 			);
 			name = AppCode;
+			path = InstagramSimpleOAuth;
 			sourceTree = "<group>";
 		};
 		AF976E9B19B4FD19006D1CF7 /* Github */ = {
@@ -392,14 +393,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9460A8D91C72B1DD00DDE4A2 /* JustAViewController.xib in Resources */,
 				AF407E531993BFA700F61872 /* Images.xcassets in Resources */,
 				AF0431D019945F44000C7B6D /* InstagramSimpleOAuthViewController.xib in Resources */,
 				AF976E9F19B60C89006D1CF7 /* iPhone5Screenshot.jpg in Resources */,
-				AF026539199A971C001CA450 /* InitialViewController.xib in Resources */,
 				AF64636B19B4F75B0087AE61 /* README.md in Resources */,
+				9460A8D71C72B1DD00DDE4A2 /* InitialViewController.xib in Resources */,
 				AF407E421993BFA700F61872 /* InfoPlist.strings in Resources */,
 				AF976E9E19B60C89006D1CF7 /* iPadScreenshot.jpg in Resources */,
-				AF02653E199AA164001CA450 /* JustAViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,16 +513,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF407E481993BFA700F61872 /* AppDelegate.m in Sources */,
+				9460A8D51C72B1DD00DDE4A2 /* AppDelegate.m in Sources */,
 				AF793E7D19AEF6E2008C3656 /* InstagramConstants.m in Sources */,
+				9460A8D61C72B1DD00DDE4A2 /* InitialViewController.m in Sources */,
 				AF66544919AB80E7004D2DAE /* InstagramUser.m in Sources */,
 				AF407E441993BFA700F61872 /* main.m in Sources */,
-				AF02653D199AA164001CA450 /* JustAViewController.m in Sources */,
 				AF66544319AB7BF1004D2DAE /* InstagramLoginResponse.m in Sources */,
 				AFC5B1F21A32C67E0077AA7C /* InstagramTokenParameters.m in Sources */,
 				AF753F571993C37F007C8B1B /* InstagramSimpleOAuthViewController.m in Sources */,
+				9460A8D81C72B1DD00DDE4A2 /* JustAViewController.m in Sources */,
 				AFA846A119B0054B0035A004 /* InstagramAuthenticationManager.m in Sources */,
-				AF026538199A971C001CA450 /* InitialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
