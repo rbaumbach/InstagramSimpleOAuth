@@ -9,7 +9,7 @@
 #import "InstagramSimpleOAuth.h"
 #import "InstagramTokenParameters.h"
 #import "FakeInstagramOAuthResponse.h"
-#import "InstagramAuthenticatioNManager.h"
+#import "InstagramAuthenticationManager.h"
 
 
 @interface InstagramSimpleOAuthViewController () <UIWebViewDelegate>

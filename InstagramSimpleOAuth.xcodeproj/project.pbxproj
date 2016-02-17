@@ -14,6 +14,7 @@
 		9460A8D71C72B1DD00DDE4A2 /* InitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9460A8D11C72B1DD00DDE4A2 /* InitialViewController.xib */; };
 		9460A8D81C72B1DD00DDE4A2 /* JustAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460A8D31C72B1DD00DDE4A2 /* JustAViewController.m */; };
 		9460A8D91C72B1DD00DDE4A2 /* JustAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9460A8D41C72B1DD00DDE4A2 /* JustAViewController.xib */; };
+		9494E5EC1C74B7A30032CC95 /* InstagramAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA846A019B0054B0035A004 /* InstagramAuthenticationManager.m */; };
 		AF0431D019945F44000C7B6D /* InstagramSimpleOAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */; };
 		AF04B70A19B0330B004BF65D /* FakeInstagramAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF04B70919B0330B004BF65D /* FakeInstagramAuthenticationManager.m */; };
 		AF407E381993BFA700F61872 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF407E371993BFA700F61872 /* Foundation.framework */; };
@@ -33,7 +34,6 @@
 		AF753F571993C37F007C8B1B /* InstagramSimpleOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF753F561993C37F007C8B1B /* InstagramSimpleOAuthViewController.m */; };
 		AF793E7D19AEF6E2008C3656 /* InstagramConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = AF793E7C19AEF6E2008C3656 /* InstagramConstants.m */; };
 		AFA8469E19B004850035A004 /* InstagramAuthenticationManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA8469D19B004850035A004 /* InstagramAuthenticationManagerTests.m */; };
-		AFA846A119B0054B0035A004 /* InstagramAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA846A019B0054B0035A004 /* InstagramAuthenticationManager.m */; };
 		AFC5B1F21A32C67E0077AA7C /* InstagramTokenParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC5B1F11A32C67E0077AA7C /* InstagramTokenParameters.m */; };
 		AFC5B1F51A32C73B0077AA7C /* InstagramTokenParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC5B1F41A32C73B0077AA7C /* InstagramTokenParameters.m */; };
 		AFD50DF219ABD34800B05A1D /* FakeInstagramOAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD50DF119ABD34800B05A1D /* FakeInstagramOAuthResponse.m */; };
@@ -497,6 +497,7 @@
 			files = (
 				9460A8D51C72B1DD00DDE4A2 /* AppDelegate.m in Sources */,
 				AF793E7D19AEF6E2008C3656 /* InstagramConstants.m in Sources */,
+				9494E5EC1C74B7A30032CC95 /* InstagramAuthenticationManager.m in Sources */,
 				9460A8D61C72B1DD00DDE4A2 /* InitialViewController.m in Sources */,
 				AF66544919AB80E7004D2DAE /* InstagramUser.m in Sources */,
 				AF407E441993BFA700F61872 /* main.m in Sources */,
@@ -504,7 +505,6 @@
 				AFC5B1F21A32C67E0077AA7C /* InstagramTokenParameters.m in Sources */,
 				AF753F571993C37F007C8B1B /* InstagramSimpleOAuthViewController.m in Sources */,
 				9460A8D81C72B1DD00DDE4A2 /* JustAViewController.m in Sources */,
-				AFA846A119B0054B0035A004 /* InstagramAuthenticationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,10 +634,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_TESTABILITY = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "InstagramSimpleOAuth/InstagramSimpleOAuth-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "RKB.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -650,10 +654,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_TESTABILITY = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "InstagramSimpleOAuth/InstagramSimpleOAuth-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "RKB.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -665,6 +673,7 @@
 			baseConfigurationReference = 08EA946BD35AB70F144D0564 /* Pods-InstagramSimpleOAuthTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/InstagramSimpleOAuth.app/InstagramSimpleOAuth";
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch";
@@ -674,6 +683,8 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "InstagramSimpleOAuthTests/InstagramSimpleOAuthTests-Info.plist";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "RKB.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -686,11 +697,14 @@
 			baseConfigurationReference = 577B162CE238E3F31128F158 /* Pods-InstagramSimpleOAuthTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/InstagramSimpleOAuth.app/InstagramSimpleOAuth";
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InstagramSimpleOAuth/InstagramSimpleOAuth-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "InstagramSimpleOAuthTests/InstagramSimpleOAuthTests-Info.plist";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "RKB.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
