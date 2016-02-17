@@ -49,7 +49,8 @@ describe(@"InstagramAuthenticationManager", ^{
     });
     
     it(@"has a simpleOAuth2AuthenticationManager", ^{
-        expect(instagramAuthenticationManager.simpleOAuth2AuthenticationManager).to.beInstanceOf([SimpleOAuth2AuthenticationManager class]);
+        NSString *expectedAuthManagerClassName = NSStringFromClass([instagramAuthenticationManager.simpleOAuth2AuthenticationManager class]);
+        expect(expectedAuthManagerClassName).to.equal(@"SimpleOAuth2AuthenticationManager");
     });
     
     describe(@"#authenticateClientWithAuthCode:success:failure:", ^{
