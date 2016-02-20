@@ -179,7 +179,7 @@ GEM
     method_source (0.8.2)
     mini_magick (4.0.4)
     minitest (5.8.4)
-    molinillo (0.4.2)
+    molinillo (0.4.3)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
