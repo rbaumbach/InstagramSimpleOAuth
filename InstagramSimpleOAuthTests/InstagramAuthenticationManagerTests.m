@@ -1,9 +1,7 @@
-#import <Specta/Specta.h>
-#define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
+#import <Specta/Specta.h>
 #import <OCMock/OCMock.h>
 #import <SimpleOAuth2/SimpleOAuth2.h>
-#import <RealFakes/RealFakes.h>
 #import "FakeInstagramOAuthResponse.h"
 #import "FakeSimpleOAuth2AuthenticationManager.h"
 #import "InstagramSimpleOAuth.h"
