@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		058250AA843642B1BEE37140 /* libPods-InstagramSimpleOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2959CA7CCFD9407B921515F0 /* libPods-InstagramSimpleOAuth.a */; };
-		7A8022D2C7024107A7D37A40 /* libPods-InstagramSimpleOAuthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC8ACE4BF7D4C44B27FEF60 /* libPods-InstagramSimpleOAuthTests.a */; };
+		53ECED02682EC4AA6DE78DE5 /* libPods-InstagramSimpleOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4B1B718A2D7EBCC648B467 /* libPods-InstagramSimpleOAuth.a */; };
+		61DE853BAA37482241B5F806 /* libPods-InstagramSimpleOAuthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E14B63B7B59A9D683ECBD93E /* libPods-InstagramSimpleOAuthTests.a */; };
 		9460A8D51C72B1DD00DDE4A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460A8CE1C72B1DD00DDE4A2 /* AppDelegate.m */; };
 		9460A8D61C72B1DD00DDE4A2 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460A8D01C72B1DD00DDE4A2 /* InitialViewController.m */; };
 		9460A8D71C72B1DD00DDE4A2 /* InitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9460A8D11C72B1DD00DDE4A2 /* InitialViewController.xib */; };
@@ -53,11 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08EA946BD35AB70F144D0564 /* Pods-InstagramSimpleOAuthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuthTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSimpleOAuthTests/Pods-InstagramSimpleOAuthTests.debug.xcconfig"; sourceTree = "<group>"; };
-		1C78A813D8AA3220CEA4FB9B /* Pods-InstagramSimpleOAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSimpleOAuth/Pods-InstagramSimpleOAuth.debug.xcconfig"; sourceTree = "<group>"; };
-		2959CA7CCFD9407B921515F0 /* libPods-InstagramSimpleOAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramSimpleOAuth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CC8ACE4BF7D4C44B27FEF60 /* libPods-InstagramSimpleOAuthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramSimpleOAuthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		577B162CE238E3F31128F158 /* Pods-InstagramSimpleOAuthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuthTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSimpleOAuthTests/Pods-InstagramSimpleOAuthTests.release.xcconfig"; sourceTree = "<group>"; };
+		0A1BBDE3FF2A77BF095A8CD6 /* Pods-InstagramSimpleOAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuth.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSimpleOAuth/Pods-InstagramSimpleOAuth.release.xcconfig"; sourceTree = "<group>"; };
+		1D4B1B718A2D7EBCC648B467 /* libPods-InstagramSimpleOAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramSimpleOAuth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		62EE0B09A0530725F7C27BD6 /* Pods-InstagramSimpleOAuthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuthTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSimpleOAuthTests/Pods-InstagramSimpleOAuthTests.release.xcconfig"; sourceTree = "<group>"; };
+		789AA6262DA20D237155D96D /* Pods-InstagramSimpleOAuthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuthTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSimpleOAuthTests/Pods-InstagramSimpleOAuthTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9460A8CD1C72B1DD00DDE4A2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AppCode/AppDelegate.h; sourceTree = "<group>"; };
 		9460A8CE1C72B1DD00DDE4A2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AppCode/AppDelegate.m; sourceTree = "<group>"; };
 		9460A8CF1C72B1DD00DDE4A2 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialViewController.h; path = AppCode/InitialViewController.h; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 		9460A8D41C72B1DD00DDE4A2 /* JustAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JustAViewController.xib; path = AppCode/JustAViewController.xib; sourceTree = "<group>"; };
 		9491BD7F1C78C6D6001154E3 /* FakeSimpleOAuth2AuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeSimpleOAuth2AuthenticationManager.h; sourceTree = "<group>"; };
 		9491BD801C78C6D6001154E3 /* FakeSimpleOAuth2AuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeSimpleOAuth2AuthenticationManager.m; sourceTree = "<group>"; };
+		A20A6119B8DE699C5A8168A7 /* Pods-InstagramSimpleOAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSimpleOAuth/Pods-InstagramSimpleOAuth.debug.xcconfig"; sourceTree = "<group>"; };
 		AF0431CF19945F44000C7B6D /* InstagramSimpleOAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InstagramSimpleOAuthViewController.xib; path = Source/InstagramSimpleOAuthViewController.xib; sourceTree = "<group>"; };
 		AF04B70819B0330B004BF65D /* FakeInstagramAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeInstagramAuthenticationManager.h; sourceTree = "<group>"; };
 		AF04B70919B0330B004BF65D /* FakeInstagramAuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInstagramAuthenticationManager.m; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		AFD733B11999D5BB0041F716 /* UIAlertView+TestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+TestUtils.h"; sourceTree = "<group>"; };
 		AFD733B21999D5BB0041F716 /* UIAlertView+TestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+TestUtils.m"; sourceTree = "<group>"; };
 		AFD733B51999D8040041F716 /* InstagramSimpleOAuthViewControllerXibTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramSimpleOAuthViewControllerXibTests.m; sourceTree = "<group>"; };
-		F3B7B49D8F91BDCFB07E36F6 /* Pods-InstagramSimpleOAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSimpleOAuth.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSimpleOAuth/Pods-InstagramSimpleOAuth.release.xcconfig"; sourceTree = "<group>"; };
+		E14B63B7B59A9D683ECBD93E /* libPods-InstagramSimpleOAuthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramSimpleOAuthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,7 @@
 				AF407E3A1993BFA700F61872 /* CoreGraphics.framework in Frameworks */,
 				AF407E3C1993BFA700F61872 /* UIKit.framework in Frameworks */,
 				AF407E381993BFA700F61872 /* Foundation.framework in Frameworks */,
-				058250AA843642B1BEE37140 /* libPods-InstagramSimpleOAuth.a in Frameworks */,
+				53ECED02682EC4AA6DE78DE5 /* libPods-InstagramSimpleOAuth.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,13 +134,24 @@
 				AF407E5A1993BFA700F61872 /* XCTest.framework in Frameworks */,
 				AF407E5C1993BFA700F61872 /* UIKit.framework in Frameworks */,
 				AF407E5B1993BFA700F61872 /* Foundation.framework in Frameworks */,
-				7A8022D2C7024107A7D37A40 /* libPods-InstagramSimpleOAuthTests.a in Frameworks */,
+				61DE853BAA37482241B5F806 /* libPods-InstagramSimpleOAuthTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		538BB2A371EB992324B76A5E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A20A6119B8DE699C5A8168A7 /* Pods-InstagramSimpleOAuth.debug.xcconfig */,
+				0A1BBDE3FF2A77BF095A8CD6 /* Pods-InstagramSimpleOAuth.release.xcconfig */,
+				789AA6262DA20D237155D96D /* Pods-InstagramSimpleOAuthTests.debug.xcconfig */,
+				62EE0B09A0530725F7C27BD6 /* Pods-InstagramSimpleOAuthTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AF02653F199AF08C001CA450 /* Real Fakes */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +172,7 @@
 				AF407E5F1993BFA700F61872 /* InstagramSimpleOAuthTests */,
 				AF407E361993BFA700F61872 /* Frameworks */,
 				AF407E351993BFA700F61872 /* Products */,
-				CBDDFC1D4E03B24F00531A11 /* Pods */,
+				538BB2A371EB992324B76A5E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,8 +192,8 @@
 				AF407E391993BFA700F61872 /* CoreGraphics.framework */,
 				AF407E3B1993BFA700F61872 /* UIKit.framework */,
 				AF407E591993BFA700F61872 /* XCTest.framework */,
-				3CC8ACE4BF7D4C44B27FEF60 /* libPods-InstagramSimpleOAuthTests.a */,
-				2959CA7CCFD9407B921515F0 /* libPods-InstagramSimpleOAuth.a */,
+				1D4B1B718A2D7EBCC648B467 /* libPods-InstagramSimpleOAuth.a */,
+				E14B63B7B59A9D683ECBD93E /* libPods-InstagramSimpleOAuthTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -293,17 +304,6 @@
 			name = TestUtils;
 			sourceTree = "<group>";
 		};
-		CBDDFC1D4E03B24F00531A11 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1C78A813D8AA3220CEA4FB9B /* Pods-InstagramSimpleOAuth.debug.xcconfig */,
-				F3B7B49D8F91BDCFB07E36F6 /* Pods-InstagramSimpleOAuth.release.xcconfig */,
-				08EA946BD35AB70F144D0564 /* Pods-InstagramSimpleOAuthTests.debug.xcconfig */,
-				577B162CE238E3F31128F158 /* Pods-InstagramSimpleOAuthTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -311,12 +311,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF407E691993BFA700F61872 /* Build configuration list for PBXNativeTarget "InstagramSimpleOAuth" */;
 			buildPhases = (
-				55735EE8A5104E88B75D1C76 /* Check Pods Manifest.lock */,
+				959A93064F447F81F00BAAB4 /* [CP] Check Pods Manifest.lock */,
 				AF407E301993BFA700F61872 /* Sources */,
 				AF407E311993BFA700F61872 /* Frameworks */,
 				AF407E321993BFA700F61872 /* Resources */,
-				D8C6AD3E37624978BCB2F92E /* Copy Pods Resources */,
-				890B62C66E97B0D446407F2D /* Embed Pods Frameworks */,
+				05933EFF42660879866E6849 /* [CP] Embed Pods Frameworks */,
+				DC4BEF8DD8F445F663EF94C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -331,12 +331,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF407E6C1993BFA700F61872 /* Build configuration list for PBXNativeTarget "InstagramSimpleOAuthTests" */;
 			buildPhases = (
-				E6F9C05D51344B498C2214F9 /* Check Pods Manifest.lock */,
+				9558EFA51C2BAC552D3886B9 /* [CP] Check Pods Manifest.lock */,
 				AF407E541993BFA700F61872 /* Sources */,
 				AF407E551993BFA700F61872 /* Frameworks */,
 				AF407E561993BFA700F61872 /* Resources */,
-				D8F1909F5F824E5CBB951E32 /* Copy Pods Resources */,
-				F57B80C2377E3596B2CB9C85 /* Embed Pods Frameworks */,
+				2581FA8AB604D5A0F91B6FE7 /* [CP] Embed Pods Frameworks */,
+				C22327C8009CCE4176FAC6B6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -403,29 +403,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		55735EE8A5104E88B75D1C76 /* Check Pods Manifest.lock */ = {
+		05933EFF42660879866E6849 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		890B62C66E97B0D446407F2D /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,44 +418,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSimpleOAuth/Pods-InstagramSimpleOAuth-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D8C6AD3E37624978BCB2F92E /* Copy Pods Resources */ = {
+		2581FA8AB604D5A0F91B6FE7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSimpleOAuth/Pods-InstagramSimpleOAuth-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSimpleOAuthTests/Pods-InstagramSimpleOAuthTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D8F1909F5F824E5CBB951E32 /* Copy Pods Resources */ = {
+		9558EFA51C2BAC552D3886B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSimpleOAuthTests/Pods-InstagramSimpleOAuthTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E6F9C05D51344B498C2214F9 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,19 +448,49 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F57B80C2377E3596B2CB9C85 /* Embed Pods Frameworks */ = {
+		959A93064F447F81F00BAAB4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSimpleOAuthTests/Pods-InstagramSimpleOAuthTests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C22327C8009CCE4176FAC6B6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSimpleOAuthTests/Pods-InstagramSimpleOAuthTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC4BEF8DD8F445F663EF94C1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSimpleOAuth/Pods-InstagramSimpleOAuth-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -636,7 +636,7 @@
 		};
 		AF407E6A1993BFA700F61872 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C78A813D8AA3220CEA4FB9B /* Pods-InstagramSimpleOAuth.debug.xcconfig */;
+			baseConfigurationReference = A20A6119B8DE699C5A8168A7 /* Pods-InstagramSimpleOAuth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -656,7 +656,7 @@
 		};
 		AF407E6B1993BFA700F61872 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3B7B49D8F91BDCFB07E36F6 /* Pods-InstagramSimpleOAuth.release.xcconfig */;
+			baseConfigurationReference = 0A1BBDE3FF2A77BF095A8CD6 /* Pods-InstagramSimpleOAuth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -676,7 +676,7 @@
 		};
 		AF407E6D1993BFA700F61872 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08EA946BD35AB70F144D0564 /* Pods-InstagramSimpleOAuthTests.debug.xcconfig */;
+			baseConfigurationReference = 789AA6262DA20D237155D96D /* Pods-InstagramSimpleOAuthTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/InstagramSimpleOAuth.app/InstagramSimpleOAuth";
 				ENABLE_TESTABILITY = YES;
@@ -700,7 +700,7 @@
 		};
 		AF407E6E1993BFA700F61872 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 577B162CE238E3F31128F158 /* Pods-InstagramSimpleOAuthTests.release.xcconfig */;
+			baseConfigurationReference = 62EE0B09A0530725F7C27BD6 /* Pods-InstagramSimpleOAuthTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/InstagramSimpleOAuth.app/InstagramSimpleOAuth";
 				ENABLE_TESTABILITY = YES;
