@@ -64,6 +64,7 @@ NSString *const InstagramTokenEndpoint = @"/oauth/access_token/";
     [self.simpleOAuth2AuthenticationManager authenticateOAuthClient:[self authenticationURLString]
                                                     tokenParameters:[self instagramTokenParametersFromAuthCode:authCode]
                                                             success:^(id authResponseObject) {
+                                                                authResponseObject[@"auth_code"] = authCode;
                                                                 InstagramLoginResponse *loginResponse = [[InstagramLoginResponse alloc] initWithInstagramOAuthResponse:authResponseObject];
                                                                 success(loginResponse);
                                                             } failure:failure];

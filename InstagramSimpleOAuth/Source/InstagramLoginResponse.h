@@ -25,6 +25,7 @@
 
 @property (copy, nonatomic, readonly) NSString *accessToken;
 @property (strong, nonatomic, readonly) InstagramUser *user;
+@property (copy, nonatomic, readwrite) NSString *authorizationCode;
 
 - (instancetype)initWithInstagramOAuthResponse:(NSDictionary *)response;
 
