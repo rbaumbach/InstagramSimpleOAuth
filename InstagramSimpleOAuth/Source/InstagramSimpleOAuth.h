@@ -1,4 +1,4 @@
-//Copyright (c) 2016 Ryan Baumbach <github@ryan.codes>
+//Copyright (c) 2017 Ryan Baumbach <github@ryan.codes>
 //
 //Permission is hereby granted, free of charge, to any person obtaining
 //a copy of this software and associated documentation files (the "Software"),
@@ -19,9 +19,17 @@
 //OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 //WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "InstagramSimpleOAuthViewController.h"
-#import "InstagramLoginResponse.h"
-#import "InstagramUser.h"
+//! Project version number for InstagramSimpleOAuth.
+FOUNDATION_EXPORT double InstagramSimpleOAuthVersionNumber;
+
+//! Project version string for InstagramSimpleOAuth.
+FOUNDATION_EXPORT const unsigned char InstagramSimpleOAuthVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <InstagramSimpleOAuth/PublicHeader.h>
+
+#import <InstagramSimpleOAuth/InstagramSimpleOAuthViewController.h>
+#import <InstagramSimpleOAuth/InstagramLoginResponse.h>
+#import <InstagramSimpleOAuth/InstagramUser.h>
+

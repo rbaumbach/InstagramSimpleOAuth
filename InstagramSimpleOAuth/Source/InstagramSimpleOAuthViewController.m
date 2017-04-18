@@ -1,4 +1,4 @@
-//Copyright (c) 2016 Ryan Baumbach <github@ryan.codes>
+//Copyright (c) 2017 Ryan Baumbach <github@ryan.codes>
 //
 //Permission is hereby granted, free of charge, to any person obtaining
 //a copy of this software and associated documentation files (the "Software"),
@@ -21,10 +21,10 @@
 
 #import <SimpleOAuth2/SimpleOAuth2.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+
 #import "InstagramSimpleOAuthViewController.h"
 #import "InstagramConstants.h"
 #import "InstagramAuthenticationManager.h"
-
 
 NSString *const InstagramAuthClientIDEndpoint = @"/oauth/authorize?client_id=";
 NSString *const InstagramAuthRequestParams = @"&response_type=code&client=touch&redirect_uri=";
@@ -48,7 +48,7 @@ NSString *const InstagramLoginCancelButtonTitle = @"OK";
                      callbackURL:(NSURL *)callbackURL
                       completion:(void (^)(InstagramLoginResponse *response, NSError *error))completion
 {
-    self = [super init];
+    self = [super initWithNibName:@"InstagramSimpleOAuthViewController" bundle:[NSBundle bundleForClass:[InstagramSimpleOAuthViewController class]]];
     if (self) {
         self.clientID = clientID;
         self.clientSecret = clientSecret;
@@ -72,9 +72,17 @@ NSString *const InstagramLoginCancelButtonTitle = @"OK";
 
 #pragma mark - View Lifecycle
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    NSLog(@"AWAKE FROM NIB");
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    NSLog(@"InstagramWebView: %@",self.instagramWebView);
     
     [self loadInstagramLogin];
 }

@@ -1,4 +1,0 @@
-
-
-@interface NSLayoutConstraint (TestUtils)
-@end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AF407E331993BFA700F61872"
-               BuildableName = "InstagramSimpleOAuth.app"
+               BlueprintIdentifier = "948B9CAC1EA3EFD500E9684E"
+               BuildableName = "InstagramSimpleOAuth.framework"
                BlueprintName = "InstagramSimpleOAuth"
                ReferencedContainer = "container:InstagramSimpleOAuth.xcodeproj">
             </BuildableReference>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AF407E571993BFA700F61872"
-               BuildableName = "InstagramSimpleOAuthTests.xctest"
-               BlueprintName = "InstagramSimpleOAuthTests"
+               BlueprintIdentifier = "946275511EA4781E005D4231"
+               BuildableName = "Specs.xctest"
+               BlueprintName = "Specs"
                ReferencedContainer = "container:InstagramSimpleOAuth.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AF407E331993BFA700F61872"
-            BuildableName = "InstagramSimpleOAuth.app"
+            BlueprintIdentifier = "948B9CAC1EA3EFD500E9684E"
+            BuildableName = "InstagramSimpleOAuth.framework"
             BlueprintName = "InstagramSimpleOAuth"
             ReferencedContainer = "container:InstagramSimpleOAuth.xcodeproj">
          </BuildableReference>
@@ -65,8 +65,8 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AF407E331993BFA700F61872"
-            BuildableName = "InstagramSimpleOAuth.app"
+            BlueprintIdentifier = "948B9CAC1EA3EFD500E9684E"
+            BuildableName = "InstagramSimpleOAuth.framework"
             BlueprintName = "InstagramSimpleOAuth"
             ReferencedContainer = "container:InstagramSimpleOAuth.xcodeproj">
          </BuildableReference>
@@ -84,8 +84,8 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AF407E331993BFA700F61872"
-            BuildableName = "InstagramSimpleOAuth.app"
+            BlueprintIdentifier = "948B9CAC1EA3EFD500E9684E"
+            BuildableName = "InstagramSimpleOAuth.framework"
             BlueprintName = "InstagramSimpleOAuth"
             ReferencedContainer = "container:InstagramSimpleOAuth.xcodeproj">
          </BuildableReference>

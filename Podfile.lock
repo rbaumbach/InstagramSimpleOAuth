@@ -1,50 +1,21 @@
 PODS:
-  - AFNetworking (2.6.3):
-    - AFNetworking/NSURLConnection (= 2.6.3)
-    - AFNetworking/NSURLSession (= 2.6.3)
-    - AFNetworking/Reachability (= 2.6.3)
-    - AFNetworking/Security (= 2.6.3)
-    - AFNetworking/Serialization (= 2.6.3)
-    - AFNetworking/UIKit (= 2.6.3)
-  - AFNetworking/NSURLConnection (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.3)
-  - AFNetworking/Security (2.6.3)
-  - AFNetworking/Serialization (2.6.3)
-  - AFNetworking/UIKit (2.6.3):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
   - Expecta (1.0.5)
-  - MBProgressHUD (0.9.2)
-  - OCMock (3.2.2)
-  - SimpleOAuth2 (0.0.3):
-    - AFNetworking (~> 2.0)
-  - Specta (1.0.5)
+  - OCMock (3.4)
+  - Specta (1.0.6)
   - Swizzlean (0.2.0)
 
 DEPENDENCIES:
-  - Expecta (= 1.0.5)
-  - MBProgressHUD (~> 0.9)
-  - OCMock (= 3.2.2)
-  - SimpleOAuth2 (= 0.0.3)
-  - Specta (= 1.0.5)
-  - Swizzlean (= 0.2.0)
+  - Expecta
+  - OCMock
+  - Specta
+  - Swizzlean
 
 SPEC CHECKSUMS:
-  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
-  SimpleOAuth2: 650ae997858c9d2f97773fc55c76e534ac3747da
-  Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
+  OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
+  Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
   Swizzlean: 6ef3e5a33063b7cd99dc39f8c55164dc55d9a021
 
-PODFILE CHECKSUM: 2a0545353ff7ccef8124f96b3d488ce279a10feb
+PODFILE CHECKSUM: b4b61bc4d78ea1380e3b59e5f18d6b4b122f0533
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.1

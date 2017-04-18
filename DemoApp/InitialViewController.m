@@ -1,7 +1,8 @@
+#import <InstagramSimpleOAuth/InstagramSimpleOAuth.h>
+
 #import "InitialViewController.h"
 #import "JustAViewController.h"
 #import "InstagramSimpleOAuth.h"
-
 
 @implementation InitialViewController
 
@@ -18,17 +19,7 @@
                                                                                 [self displayToken:response.accessToken];
                                                                             }
                                                                         }];
-
     [self presentViewController:viewController
-                       animated:YES
-                     completion:nil];
-}
-
-- (IBAction)instagramVCOnNavControllerTapped:(id)sender
-{
-    JustAViewController *viewController = [[JustAViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    [self presentViewController:navController
                        animated:YES
                      completion:nil];
 }

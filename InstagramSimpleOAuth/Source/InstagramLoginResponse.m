@@ -1,4 +1,4 @@
-//Copyright (c) 2016 Ryan Baumbach <github@ryan.codes>
+//Copyright (c) 2017 Ryan Baumbach <github@ryan.codes>
 //
 //Permission is hereby granted, free of charge, to any person obtaining
 //a copy of this software and associated documentation files (the "Software"),
@@ -21,7 +21,6 @@
 
 #import "InstagramLoginResponse.h"
 #import "InstagramUser.h"
-
 
 NSString *const InstagramAccessTokenKey = @"access_token";
 NSString *const InstagramUserKey = @"user";
