@@ -180,12 +180,12 @@ NSString *const InstagramLoginCancelButtonTitle = @"OK";
 {
     NSString *errorMessage = [NSString stringWithFormat:@"%@ - %@", error.domain, error.userInfo[NSLocalizedDescriptionKey]];
     
-    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:InstagramLoginErrorAlertTitle
-                                                         message:errorMessage
-                                                        delegate:nil
-                                               cancelButtonTitle:InstagramLoginCancelButtonTitle
-                                               otherButtonTitles:nil];
-    [errorAlert show];
+    UIAlertController *errorAlertController = [UIAlertController alertControllerWithTitle:InstagramLoginErrorAlertTitle
+                                                                                  message:errorMessage
+                                                                           preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:errorAlertController
+                       animated:YES
+                     completion:nil];
 }
 
 - (void)showProgressHUD
