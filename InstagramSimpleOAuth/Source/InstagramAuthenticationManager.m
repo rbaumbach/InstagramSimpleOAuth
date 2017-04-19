@@ -20,11 +20,11 @@
 //WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <SimpleOAuth2/SimpleOAuth2.h>
+
 #import "InstagramAuthenticationManager.h"
 #import "InstagramLoginResponse.h"
 #import "InstagramConstants.h"
 #import "InstagramTokenParameters.h"
-
 
 NSString *const InstagramTokenEndpoint = @"/oauth/access_token/";
 

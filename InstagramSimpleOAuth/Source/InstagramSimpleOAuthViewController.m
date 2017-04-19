@@ -72,17 +72,9 @@ NSString *const InstagramLoginCancelButtonTitle = @"OK";
 
 #pragma mark - View Lifecycle
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    NSLog(@"AWAKE FROM NIB");
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    NSLog(@"InstagramWebView: %@",self.instagramWebView);
     
     [self loadInstagramLogin];
 }
