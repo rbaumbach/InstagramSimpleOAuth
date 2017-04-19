@@ -73,10 +73,10 @@ First, run the setup.sh script to bundle required gems and cocoapods when in the
 $ ./setup.sh
 ```
 
-And then use fastlane to run all (Debug and Release) the tests on the command line:
+And then use fastlane to run all the specs on the command line:
 
 ```bash
-$ bundle exec fastlane test
+$ bundle exec fastlane specs
 ```
 
 ## Version History

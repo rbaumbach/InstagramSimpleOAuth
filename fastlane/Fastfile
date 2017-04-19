@@ -6,28 +6,13 @@ platform :ios do
     puts "Doin' some fastlane..."
   end
 
-  desc "Runs all the tests (debug and release) and generates code coverage files"
-  lane :test do
-    test_debug
-    test_release
-    code_coverage
-  end
-
-  desc "Run Debug tests"
-  lane :test_debug do
-    scan(configuration: "Debug")
-  end
-
-  desc "Run Release tests"
-  lane :test_release do
-    scan(configuration: "Release")
-  end
-
-  desc "Get Code Coverage"
-  lane :code_coverage do
-    scan(
-      xcargs: "OBJROOT=build GCC_GENERATE_TEST_COVERAGE_FILES=YES GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES"
-    )
+  desc "Runs all the specs"
+  lane :specs do
+    scan(scheme: "InstagramSimpleOAuth",
+         clean: true,
+         configuration: "Debug",
+         output_style: "rspec",
+         code_coverage: true)
   end
 
   after_all do |lane|

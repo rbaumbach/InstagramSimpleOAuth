@@ -1,3 +1,0 @@
-scheme "InstagramSimpleOAuth"
-clean true
-output_types "html"
