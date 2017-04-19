@@ -28,12 +28,12 @@
 
 - (void)displayToken:(NSString *)authToken
 {
-    UIAlertView *tokenAlert = [[UIAlertView alloc] initWithTitle:@"Instagram Token"
-                                                         message:[NSString stringWithFormat:@"Your Token is: %@", authToken]
-                                                        delegate:nil
-                                               cancelButtonTitle:@"OK"
-                                               otherButtonTitles:nil, nil];
-    [tokenAlert show];
+    UIAlertController *tokenAlertController = [UIAlertController alertControllerWithTitle:@"Instagram Token"
+                                                                                  message:[NSString stringWithFormat:@"Your Token is: %@", authToken]
+                                                                           preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:tokenAlertController
+                       animated:YES
+                     completion:nil];
 }
 
 @end
