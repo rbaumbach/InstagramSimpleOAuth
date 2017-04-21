@@ -1,0 +1,11 @@
+machine:
+  xcode:
+    version: "8.2.1"
+
+dependencies:
+  pre:
+    - ./setup.sh
+
+test:
+  override:
+    - bundle exec fastlane specs
