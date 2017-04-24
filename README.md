@@ -1,4 +1,4 @@
-# InstagramSimpleOAuth [![Build Status](https://travis-ci.org/rbaumbach/InstagramSimpleOAuth.svg?branch=master)](https://travis-ci.org/rbaumbach/InstagramSimpleOAuth) [![codecov.io](https://codecov.io/github/rbaumbach/InstagramSimpleOAuth/coverage.svg?branch=master)](https://codecov.io/github/rbaumbach/InstagramSimpleOAuth?branch=master) [![Cocoapod Version](https://img.shields.io/cocoapods/v/InstagramSimpleOAuth.svg)](http://cocoapods.org/?q=InstagramSimpleOAuth) [![Cocoapod Platform](https://img.shields.io/badge/platform-iOS-blue.svg)](http://cocoapods.org/?q=InstagramSimpleOAuth) [![License](https://img.shields.io/dub/l/vibe-d.svg)](https://github.com/rbaumbach/InstagramSimpleOAuth/blob/master/MIT.LICENSE)
+# InstagramSimpleOAuth [![Build Status](https://travis-ci.org/rbaumbach/InstagramSimpleOAuth.svg?branch=master)](https://travis-ci.org/rbaumbach/InstagramSimpleOAuth) [![codecov.io](https://codecov.io/github/rbaumbach/InstagramSimpleOAuth/coverage.svg?branch=master)](https://codecov.io/github/rbaumbach/InstagramSimpleOAuth?branch=master) [![Cocoapod Version](https://img.shields.io/cocoapods/v/InstagramSimpleOAuth.svg)](http://cocoapods.org/?q=InstagramSimpleOAuth) [![Cocoapod Platform](https://img.shields.io/badge/platform-iOS-blue.svg)](http://cocoapods.org/?q=InstagramSimpleOAuth) [![License](https://img.shields.io/dub/l/vibe-d.svg)](https://github.com/rbaumbach/InstagramSimpleOAuth/blob/master/MIT-LICENSE.txt)
 
 A quick and simple way to authenticate an Instagram user in your iPhone or iPad app.
 
@@ -17,6 +17,11 @@ A quick and simple way to authenticate an Instagram user in your iPhone or iPad 
 2.  Install the pod(s) by running `pod install`.
 3.  Add InstagramSimpleOAuth to your files with `#import <InstagramSimpleOAuth/InstagramSimpleOAuth.h>`.
 
+### Carthage
+
+1. Add `github "rbaumbach/InstagramSimpleOAuth"` to your Cartfile.
+2. [Follow the directions](https://github.com/Carthage/Carthage#getting-started) to add the dynamic framework to your target.
+
 ### Clone from Github
 
 1.  Clone repository from github and copy files directly, or add it as a git submodule.
@@ -28,7 +33,7 @@ A quick and simple way to authenticate an Instagram user in your iPhone or iPad 
 * Once the instance of `InstagramSimpleOAuthViewController` is presented (either as a modal or pushed on the navigation stack), it will allow the user to login.  After the user logs in, the completion block given in the initialization of the view controller will be executed.  The argument in the completion block, `InstagramLoginResponse`, contains an accessToken and other login information for the authenticated user provided by [Instagram API Response](http://instagram.com/developer/authentication/).  If there is an issue attempting to authenticate, an error will be given instead.
 * By default, if there are issues with authentication, an UIAlertView will be given to the user.  To disable this, and rely on the NSError directly, set the property `shouldShowErrorAlert` to NO.
 * The default Instagram scope permissions for authentication are 'basic.'  If additional permissions are needed, the permissions can be set using the `permissionScope` property.
-* Note: Even though an instance of the view controller itself can be initalized without client ID, client secret, client callback and completion block (to help with testing), this data must be set using the view controller's properties before it is presented to the user.
+* Note: Even though an instance of the view controller itself can be initialized without client ID, client secret, client callback and completion block (to help with testing), this data must be set using the view controller's properties before it is presented to the user.
 
 ### Example Usage
 
