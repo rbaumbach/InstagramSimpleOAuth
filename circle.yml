@@ -3,7 +3,7 @@ machine:
     version: "8.2.1"
 
 dependencies:
-  pre:
+  post:
     - ./setup.sh
 
 test:
