@@ -9,3 +9,5 @@ dependencies:
 test:
   override:
     - bundle exec fastlane specs
+  post:
+    - bash <(curl -s https://codecov.io/bash)
