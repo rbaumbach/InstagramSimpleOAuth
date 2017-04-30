@@ -3,7 +3,6 @@
 #import <Swizzlean/Swizzlean.h>
 #import <OCMock/OCMock.h>
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <SimpleOAuth2/SimpleOAuth2.h>
 
 #import "FakeInstagramAuthenticationManager.h"
 #import "InstagramSimpleOAuth.h"
@@ -251,7 +250,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                             [controller webView:fakeWebView didFailLoadWithError:bogusError];
                         });
                         
-                        it(@"displays a UIAlertView with proper error", ^{
+                        it(@"displays a UIAlertController with proper error", ^{
                             UIAlertController *errorAlertController = (UIAlertController *)retViewController;
                             
                             expect(errorAlertController.title).to.equal(@"Instagram Login Error");
@@ -265,7 +264,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                             [controller webView:fakeWebView didFailLoadWithError:bogusError];
                         });
                         
-                        it(@"does not display alert view for the error", ^{
+                        it(@"does not display UIAlertController for the error", ^{
                             UIAlertController *errorAlertController = (UIAlertController *)retViewController;
 
                             expect(errorAlertController).to.beNil();
@@ -407,7 +406,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                     [controller webView:fakeWebView didFailLoadWithError:bogusRequestError];
                 });
                 
-                it(@"does not display alert view for the error", ^{
+                it(@"does not display UIAlertController for the error", ^{
                     UIAlertController *errorAlertController = (UIAlertController *)retViewController;
                     expect(errorAlertController).to.beNil();
                 });
@@ -433,7 +432,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         [controller webView:fakeWebView didFailLoadWithError:bogusRequestError];
                     });
                     
-                    it(@"displays a UIAlertView with proper error", ^{
+                    it(@"displays a UIAlertController with proper error", ^{
                         UIAlertController *errorAlertController = (UIAlertController *)retViewController;
                         expect(errorAlertController.title).to.equal(@"Instagram Login Error");
                         expect(errorAlertController.message).to.equal(@"NSURLBlowUpDomainBOOM - You have no internetz and what not");
@@ -446,7 +445,7 @@ describe(@"InstagramSimpleOAuthViewController", ^{
                         [controller webView:fakeWebView didFailLoadWithError:bogusRequestError];
                     });
                     
-                    it(@"does not display alert view for the error", ^{
+                    it(@"does not display UIAlertController for the error", ^{
                         UIAlertController *errorAlertController = (UIAlertController *)retViewController;
                         expect(errorAlertController).to.beNil();
                     });
