@@ -222,6 +222,7 @@
 				94C64C161EA70F1B00C721B1 /* InstagramLoginResponseSpecs.m */,
 				94C64C281EA718D400C721B1 /* InstagramTokenParametersSpecs.m */,
 				94C64C291EA718D400C721B1 /* InstagramUserSpecs.m */,
+				94C64C241EA7188900C721B1 /* Supporting Files */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -334,7 +335,6 @@
 				946275561EA4781E005D4231 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			path = Specs;
 			sourceTree = "<group>";
 		};
 		AF407E2B1993BFA700F61872 = {
@@ -343,7 +343,6 @@
 				948B9C7C1EA3ED1C00E9684E /* DemoApp */,
 				948B9CAE1EA3EFD500E9684E /* InstagramSimpleOAuth */,
 				946275531EA4781E005D4231 /* Specs */,
-				94C64C241EA7188900C721B1 /* Supporting Files */,
 				AF407E361993BFA700F61872 /* Frameworks */,
 				AF407E351993BFA700F61872 /* Products */,
 				538BB2A371EB992324B76A5E /* Pods */,
