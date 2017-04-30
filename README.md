@@ -70,7 +70,7 @@ viewController.permissionScope = @[@"basic", @"comments", @"relationships", @"li
 
 * Prerequisites: [ruby](https://github.com/sstephenson/rbenv), [ruby gems](https://rubygems.org/pages/download), [bundler](http://bundler.io)
 
-This project has been setup to use [fastlane](https://fastlane.tools) to run the tests.
+This project has been setup to use [fastlane](https://fastlane.tools) to run the specs.
 
 First, run the setup.sh script to bundle required gems and cocoapods when in the project directory:
 
