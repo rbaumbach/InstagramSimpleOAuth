@@ -86,7 +86,7 @@ $ bundle exec fastlane specs
 
 ## Version History
 
-Version history can be found at the [InstagramSimpleOAuth wiki](https://github.com/rbaumbach/InstagramSimpleOAuth/wiki/Version-History).
+Version history can be found [on releases page](https://github.com/rbaumbach/InstagramSimpleOAuth/releases).
 
 ## Suggestions, requests, and feedback
 
