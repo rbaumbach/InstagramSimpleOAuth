@@ -15,6 +15,17 @@ platform :ios do
          code_coverage: true)
   end
 
+  desc "Take iPhone/iPad screenshots"
+  lane :take_screenshots do
+    snapshot
+  end
+
+  desc "Frame iPhone/iPad screenshots"
+  lane :frame_screenshots do
+    sh "cd ../Snapshots/"
+    frameit(path: "Snapshots")
+  end
+
   after_all do |lane|
     if lane.equal? :test
       puts "🌮 🌮 🌮  Taco Time! 🌮 🌮 🌮"

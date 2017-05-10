@@ -1,0 +1,12 @@
+scheme "Snapshots"
+
+devices([
+  "iPhone 7",
+  "iPad Pro (9.7 inch)",
+])
+
+languages([
+  "en-US"
+])
+
+output_directory "./Snapshots"

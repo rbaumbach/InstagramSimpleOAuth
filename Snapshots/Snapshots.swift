@@ -1,36 +1,31 @@
-//
-//  Snapshots.swift
-//  Snapshots
-//
-//  Created by ryan on 5/4/17.
-//  Copyright © 2017 RKB. All rights reserved.
-//
-
 import XCTest
 
 class Snapshots: XCTestCase {
-        
     override func setUp() {
         super.setUp()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let app = XCUIApplication()
+        setupSnapshot(app)
+        app.launch()
+    }
+    
+    func testLoginView() {
+        let app = XCUIApplication()
         
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        app.buttons["Present InstagramVC"].tap()
+        
+        // I found out the 'label' for the progres bar using The Developer tool
+        // Accessiblity Inspector.
+        
+        // Use "hittable" to determine if something is "hidden" or not.
+        // If a view is "hittable" then isHidden is false
+        
+        let progress = app.activityIndicators["In progress"]
+        let isHidden = NSPredicate(format: "hittable == false")
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        expectation(for: isHidden, evaluatedWith: progress, handler: nil)
+        waitForExpectations(timeout: 10) { (_) in
+            snapshot("InstagramLoginView")
+        }
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
 }

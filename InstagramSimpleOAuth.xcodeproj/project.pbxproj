@@ -57,6 +57,8 @@
 		94C64C2B1EA718D400C721B1 /* InstagramUserSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C64C291EA718D400C721B1 /* InstagramUserSpecs.m */; };
 		94C64C2D1EA7193500C721B1 /* InstagramAuthenticationManagerSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C64C2C1EA7193500C721B1 /* InstagramAuthenticationManagerSpecs.m */; };
 		94C64C301EA7199200C721B1 /* FakeSimpleOAuth2AuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C64C2F1EA7199200C721B1 /* FakeSimpleOAuth2AuthenticationManager.m */; };
+		94D39C6C1EBC3F410032F3C8 /* Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D39C6B1EBC3F410032F3C8 /* Snapshots.swift */; };
+		94D39C741EBC3F540032F3C8 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D39C731EBC3F540032F3C8 /* SnapshotHelper.swift */; };
 		FD2B050F9E5E4DC7E07D5E17 /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56234EE7C949C7ECEFAB375C /* libPods-Specs.a */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 948B9CAC1EA3EFD500E9684E;
 			remoteInfo = InstagramSimpleOAuth;
+		};
+		94D39C6E1EBC3F410032F3C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF407E2C1993BFA700F61872 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 948B9C7A1EA3ED1C00E9684E;
+			remoteInfo = DemoApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -161,6 +170,10 @@
 		94C64C2C1EA7193500C721B1 /* InstagramAuthenticationManagerSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramAuthenticationManagerSpecs.m; sourceTree = "<group>"; };
 		94C64C2E1EA7199200C721B1 /* FakeSimpleOAuth2AuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeSimpleOAuth2AuthenticationManager.h; sourceTree = "<group>"; };
 		94C64C2F1EA7199200C721B1 /* FakeSimpleOAuth2AuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeSimpleOAuth2AuthenticationManager.m; sourceTree = "<group>"; };
+		94D39C691EBC3F410032F3C8 /* Snapshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Snapshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94D39C6B1EBC3F410032F3C8 /* Snapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshots.swift; sourceTree = "<group>"; };
+		94D39C6D1EBC3F410032F3C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94D39C731EBC3F540032F3C8 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +207,13 @@
 				948B9CBA1EA3EFF700E9684E /* SimpleOAuth2.framework in Frameworks */,
 				9462754A1EA4763A005D4231 /* AFNetworking.framework in Frameworks */,
 				948B9CB91EA3EFF700E9684E /* MBProgressHUD.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94D39C661EBC3F410032F3C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,12 +357,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		94D39C6A1EBC3F410032F3C8 /* Snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				94D39C731EBC3F540032F3C8 /* SnapshotHelper.swift */,
+				94D39C6B1EBC3F410032F3C8 /* Snapshots.swift */,
+				94D39C6D1EBC3F410032F3C8 /* Info.plist */,
+			);
+			path = Snapshots;
+			sourceTree = "<group>";
+		};
 		AF407E2B1993BFA700F61872 = {
 			isa = PBXGroup;
 			children = (
 				948B9C7C1EA3ED1C00E9684E /* DemoApp */,
 				948B9CAE1EA3EFD500E9684E /* InstagramSimpleOAuth */,
 				946275531EA4781E005D4231 /* Specs */,
+				94D39C6A1EBC3F410032F3C8 /* Snapshots */,
 				AF407E361993BFA700F61872 /* Frameworks */,
 				AF407E351993BFA700F61872 /* Products */,
 				538BB2A371EB992324B76A5E /* Pods */,
@@ -355,6 +386,7 @@
 				948B9C7B1EA3ED1C00E9684E /* DemoApp.app */,
 				948B9CAD1EA3EFD500E9684E /* InstagramSimpleOAuth.framework */,
 				946275521EA4781E005D4231 /* Specs.xctest */,
+				94D39C691EBC3F410032F3C8 /* Snapshots.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -449,12 +481,31 @@
 			productReference = 948B9CAD1EA3EFD500E9684E /* InstagramSimpleOAuth.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		94D39C681EBC3F410032F3C8 /* Snapshots */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94D39C721EBC3F410032F3C8 /* Build configuration list for PBXNativeTarget "Snapshots" */;
+			buildPhases = (
+				94D39C651EBC3F410032F3C8 /* Sources */,
+				94D39C661EBC3F410032F3C8 /* Frameworks */,
+				94D39C671EBC3F410032F3C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94D39C6F1EBC3F410032F3C8 /* PBXTargetDependency */,
+			);
+			name = Snapshots;
+			productName = Snapshots;
+			productReference = 94D39C691EBC3F410032F3C8 /* Snapshots.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		AF407E2C1993BFA700F61872 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = RKB;
 				TargetAttributes = {
@@ -469,6 +520,11 @@
 					948B9CAC1EA3EFD500E9684E = {
 						CreatedOnToolsVersion = 8.3.1;
 						ProvisioningStyle = Manual;
+					};
+					94D39C681EBC3F410032F3C8 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 948B9C7A1EA3ED1C00E9684E;
 					};
 				};
 			};
@@ -488,6 +544,7 @@
 				948B9C7A1EA3ED1C00E9684E /* DemoApp */,
 				948B9CAC1EA3EFD500E9684E /* InstagramSimpleOAuth */,
 				946275511EA4781E005D4231 /* Specs */,
+				94D39C681EBC3F410032F3C8 /* Snapshots */,
 			);
 		};
 /* End PBXProject section */
@@ -515,6 +572,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				948B9CD41EA3F09600E9684E /* InstagramSimpleOAuthViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94D39C671EBC3F410032F3C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +674,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		94D39C651EBC3F410032F3C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94D39C6C1EBC3F410032F3C8 /* Snapshots.swift in Sources */,
+				94D39C741EBC3F540032F3C8 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -622,6 +695,11 @@
 			isa = PBXTargetDependency;
 			target = 948B9CAC1EA3EFD500E9684E /* InstagramSimpleOAuth */;
 			targetProxy = 948B9CB21EA3EFD500E9684E /* PBXContainerItemProxy */;
+		};
+		94D39C6F1EBC3F410032F3C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 948B9C7A1EA3ED1C00E9684E /* DemoApp */;
+			targetProxy = 94D39C6E1EBC3F410032F3C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -808,6 +886,46 @@
 			};
 			name = Release;
 		};
+		94D39C701EBC3F410032F3C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = Snapshots/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rkb.Snapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = DemoApp;
+			};
+			name = Debug;
+		};
+		94D39C711EBC3F410032F3C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = Snapshots/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rkb.Snapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = DemoApp;
+			};
+			name = Release;
+		};
 		AF407E671993BFA700F61872 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -920,6 +1038,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		94D39C721EBC3F410032F3C8 /* Build configuration list for PBXNativeTarget "Snapshots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94D39C701EBC3F410032F3C8 /* Debug */,
+				94D39C711EBC3F410032F3C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		AF407E2F1993BFA700F61872 /* Build configuration list for PBXProject "InstagramSimpleOAuth" */ = {
 			isa = XCConfigurationList;
