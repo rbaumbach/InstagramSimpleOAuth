@@ -3,8 +3,8 @@
 A quick and simple way to authenticate an Instagram user in your iPhone or iPad app.
 
 <p align="center">
-   <img src="https://github.com/rbaumbach/InstagramSimpleOAuth/blob/master/iPhone5Screenshot.jpg?raw=true" alt="iPhone5 Screenshot"/>
-   <img src="https://github.com/rbaumbach/InstagramSimpleOAuth/blob/master/iPadScreenshot.jpg?raw=true" alt="iPad Screenshot"/>
+   <img src="https://github.com/rbaumbach/InstagramSimpleOAuth/blob/master/iPhone7Screenshot.jpg?raw=true" alt="iPhone5 Screenshot" width="250" height="510"/>
+   <img src="https://github.com/rbaumbach/InstagramSimpleOAuth/blob/master/iPadPro9_7Screenshot.jpg?raw=true" alt="iPad Screenshot" width="360" height="510"/>
 </p>
 
 ## Adding InstagramSimpleOAuth to your project
