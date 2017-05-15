@@ -29,4 +29,5 @@ fastlane/.env*private*
 fastlane/test-output/
 fastlane/test_output/
 fastlane/README.md
-Snapshots
+Snapshots/*.html
+Snapshots/en-US
