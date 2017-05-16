@@ -14,8 +14,8 @@ class Snapshots: XCTestCase {
         
         app.buttons["Present InstagramVC"].tap()
         
-        // I found out the 'label' for the progres bar using The Developer tool
-        // Accessiblity Inspector.
+        // I found out the 'label' for the progress bar using The Developer tool
+        // Accessibility Inspector.
         
         // Use "hittable" to determine if something is "hidden" or not.
         // If a view is "hittable" then isHidden is false
