@@ -16,12 +16,12 @@ platform :ios do
   end
 
   desc "Take iPhone/iPad screenshots"
-  lane :take_screenshots do
+  lane :take_da_screenshots do
     snapshot
   end
 
   desc "Frame iPhone/iPad screenshots"
-  lane :frame_screenshots do
+  lane :frame_da_screenshots do
     sh "cd ../Snapshots/"
     frameit(path: "Snapshots")
   end

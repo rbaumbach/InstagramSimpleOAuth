@@ -1,8 +1,8 @@
 PODS:
-  - Expecta (1.0.5)
-  - OCMock (3.4)
-  - Specta (1.0.6)
-  - Swizzlean (1.0.0)
+  - Expecta (1.0.6)
+  - OCMock (3.4.1)
+  - Specta (1.0.7)
+  - Swizzlean (1.0.1)
 
 DEPENDENCIES:
   - Expecta
@@ -10,12 +10,19 @@ DEPENDENCIES:
   - Specta
   - Swizzlean
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Expecta
+    - OCMock
+    - Specta
+    - Swizzlean
+
 SPEC CHECKSUMS:
-  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
-  Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
-  Swizzlean: 628e6747d925655be3dbbb943bc8a8e8b29e6852
+  Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
+  OCMock: 2cd0716969bab32a2283ff3a46fd26a8c8b4c5e3
+  Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
+  Swizzlean: 090f99f6e367f82b2b94ac29129b0b56f05c1c57
 
 PODFILE CHECKSUM: b4b61bc4d78ea1380e3b59e5f18d6b4b122f0533
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.3
