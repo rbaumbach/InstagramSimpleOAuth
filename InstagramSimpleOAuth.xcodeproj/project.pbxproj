@@ -40,6 +40,7 @@
 		94BB730120C2D5FA00BCDC05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94BB72FF20C2D5FA00BCDC05 /* LaunchScreen.storyboard */; };
 		94BB730220C2D5FA00BCDC05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94BB730020C2D5FA00BCDC05 /* Assets.xcassets */; };
 		94BB730320C2D66200BCDC05 /* InstagramSimpleOAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94BB72D020C24A3D00BCDC05 /* InstagramSimpleOAuthViewController.xib */; };
+		94BB730B20C2F7E900BCDC05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94BB730A20C2F7E800BCDC05 /* Main.storyboard */; };
 		94C64C0C1EA5A9FC00C721B1 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946275491EA4763A005D4231 /* AFNetworking.framework */; };
 		94C64C0D1EA5A9FC00C721B1 /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 946275491EA4763A005D4231 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94C64C0E1EA5A9FC00C721B1 /* SimpleOAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BE1D791E9F0A2A0096916B /* SimpleOAuth2.framework */; };
@@ -163,6 +164,7 @@
 		94BB72FA20C2D59B00BCDC05 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		94BB72FF20C2D5FA00BCDC05 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94BB730020C2D5FA00BCDC05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		94BB730A20C2F7E800BCDC05 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		94BE1D791E9F0A2A0096916B /* SimpleOAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleOAuth2.framework; path = Carthage/Build/iOS/SimpleOAuth2.framework; sourceTree = "<group>"; };
 		94C64C161EA70F1B00C721B1 /* InstagramLoginResponseSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramLoginResponseSpecs.m; sourceTree = "<group>"; };
 		94C64C281EA718D400C721B1 /* InstagramTokenParametersSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramTokenParametersSpecs.m; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 		94BB72FE20C2D5CD00BCDC05 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				94BB730A20C2F7E800BCDC05 /* Main.storyboard */,
 				94BB730020C2D5FA00BCDC05 /* Assets.xcassets */,
 				94BB72FF20C2D5FA00BCDC05 /* LaunchScreen.storyboard */,
 			);
@@ -566,6 +569,7 @@
 				94BB730120C2D5FA00BCDC05 /* LaunchScreen.storyboard in Resources */,
 				94BB730320C2D66200BCDC05 /* InstagramSimpleOAuthViewController.xib in Resources */,
 				94BB730220C2D5FA00BCDC05 /* Assets.xcassets in Resources */,
+				94BB730B20C2F7E900BCDC05 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
