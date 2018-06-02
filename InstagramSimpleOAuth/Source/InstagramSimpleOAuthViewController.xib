@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InstagramSimpleOAuthViewController">
@@ -18,21 +22,22 @@
             <subviews>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLQ-Of-2XJ" userLabel="instagramWebView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="EPh-Dd-iPq"/>
                     </connections>
                 </webView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="lLQ-Of-2XJ" firstAttribute="top" secondItem="paa-W6-djn" secondAttribute="top" id="1OJ-HZ-Rrc"/>
-                <constraint firstAttribute="trailing" secondItem="lLQ-Of-2XJ" secondAttribute="trailing" id="S2t-Rh-Bjy"/>
-                <constraint firstAttribute="bottom" secondItem="lLQ-Of-2XJ" secondAttribute="bottom" id="h8o-U1-RKm"/>
-                <constraint firstItem="lLQ-Of-2XJ" firstAttribute="leading" secondItem="paa-W6-djn" secondAttribute="leading" id="waE-o9-yDa"/>
+                <constraint firstItem="lLQ-Of-2XJ" firstAttribute="top" secondItem="paa-W6-djn" secondAttribute="top" identifier="instagramWebView.top-to-superview-top" id="1OJ-HZ-Rrc"/>
+                <constraint firstAttribute="trailing" secondItem="lLQ-Of-2XJ" secondAttribute="trailing" identifier="superview-trailing-to-instagramWebView.trailing" id="S2t-Rh-Bjy"/>
+                <constraint firstAttribute="bottom" secondItem="lLQ-Of-2XJ" secondAttribute="bottom" identifier="superview-bottom-to-instagramWebView.bottom" id="h8o-U1-RKm"/>
+                <constraint firstItem="lLQ-Of-2XJ" firstAttribute="leading" secondItem="paa-W6-djn" secondAttribute="leading" identifier="instagramWebView.leading-to-superview-leading" id="waE-o9-yDa"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-416" y="-28"/>
         </view>
     </objects>
 </document>
