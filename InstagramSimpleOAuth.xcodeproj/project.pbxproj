@@ -36,16 +36,17 @@
 		948B9CDE1EA40DA500E9684E /* JustAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948B9CDD1EA40DA500E9684E /* JustAViewController.m */; };
 		9490532A1EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 949053281EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerSpecs.m */; };
 		9490532B1EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerXibSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 949053291EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerXibSpecs.m */; };
-		94BB72BA20C23DAA00BCDC05 /* NSLayoutConstraintSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72B920C23DAA00BCDC05 /* NSLayoutConstraintSpecHelper.m */; };
+		94BB72C320C2479E00BCDC05 /* FakeInstagramOAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72BE20C2479E00BCDC05 /* FakeInstagramOAuthResponse.m */; };
+		94BB72C420C2479E00BCDC05 /* FakeSimpleOAuth2AuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72BF20C2479E00BCDC05 /* FakeSimpleOAuth2AuthenticationManager.m */; };
+		94BB72C520C2479E00BCDC05 /* FakeInstagramAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72C120C2479E00BCDC05 /* FakeInstagramAuthenticationManager.m */; };
+		94BB72C920C247C400BCDC05 /* NSLayoutConstraintSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72C720C247C400BCDC05 /* NSLayoutConstraintSpecHelper.m */; };
 		94C64C0C1EA5A9FC00C721B1 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946275491EA4763A005D4231 /* AFNetworking.framework */; };
 		94C64C0D1EA5A9FC00C721B1 /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 946275491EA4763A005D4231 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94C64C0E1EA5A9FC00C721B1 /* SimpleOAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BE1D791E9F0A2A0096916B /* SimpleOAuth2.framework */; };
 		94C64C0F1EA5A9FC00C721B1 /* SimpleOAuth2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94BE1D791E9F0A2A0096916B /* SimpleOAuth2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94C64C101EA5A9FC00C721B1 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948B9C731EA3EB4400E9684E /* MBProgressHUD.framework */; };
 		94C64C111EA5A9FC00C721B1 /* MBProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 948B9C731EA3EB4400E9684E /* MBProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		94C64C151EA70E6600C721B1 /* FakeInstagramAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C64C141EA70E6600C721B1 /* FakeInstagramAuthenticationManager.m */; };
 		94C64C171EA70F1B00C721B1 /* InstagramLoginResponseSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C64C161EA70F1B00C721B1 /* InstagramLoginResponseSpecs.m */; };
-		94C64C1A1EA70F4100C721B1 /* FakeInstagramOAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C64C191EA70F4100C721B1 /* FakeInstagramOAuthResponse.m */; };
 		94C64C1C1EA7178E00C721B1 /* AFNetworking.framework in Carthage Copy Files */ = {isa = PBXBuildFile; fileRef = 946275491EA4763A005D4231 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94C64C1D1EA7178E00C721B1 /* SimpleOAuth2.framework in Carthage Copy Files */ = {isa = PBXBuildFile; fileRef = 94BE1D791E9F0A2A0096916B /* SimpleOAuth2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94C64C1E1EA7178E00C721B1 /* MBProgressHUD.framework in Carthage Copy Files */ = {isa = PBXBuildFile; fileRef = 948B9C731EA3EB4400E9684E /* MBProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -56,7 +57,6 @@
 		94C64C2A1EA718D400C721B1 /* InstagramTokenParametersSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C64C281EA718D400C721B1 /* InstagramTokenParametersSpecs.m */; };
 		94C64C2B1EA718D400C721B1 /* InstagramUserSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C64C291EA718D400C721B1 /* InstagramUserSpecs.m */; };
 		94C64C2D1EA7193500C721B1 /* InstagramAuthenticationManagerSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C64C2C1EA7193500C721B1 /* InstagramAuthenticationManagerSpecs.m */; };
-		94C64C301EA7199200C721B1 /* FakeSimpleOAuth2AuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C64C2F1EA7199200C721B1 /* FakeSimpleOAuth2AuthenticationManager.m */; };
 		94D39C6C1EBC3F410032F3C8 /* Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D39C6B1EBC3F410032F3C8 /* Snapshots.swift */; };
 		94D39C741EBC3F540032F3C8 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D39C731EBC3F540032F3C8 /* SnapshotHelper.swift */; };
 		FD2B050F9E5E4DC7E07D5E17 /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56234EE7C949C7ECEFAB375C /* libPods-Specs.a */; };
@@ -125,7 +125,6 @@
 		8266318E95E062396188327E /* Pods-Specs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Specs/Pods-Specs.debug.xcconfig"; sourceTree = "<group>"; };
 		946275491EA4763A005D4231 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 		946275521EA4781E005D4231 /* Specs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		946275561EA4781E005D4231 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		948B9C731EA3EB4400E9684E /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
 		948B9C7B1EA3ED1C00E9684E /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		948B9C7E1EA3ED1C00E9684E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -157,19 +156,19 @@
 		948B9CDD1EA40DA500E9684E /* JustAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JustAViewController.m; sourceTree = "<group>"; };
 		949053281EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramSimpleOAuthViewControllerSpecs.m; sourceTree = "<group>"; };
 		949053291EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerXibSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramSimpleOAuthViewControllerXibSpecs.m; sourceTree = "<group>"; };
-		94BB72B820C23DAA00BCDC05 /* NSLayoutConstraintSpecHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSLayoutConstraintSpecHelper.h; sourceTree = "<group>"; };
-		94BB72B920C23DAA00BCDC05 /* NSLayoutConstraintSpecHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSLayoutConstraintSpecHelper.m; sourceTree = "<group>"; };
+		94BB72BD20C2479E00BCDC05 /* FakeInstagramOAuthResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeInstagramOAuthResponse.h; sourceTree = "<group>"; };
+		94BB72BE20C2479E00BCDC05 /* FakeInstagramOAuthResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInstagramOAuthResponse.m; sourceTree = "<group>"; };
+		94BB72BF20C2479E00BCDC05 /* FakeSimpleOAuth2AuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeSimpleOAuth2AuthenticationManager.m; sourceTree = "<group>"; };
+		94BB72C020C2479E00BCDC05 /* FakeInstagramAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeInstagramAuthenticationManager.h; sourceTree = "<group>"; };
+		94BB72C120C2479E00BCDC05 /* FakeInstagramAuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInstagramAuthenticationManager.m; sourceTree = "<group>"; };
+		94BB72C220C2479E00BCDC05 /* FakeSimpleOAuth2AuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeSimpleOAuth2AuthenticationManager.h; sourceTree = "<group>"; };
+		94BB72C720C247C400BCDC05 /* NSLayoutConstraintSpecHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSLayoutConstraintSpecHelper.m; sourceTree = "<group>"; };
+		94BB72C820C247C400BCDC05 /* NSLayoutConstraintSpecHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSLayoutConstraintSpecHelper.h; sourceTree = "<group>"; };
 		94BE1D791E9F0A2A0096916B /* SimpleOAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleOAuth2.framework; path = Carthage/Build/iOS/SimpleOAuth2.framework; sourceTree = "<group>"; };
-		94C64C131EA70E6600C721B1 /* FakeInstagramAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeInstagramAuthenticationManager.h; sourceTree = "<group>"; };
-		94C64C141EA70E6600C721B1 /* FakeInstagramAuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInstagramAuthenticationManager.m; sourceTree = "<group>"; };
 		94C64C161EA70F1B00C721B1 /* InstagramLoginResponseSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramLoginResponseSpecs.m; sourceTree = "<group>"; };
-		94C64C181EA70F4100C721B1 /* FakeInstagramOAuthResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeInstagramOAuthResponse.h; sourceTree = "<group>"; };
-		94C64C191EA70F4100C721B1 /* FakeInstagramOAuthResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeInstagramOAuthResponse.m; sourceTree = "<group>"; };
 		94C64C281EA718D400C721B1 /* InstagramTokenParametersSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramTokenParametersSpecs.m; sourceTree = "<group>"; };
 		94C64C291EA718D400C721B1 /* InstagramUserSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramUserSpecs.m; sourceTree = "<group>"; };
 		94C64C2C1EA7193500C721B1 /* InstagramAuthenticationManagerSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramAuthenticationManagerSpecs.m; sourceTree = "<group>"; };
-		94C64C2E1EA7199200C721B1 /* FakeSimpleOAuth2AuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeSimpleOAuth2AuthenticationManager.h; sourceTree = "<group>"; };
-		94C64C2F1EA7199200C721B1 /* FakeSimpleOAuth2AuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeSimpleOAuth2AuthenticationManager.m; sourceTree = "<group>"; };
 		94D39C691EBC3F410032F3C8 /* Snapshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Snapshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94D39C6B1EBC3F410032F3C8 /* Snapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshots.swift; sourceTree = "<group>"; };
 		94D39C6D1EBC3F410032F3C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -234,15 +233,15 @@
 		946275531EA4781E005D4231 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
-				94C64C121EA70E5900C721B1 /* Fakes */,
-				94C64C231EA7187E00C721B1 /* Utils */,
-				949053281EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerSpecs.m */,
-				949053291EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerXibSpecs.m */,
+				94BB72BC20C2478900BCDC05 /* Fakes */,
+				94BB72C620C247A500BCDC05 /* Utils */,
 				94C64C2C1EA7193500C721B1 /* InstagramAuthenticationManagerSpecs.m */,
 				94C64C161EA70F1B00C721B1 /* InstagramLoginResponseSpecs.m */,
+				949053281EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerSpecs.m */,
+				949053291EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerXibSpecs.m */,
 				94C64C281EA718D400C721B1 /* InstagramTokenParametersSpecs.m */,
 				94C64C291EA718D400C721B1 /* InstagramUserSpecs.m */,
-				94C64C241EA7188900C721B1 /* Supporting Files */,
+				94BB72CB20C247E500BCDC05 /* Supporting Files */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -327,34 +326,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		94C64C121EA70E5900C721B1 /* Fakes */ = {
+		94BB72BC20C2478900BCDC05 /* Fakes */ = {
 			isa = PBXGroup;
 			children = (
-				94C64C131EA70E6600C721B1 /* FakeInstagramAuthenticationManager.h */,
-				94C64C141EA70E6600C721B1 /* FakeInstagramAuthenticationManager.m */,
-				94C64C181EA70F4100C721B1 /* FakeInstagramOAuthResponse.h */,
-				94C64C191EA70F4100C721B1 /* FakeInstagramOAuthResponse.m */,
-				94C64C2E1EA7199200C721B1 /* FakeSimpleOAuth2AuthenticationManager.h */,
-				94C64C2F1EA7199200C721B1 /* FakeSimpleOAuth2AuthenticationManager.m */,
+				94BB72C020C2479E00BCDC05 /* FakeInstagramAuthenticationManager.h */,
+				94BB72C120C2479E00BCDC05 /* FakeInstagramAuthenticationManager.m */,
+				94BB72BD20C2479E00BCDC05 /* FakeInstagramOAuthResponse.h */,
+				94BB72BE20C2479E00BCDC05 /* FakeInstagramOAuthResponse.m */,
+				94BB72C220C2479E00BCDC05 /* FakeSimpleOAuth2AuthenticationManager.h */,
+				94BB72BF20C2479E00BCDC05 /* FakeSimpleOAuth2AuthenticationManager.m */,
 			);
-			name = Fakes;
+			path = Fakes;
 			sourceTree = "<group>";
 		};
-		94C64C231EA7187E00C721B1 /* Utils */ = {
+		94BB72C620C247A500BCDC05 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				94BB72B820C23DAA00BCDC05 /* NSLayoutConstraintSpecHelper.h */,
-				94BB72B920C23DAA00BCDC05 /* NSLayoutConstraintSpecHelper.m */,
+				94BB72C820C247C400BCDC05 /* NSLayoutConstraintSpecHelper.h */,
+				94BB72C720C247C400BCDC05 /* NSLayoutConstraintSpecHelper.m */,
 			);
-			name = Utils;
+			path = Utils;
 			sourceTree = "<group>";
 		};
-		94C64C241EA7188900C721B1 /* Supporting Files */ = {
+		94BB72CB20C247E500BCDC05 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				946275561EA4781E005D4231 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		94D39C6A1EBC3F410032F3C8 /* Snapshots */ = {
@@ -609,15 +607,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				94C64C2D1EA7193500C721B1 /* InstagramAuthenticationManagerSpecs.m in Sources */,
-				94C64C301EA7199200C721B1 /* FakeSimpleOAuth2AuthenticationManager.m in Sources */,
-				94C64C1A1EA70F4100C721B1 /* FakeInstagramOAuthResponse.m in Sources */,
+				94BB72C420C2479E00BCDC05 /* FakeSimpleOAuth2AuthenticationManager.m in Sources */,
 				9490532B1EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerXibSpecs.m in Sources */,
 				9490532A1EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerSpecs.m in Sources */,
-				94BB72BA20C23DAA00BCDC05 /* NSLayoutConstraintSpecHelper.m in Sources */,
 				94C64C171EA70F1B00C721B1 /* InstagramLoginResponseSpecs.m in Sources */,
 				94C64C2B1EA718D400C721B1 /* InstagramUserSpecs.m in Sources */,
+				94BB72C320C2479E00BCDC05 /* FakeInstagramOAuthResponse.m in Sources */,
 				94C64C2A1EA718D400C721B1 /* InstagramTokenParametersSpecs.m in Sources */,
-				94C64C151EA70E6600C721B1 /* FakeInstagramAuthenticationManager.m in Sources */,
+				94BB72C920C247C400BCDC05 /* NSLayoutConstraintSpecHelper.m in Sources */,
+				94BB72C520C2479E00BCDC05 /* FakeInstagramAuthenticationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,7 +706,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Specs/Info.plist;
+				INFOPLIST_FILE = "Specs/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -733,7 +731,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Specs/Info.plist;
+				INFOPLIST_FILE = "Specs/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
