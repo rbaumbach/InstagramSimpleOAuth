@@ -25,5 +25,9 @@ jobs:
           command: bundle exec pod install
 
       - run:
+          name: Install Carthage Frameworks
+          command: bundle exec carthage bootstrap --platform iOS
+
+      - run:
           name: Run specs
           command: bundle exec fastlane specs
