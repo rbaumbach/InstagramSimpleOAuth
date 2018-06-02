@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = 'InstagramSimpleOAuth'
-  s.version               = '0.4.1'
+  s.version               = '1.0.0'
   s.summary               = 'A quick and simple way to authenticate an Instagram user in your iPhone or iPad app.'
   s.homepage              = 'https://github.com/rbaumbach/InstagramSimpleOAuth'
   s.license               = { :type => 'MIT', :file => 'MIT-LICENSE.txt' }
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.public_header_files   = 'InstagramSimpleOAuth/Source/InstagramSimpleOAuth.h',   'InstagramSimpleOAuth/Source/InstagramSimpleOAuthViewController.h',
                             'InstagramSimpleOAuth/Source/InstagramLoginResponse.h', 'InstagramSimpleOAuth/Source/InstagramUser.h'
   s.source_files          = 'InstagramSimpleOAuth/Source/*.{h,m}'
-  s.resources             = 'InstagramSimpleOAuth/Source/*.xib'
+  s.resources             = 'InstagramSimpleOAuth/Resources/*.xib'
 
   s.dependency 'SimpleOAuth2', '0.1.3'
   s.dependency 'MBProgressHUD', '>= 0.9'
