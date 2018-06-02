@@ -11,15 +11,8 @@
 		9462754B1EA476D9005D4231 /* InstagramSimpleOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948B9CAD1EA3EFD500E9684E /* InstagramSimpleOAuth.framework */; };
 		9462754C1EA476D9005D4231 /* InstagramSimpleOAuth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 948B9CAD1EA3EFD500E9684E /* InstagramSimpleOAuth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		946275571EA4781E005D4231 /* InstagramSimpleOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948B9CAD1EA3EFD500E9684E /* InstagramSimpleOAuth.framework */; };
-		948B9C7F1EA3ED1C00E9684E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 948B9C7E1EA3ED1C00E9684E /* main.m */; };
-		948B9C821EA3ED1C00E9684E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 948B9C811EA3ED1C00E9684E /* AppDelegate.m */; };
-		948B9C881EA3ED1C00E9684E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948B9C861EA3ED1C00E9684E /* Main.storyboard */; };
-		948B9C8A1EA3ED1C00E9684E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 948B9C891EA3ED1C00E9684E /* Assets.xcassets */; };
-		948B9C8D1EA3ED1C00E9684E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948B9C8B1EA3ED1C00E9684E /* LaunchScreen.storyboard */; };
 		948B9CB91EA3EFF700E9684E /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948B9C731EA3EB4400E9684E /* MBProgressHUD.framework */; };
 		948B9CBA1EA3EFF700E9684E /* SimpleOAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BE1D791E9F0A2A0096916B /* SimpleOAuth2.framework */; };
-		948B9CDB1EA40D7F00E9684E /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948B9CDA1EA40D7F00E9684E /* InitialViewController.m */; };
-		948B9CDE1EA40DA500E9684E /* JustAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948B9CDD1EA40DA500E9684E /* JustAViewController.m */; };
 		9490532A1EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 949053281EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerSpecs.m */; };
 		9490532B1EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerXibSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 949053291EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerXibSpecs.m */; };
 		94BB72C320C2479E00BCDC05 /* FakeInstagramOAuthResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72BE20C2479E00BCDC05 /* FakeInstagramOAuthResponse.m */; };
@@ -28,18 +21,25 @@
 		94BB72C920C247C400BCDC05 /* NSLayoutConstraintSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72C720C247C400BCDC05 /* NSLayoutConstraintSpecHelper.m */; };
 		94BB72D120C24A3D00BCDC05 /* InstagramSimpleOAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94BB72D020C24A3D00BCDC05 /* InstagramSimpleOAuthViewController.xib */; };
 		94BB72E020C24AAF00BCDC05 /* InstagramLoginResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72D320C24AAE00BCDC05 /* InstagramLoginResponse.m */; };
-		94BB72E120C24AAF00BCDC05 /* InstagramUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72D420C24AAE00BCDC05 /* InstagramUser.h */; };
-		94BB72E220C24AAF00BCDC05 /* InstagramSimpleOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72D520C24AAE00BCDC05 /* InstagramSimpleOAuth.h */; };
-		94BB72E320C24AAF00BCDC05 /* InstagramSimpleOAuthViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72D620C24AAE00BCDC05 /* InstagramSimpleOAuthViewController.h */; };
-		94BB72E420C24AAF00BCDC05 /* InstagramConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72D720C24AAE00BCDC05 /* InstagramConstants.h */; };
+		94BB72E120C24AAF00BCDC05 /* InstagramUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72D420C24AAE00BCDC05 /* InstagramUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94BB72E220C24AAF00BCDC05 /* InstagramSimpleOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72D520C24AAE00BCDC05 /* InstagramSimpleOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94BB72E320C24AAF00BCDC05 /* InstagramSimpleOAuthViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72D620C24AAE00BCDC05 /* InstagramSimpleOAuthViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94BB72E420C24AAF00BCDC05 /* InstagramConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72D720C24AAE00BCDC05 /* InstagramConstants.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		94BB72E520C24AAF00BCDC05 /* InstagramSimpleOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72D820C24AAF00BCDC05 /* InstagramSimpleOAuthViewController.m */; };
-		94BB72E620C24AAF00BCDC05 /* InstagramTokenParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72D920C24AAF00BCDC05 /* InstagramTokenParameters.h */; };
+		94BB72E620C24AAF00BCDC05 /* InstagramTokenParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72D920C24AAF00BCDC05 /* InstagramTokenParameters.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		94BB72E720C24AAF00BCDC05 /* InstagramUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72DA20C24AAF00BCDC05 /* InstagramUser.m */; };
 		94BB72E820C24AAF00BCDC05 /* InstagramConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72DB20C24AAF00BCDC05 /* InstagramConstants.m */; };
 		94BB72E920C24AAF00BCDC05 /* InstagramAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72DC20C24AAF00BCDC05 /* InstagramAuthenticationManager.m */; };
 		94BB72EA20C24AAF00BCDC05 /* InstagramTokenParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72DD20C24AAF00BCDC05 /* InstagramTokenParameters.m */; };
-		94BB72EB20C24AAF00BCDC05 /* InstagramAuthenticationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72DE20C24AAF00BCDC05 /* InstagramAuthenticationManager.h */; };
-		94BB72EC20C24AAF00BCDC05 /* InstagramLoginResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72DF20C24AAF00BCDC05 /* InstagramLoginResponse.h */; };
+		94BB72EB20C24AAF00BCDC05 /* InstagramAuthenticationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72DE20C24AAF00BCDC05 /* InstagramAuthenticationManager.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		94BB72EC20C24AAF00BCDC05 /* InstagramLoginResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BB72DF20C24AAF00BCDC05 /* InstagramLoginResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94BB72F520C2D57300BCDC05 /* JustAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72EF20C2D57200BCDC05 /* JustAViewController.m */; };
+		94BB72F620C2D57300BCDC05 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72F020C2D57200BCDC05 /* InitialViewController.m */; };
+		94BB72F720C2D57300BCDC05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72F320C2D57300BCDC05 /* AppDelegate.m */; };
+		94BB72FC20C2D59B00BCDC05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB72FA20C2D59B00BCDC05 /* main.m */; };
+		94BB730120C2D5FA00BCDC05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94BB72FF20C2D5FA00BCDC05 /* LaunchScreen.storyboard */; };
+		94BB730220C2D5FA00BCDC05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94BB730020C2D5FA00BCDC05 /* Assets.xcassets */; };
+		94BB730320C2D66200BCDC05 /* InstagramSimpleOAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94BB72D020C24A3D00BCDC05 /* InstagramSimpleOAuthViewController.xib */; };
 		94C64C0C1EA5A9FC00C721B1 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946275491EA4763A005D4231 /* AFNetworking.framework */; };
 		94C64C0D1EA5A9FC00C721B1 /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 946275491EA4763A005D4231 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94C64C0E1EA5A9FC00C721B1 /* SimpleOAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BE1D791E9F0A2A0096916B /* SimpleOAuth2.framework */; };
@@ -127,18 +127,7 @@
 		946275521EA4781E005D4231 /* Specs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		948B9C731EA3EB4400E9684E /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
 		948B9C7B1EA3ED1C00E9684E /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		948B9C7E1EA3ED1C00E9684E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		948B9C801EA3ED1C00E9684E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		948B9C811EA3ED1C00E9684E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		948B9C871EA3ED1C00E9684E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		948B9C891EA3ED1C00E9684E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		948B9C8C1EA3ED1C00E9684E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		948B9C8E1EA3ED1C00E9684E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		948B9CAD1EA3EFD500E9684E /* InstagramSimpleOAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InstagramSimpleOAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		948B9CD91EA40D7F00E9684E /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
-		948B9CDA1EA40D7F00E9684E /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
-		948B9CDC1EA40DA500E9684E /* JustAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JustAViewController.h; sourceTree = "<group>"; };
-		948B9CDD1EA40DA500E9684E /* JustAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JustAViewController.m; sourceTree = "<group>"; };
 		949053281EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramSimpleOAuthViewControllerSpecs.m; sourceTree = "<group>"; };
 		949053291EA71C2B00AFD976 /* InstagramSimpleOAuthViewControllerXibSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramSimpleOAuthViewControllerXibSpecs.m; sourceTree = "<group>"; };
 		94BB72BD20C2479E00BCDC05 /* FakeInstagramOAuthResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeInstagramOAuthResponse.h; sourceTree = "<group>"; };
@@ -164,6 +153,16 @@
 		94BB72DD20C24AAF00BCDC05 /* InstagramTokenParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramTokenParameters.m; sourceTree = "<group>"; };
 		94BB72DE20C24AAF00BCDC05 /* InstagramAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramAuthenticationManager.h; sourceTree = "<group>"; };
 		94BB72DF20C24AAF00BCDC05 /* InstagramLoginResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramLoginResponse.h; sourceTree = "<group>"; };
+		94BB72EF20C2D57200BCDC05 /* JustAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JustAViewController.m; sourceTree = "<group>"; };
+		94BB72F020C2D57200BCDC05 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
+		94BB72F120C2D57300BCDC05 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		94BB72F220C2D57300BCDC05 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		94BB72F320C2D57300BCDC05 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		94BB72F420C2D57300BCDC05 /* JustAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JustAViewController.h; sourceTree = "<group>"; };
+		94BB72F920C2D59A00BCDC05 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94BB72FA20C2D59B00BCDC05 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		94BB72FF20C2D5FA00BCDC05 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		94BB730020C2D5FA00BCDC05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94BE1D791E9F0A2A0096916B /* SimpleOAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleOAuth2.framework; path = Carthage/Build/iOS/SimpleOAuth2.framework; sourceTree = "<group>"; };
 		94C64C161EA70F1B00C721B1 /* InstagramLoginResponseSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramLoginResponseSpecs.m; sourceTree = "<group>"; };
 		94C64C281EA718D400C721B1 /* InstagramTokenParametersSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramTokenParametersSpecs.m; sourceTree = "<group>"; };
@@ -249,43 +248,11 @@
 		948B9C7C1EA3ED1C00E9684E /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				948B9C921EA3EDCE00E9684E /* AppCode */,
-				948B9C931EA3EDE400E9684E /* Resources */,
-				948B9C7D1EA3ED1C00E9684E /* Supporting Files */,
+				94BB72EE20C2D54700BCDC05 /* App Code */,
+				94BB72FE20C2D5CD00BCDC05 /* Resources */,
+				94BB72F820C2D58600BCDC05 /* Supporting Files */,
 			);
 			path = DemoApp;
-			sourceTree = "<group>";
-		};
-		948B9C7D1EA3ED1C00E9684E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				948B9C8E1EA3ED1C00E9684E /* Info.plist */,
-				948B9C7E1EA3ED1C00E9684E /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		948B9C921EA3EDCE00E9684E /* AppCode */ = {
-			isa = PBXGroup;
-			children = (
-				948B9C801EA3ED1C00E9684E /* AppDelegate.h */,
-				948B9C811EA3ED1C00E9684E /* AppDelegate.m */,
-				948B9CD91EA40D7F00E9684E /* InitialViewController.h */,
-				948B9CDA1EA40D7F00E9684E /* InitialViewController.m */,
-				948B9CDC1EA40DA500E9684E /* JustAViewController.h */,
-				948B9CDD1EA40DA500E9684E /* JustAViewController.m */,
-				948B9C861EA3ED1C00E9684E /* Main.storyboard */,
-			);
-			name = AppCode;
-			sourceTree = "<group>";
-		};
-		948B9C931EA3EDE400E9684E /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				948B9C8B1EA3ED1C00E9684E /* LaunchScreen.storyboard */,
-				948B9C891EA3ED1C00E9684E /* Assets.xcassets */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		948B9CAE1EA3EFD500E9684E /* InstagramSimpleOAuth */ = {
@@ -363,6 +330,37 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		94BB72EE20C2D54700BCDC05 /* App Code */ = {
+			isa = PBXGroup;
+			children = (
+				94BB72F120C2D57300BCDC05 /* AppDelegate.h */,
+				94BB72F320C2D57300BCDC05 /* AppDelegate.m */,
+				94BB72F220C2D57300BCDC05 /* InitialViewController.h */,
+				94BB72F020C2D57200BCDC05 /* InitialViewController.m */,
+				94BB72F420C2D57300BCDC05 /* JustAViewController.h */,
+				94BB72EF20C2D57200BCDC05 /* JustAViewController.m */,
+			);
+			path = "App Code";
+			sourceTree = "<group>";
+		};
+		94BB72F820C2D58600BCDC05 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				94BB72F920C2D59A00BCDC05 /* Info.plist */,
+				94BB72FA20C2D59B00BCDC05 /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94BB72FE20C2D5CD00BCDC05 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				94BB730020C2D5FA00BCDC05 /* Assets.xcassets */,
+				94BB72FF20C2D5FA00BCDC05 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		94D39C6A1EBC3F410032F3C8 /* Snapshots */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,11 +415,11 @@
 			files = (
 				94BB72EC20C24AAF00BCDC05 /* InstagramLoginResponse.h in Headers */,
 				94BB72E120C24AAF00BCDC05 /* InstagramUser.h in Headers */,
-				94BB72E420C24AAF00BCDC05 /* InstagramConstants.h in Headers */,
-				94BB72E220C24AAF00BCDC05 /* InstagramSimpleOAuth.h in Headers */,
-				94BB72E620C24AAF00BCDC05 /* InstagramTokenParameters.h in Headers */,
-				94BB72EB20C24AAF00BCDC05 /* InstagramAuthenticationManager.h in Headers */,
 				94BB72E320C24AAF00BCDC05 /* InstagramSimpleOAuthViewController.h in Headers */,
+				94BB72E220C24AAF00BCDC05 /* InstagramSimpleOAuth.h in Headers */,
+				94BB72E420C24AAF00BCDC05 /* InstagramConstants.h in Headers */,
+				94BB72EB20C24AAF00BCDC05 /* InstagramAuthenticationManager.h in Headers */,
+				94BB72E620C24AAF00BCDC05 /* InstagramTokenParameters.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,9 +563,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				948B9C8D1EA3ED1C00E9684E /* LaunchScreen.storyboard in Resources */,
-				948B9C8A1EA3ED1C00E9684E /* Assets.xcassets in Resources */,
-				948B9C881EA3ED1C00E9684E /* Main.storyboard in Resources */,
+				94BB730120C2D5FA00BCDC05 /* LaunchScreen.storyboard in Resources */,
+				94BB730320C2D66200BCDC05 /* InstagramSimpleOAuthViewController.xib in Resources */,
+				94BB730220C2D5FA00BCDC05 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,10 +629,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				948B9C821EA3ED1C00E9684E /* AppDelegate.m in Sources */,
-				948B9CDE1EA40DA500E9684E /* JustAViewController.m in Sources */,
-				948B9C7F1EA3ED1C00E9684E /* main.m in Sources */,
-				948B9CDB1EA40D7F00E9684E /* InitialViewController.m in Sources */,
+				94BB72FC20C2D59B00BCDC05 /* main.m in Sources */,
+				94BB72F520C2D57300BCDC05 /* JustAViewController.m in Sources */,
+				94BB72F620C2D57300BCDC05 /* InitialViewController.m in Sources */,
+				94BB72F720C2D57300BCDC05 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,25 +677,6 @@
 			targetProxy = 94D39C6E1EBC3F410032F3C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		948B9C861EA3ED1C00E9684E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				948B9C871EA3ED1C00E9684E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		948B9C8B1EA3ED1C00E9684E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				948B9C8C1EA3ED1C00E9684E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9462755B1EA4781E005D4231 /* Debug */ = {
@@ -763,7 +742,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = DemoApp/Info.plist;
+				INFOPLIST_FILE = "DemoApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -788,7 +767,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = DemoApp/Info.plist;
+				INFOPLIST_FILE = "DemoApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
