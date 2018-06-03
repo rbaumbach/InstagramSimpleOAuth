@@ -41,6 +41,7 @@
 		94BB730220C2D5FA00BCDC05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94BB730020C2D5FA00BCDC05 /* Assets.xcassets */; };
 		94BB730320C2D66200BCDC05 /* InstagramSimpleOAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94BB72D020C24A3D00BCDC05 /* InstagramSimpleOAuthViewController.xib */; };
 		94BB730B20C2F7E900BCDC05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94BB730A20C2F7E800BCDC05 /* Main.storyboard */; };
+		94BB730E20C38F5500BCDC05 /* TokenAlertControllerBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB730D20C38F5500BCDC05 /* TokenAlertControllerBuilder.m */; };
 		94C64C0C1EA5A9FC00C721B1 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946275491EA4763A005D4231 /* AFNetworking.framework */; };
 		94C64C0D1EA5A9FC00C721B1 /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 946275491EA4763A005D4231 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94C64C0E1EA5A9FC00C721B1 /* SimpleOAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BE1D791E9F0A2A0096916B /* SimpleOAuth2.framework */; };
@@ -165,6 +166,8 @@
 		94BB72FF20C2D5FA00BCDC05 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94BB730020C2D5FA00BCDC05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94BB730A20C2F7E800BCDC05 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		94BB730C20C38F5500BCDC05 /* TokenAlertControllerBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenAlertControllerBuilder.h; sourceTree = "<group>"; };
+		94BB730D20C38F5500BCDC05 /* TokenAlertControllerBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenAlertControllerBuilder.m; sourceTree = "<group>"; };
 		94BE1D791E9F0A2A0096916B /* SimpleOAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleOAuth2.framework; path = Carthage/Build/iOS/SimpleOAuth2.framework; sourceTree = "<group>"; };
 		94C64C161EA70F1B00C721B1 /* InstagramLoginResponseSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramLoginResponseSpecs.m; sourceTree = "<group>"; };
 		94C64C281EA718D400C721B1 /* InstagramTokenParametersSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramTokenParametersSpecs.m; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 				94BB72F020C2D57200BCDC05 /* InitialViewController.m */,
 				94BB72F420C2D57300BCDC05 /* JustAViewController.h */,
 				94BB72EF20C2D57200BCDC05 /* JustAViewController.m */,
+				94BB730C20C38F5500BCDC05 /* TokenAlertControllerBuilder.h */,
+				94BB730D20C38F5500BCDC05 /* TokenAlertControllerBuilder.m */,
 			);
 			path = "App Code";
 			sourceTree = "<group>";
@@ -528,6 +533,7 @@
 					};
 					94D39C681EBC3F410032F3C8 = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 948B9C7A1EA3ED1C00E9684E;
 					};
@@ -636,6 +642,7 @@
 				94BB72FC20C2D59B00BCDC05 /* main.m in Sources */,
 				94BB72F520C2D57300BCDC05 /* JustAViewController.m in Sources */,
 				94BB72F620C2D57300BCDC05 /* InitialViewController.m in Sources */,
+				94BB730E20C38F5500BCDC05 /* TokenAlertControllerBuilder.m in Sources */,
 				94BB72F720C2D57300BCDC05 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -861,7 +868,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = DemoApp;
 			};
 			name = Debug;
@@ -881,7 +889,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rkb.Snapshots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = DemoApp;
 			};
 			name = Release;
