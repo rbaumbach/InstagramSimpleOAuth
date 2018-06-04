@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.source_files          = 'InstagramSimpleOAuth/Source/*.{h,m}'
   s.resources             = 'InstagramSimpleOAuth/Resources/*.xib'
 
-  s.dependency 'SimpleOAuth2', '0.1.3'
+  s.dependency 'SimpleOAuth2', '0.1.4'
   s.dependency 'MBProgressHUD', '>= 0.9'
 end

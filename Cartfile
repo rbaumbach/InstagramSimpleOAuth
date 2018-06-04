@@ -1,2 +1,2 @@
-github "rbaumbach/SimpleOAuth2" == 0.1.3
+github "rbaumbach/SimpleOAuth2" == 0.1.4
 github "jdg/MBProgressHUD" >= 0.9
