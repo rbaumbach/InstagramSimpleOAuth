@@ -72,7 +72,7 @@ viewController.permissionScope = @[@"basic", @"comments", @"relationships", @"li
 
 This project has been setup to use [fastlane](https://fastlane.tools) to run the specs.
 
-First, run the setup.sh script to bundle required gems and cocoapods when in the project directory:
+First, run the setup.sh script to bundle required gems and Cocoapods when in the project directory:
 
 ```bash
 $ ./setup.sh
