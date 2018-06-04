@@ -1,5 +1,9 @@
 default_platform :ios
 
+# Note: Add the following ENVs to get rid of warnings
+# export LC_ALL=en_US.UTF-8
+# export LANG=en_US.UTF-8
+
 platform :ios do
 
   before_all do
@@ -16,12 +20,12 @@ platform :ios do
   end
 
   desc "Take iPhone/iPad screenshots"
-  lane :take_screenshots do
+  lane :take_da_screenshots do
     snapshot
   end
 
   desc "Frame iPhone/iPad screenshots"
-  lane :frame_screenshots do
+  lane :frame_da_screenshots do
     sh "cd ../Snapshots/"
     frameit(path: "Snapshots")
   end

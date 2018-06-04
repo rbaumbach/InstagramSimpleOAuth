@@ -1,8 +1,8 @@
 #import <Expecta/Expecta.h>
 #import <Specta/Specta.h>
 
-#import "NSLayoutConstraint+TestUtils.h"
 #import "InstagramSimpleOAuth.h"
+#import "NSLayoutConstraintSpecHelper.h"
 
 SpecBegin(InstagramSimpleOAuthViewControllerXib)
 
@@ -32,7 +32,7 @@ describe(@"InstagramSimpleOAuthViewControllerXib", ^{
             expect(iPhoneView.constraints.count).to.beGreaterThanOrEqualTo(4);
         });
         
-        it(@"has Vertical Space - instagramWebView to View", ^{
+        it(@"has Vertical Space - instagramWebView.top to superview top", ^{
             NSLayoutConstraint *expectedConstraint = [NSLayoutConstraint constraintWithItem:instagramWebView
                                                                                   attribute:NSLayoutAttributeTop
                                                                                   relatedBy:NSLayoutRelationEqual
@@ -43,10 +43,19 @@ describe(@"InstagramSimpleOAuthViewControllerXib", ^{
             expectedConstraint.priority = 1000;
             expectedConstraint.shouldBeArchived = YES;
             
-            expect(iPhoneView.constraints).to.contain(expectedConstraint);
+            __block BOOL constraintsAreEqual = NO;
+            
+            [iPhoneView.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger index, BOOL *stop) {
+                if ([constraint.identifier isEqualToString:@"instagramWebView.top-to-superview-top"]) {
+                    constraintsAreEqual = [NSLayoutConstraintSpecHelper isLayoutConstraint:constraint
+                                                                   equalToLayoutConstraint:expectedConstraint];
+                }
+            }];
+
+            expect(constraintsAreEqual).to.beTruthy();
         });
         
-        it(@"has Horizontal Space - View to instagramWebView", ^{
+        it(@"has Horizontal Space - superview trailing to instagramWebView.trailing", ^{
             NSLayoutConstraint *expectedConstraint = [NSLayoutConstraint constraintWithItem:iPhoneView
                                                                                   attribute:NSLayoutAttributeTrailing
                                                                                   relatedBy:NSLayoutRelationEqual
@@ -56,11 +65,20 @@ describe(@"InstagramSimpleOAuthViewControllerXib", ^{
                                                                                    constant:0];
             expectedConstraint.priority = 1000;
             expectedConstraint.shouldBeArchived = YES;
+
+            __block BOOL constraintsAreEqual = NO;
             
-            expect(iPhoneView.constraints).to.contain(expectedConstraint);
+            [iPhoneView.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger index, BOOL *stop) {
+                if ([constraint.identifier isEqualToString:@"superview-trailing-to-instagramWebView.trailing"]) {
+                    constraintsAreEqual = [NSLayoutConstraintSpecHelper isLayoutConstraint:constraint
+                                                                   equalToLayoutConstraint:expectedConstraint];
+                }
+            }];
+            
+            expect(constraintsAreEqual).to.beTruthy();
         });
-        
-        it(@"has Vertical Space - View to instagramWebView", ^{
+
+        it(@"has Vertical Space - superview bottom to instagramWebView.bottom", ^{
             NSLayoutConstraint *expectedConstraint = [NSLayoutConstraint constraintWithItem:iPhoneView
                                                                                   attribute:NSLayoutAttributeBottom
                                                                                   relatedBy:NSLayoutRelationEqual
@@ -71,10 +89,19 @@ describe(@"InstagramSimpleOAuthViewControllerXib", ^{
             expectedConstraint.priority = 1000;
             expectedConstraint.shouldBeArchived = YES;
             
-            expect(iPhoneView.constraints).to.contain(expectedConstraint);
+            __block BOOL constraintsAreEqual = NO;
+
+            [iPhoneView.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger index, BOOL *stop) {
+                if ([constraint.identifier isEqualToString:@"superview-bottom-to-instagramWebView.bottom"]) {
+                    constraintsAreEqual = [NSLayoutConstraintSpecHelper isLayoutConstraint:constraint
+                                                                   equalToLayoutConstraint:expectedConstraint];
+                }
+            }];
+            
+            expect(constraintsAreEqual).to.beTruthy();
         });
-        
-        it(@"has Horizontal Space - instagramWebView to View", ^{
+
+        it(@"has Horizontal Space - instagramWebView.leading to superview leading", ^{
             NSLayoutConstraint *expectedConstraint = [NSLayoutConstraint constraintWithItem:instagramWebView
                                                                                   attribute:NSLayoutAttributeLeading
                                                                                   relatedBy:NSLayoutRelationEqual
@@ -84,8 +111,17 @@ describe(@"InstagramSimpleOAuthViewControllerXib", ^{
                                                                                    constant:0];
             expectedConstraint.priority = 1000;
             expectedConstraint.shouldBeArchived = YES;
+
+            __block BOOL constraintsAreEqual = NO;
             
-            expect(iPhoneView.constraints).to.contain(expectedConstraint);
+            [iPhoneView.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger index, BOOL *stop) {
+                if ([constraint.identifier isEqualToString:@"instagramWebView.leading-to-superview-leading"]) {
+                    constraintsAreEqual = [NSLayoutConstraintSpecHelper isLayoutConstraint:constraint
+                                                                   equalToLayoutConstraint:expectedConstraint];
+                }
+            }];
+            
+            expect(constraintsAreEqual).to.beTruthy();
         });
     });
 });

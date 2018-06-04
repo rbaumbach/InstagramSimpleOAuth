@@ -2,6 +2,7 @@
 
 #import "InitialViewController.h"
 #import "JustAViewController.h"
+#import "TokenAlertControllerBuilder.h"
 #import "InstagramSimpleOAuth.h"
 
 @implementation InitialViewController
@@ -28,9 +29,8 @@
 
 - (void)displayToken:(NSString *)authToken
 {
-    UIAlertController *tokenAlertController = [UIAlertController alertControllerWithTitle:@"Instagram Token"
-                                                                                  message:[NSString stringWithFormat:@"Your Token is: %@", authToken]
-                                                                           preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *tokenAlertController = [TokenAlertControllerBuilder buildUsingToken:authToken];
+    
     [self presentViewController:tokenAlertController
                        animated:YES
                      completion:nil];
