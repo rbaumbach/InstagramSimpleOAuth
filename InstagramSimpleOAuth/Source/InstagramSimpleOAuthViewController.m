@@ -105,16 +105,9 @@ NSString *const InstagramLoginCancelButtonTitle = @"OK";
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    if (error.code != 102) {
-        [self completeWithError:error];
-        
-        if (self.shouldShowErrorAlert) {
-            [self showErrorAlert:error];
-        }
-        
-        [self dismissViewController];
+    if (self.shouldShowErrorAlert) {
+        [self showErrorAlert:error];
     }
-    
     [self hideProgressHUD];
 }
 
@@ -175,6 +168,11 @@ NSString *const InstagramLoginCancelButtonTitle = @"OK";
     UIAlertController *errorAlertController = [UIAlertController alertControllerWithTitle:InstagramLoginErrorAlertTitle
                                                                                   message:errorMessage
                                                                            preferredStyle:UIAlertControllerStyleAlert];
+    __weak UIAlertController *weakAlertController = errorAlertController;
+    UIAlertAction* dimissAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [weakAlertController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [weakAlertController addAction:dimissAction];
     [self presentViewController:errorAlertController
                        animated:YES
                      completion:nil];
