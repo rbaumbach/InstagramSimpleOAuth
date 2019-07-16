@@ -1,8 +1,8 @@
 PODS:
   - Expecta (1.0.6)
-  - OCMock (3.4.1)
+  - OCMock (3.4.3)
   - Specta (1.0.7)
-  - Swizzlean (1.0.1)
+  - Swizzlean (1.0.2)
 
 DEPENDENCIES:
   - Expecta
@@ -19,9 +19,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
-  OCMock: 2cd0716969bab32a2283ff3a46fd26a8c8b4c5e3
+  OCMock: 43565190abc78977ad44a61c0d20d7f0784d35ab
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
-  Swizzlean: 090f99f6e367f82b2b94ac29129b0b56f05c1c57
+  Swizzlean: 170b7ef9a8b3fbb8e86d4b6379be8191059e4ce9
 
 PODFILE CHECKSUM: b4b61bc4d78ea1380e3b59e5f18d6b4b122f0533
 
